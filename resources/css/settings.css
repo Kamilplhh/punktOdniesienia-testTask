@@ -7,7 +7,7 @@ label {
     margin-bottom: 1em !important;
 }
 
-input {
+input, .form {
     width: 70% !important;
     padding: 0 1em !important;
     margin-bottom: 1em !important;

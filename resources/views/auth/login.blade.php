@@ -6,8 +6,8 @@
 @stop
 
 @section('navi')
-<a class="selected" id="login">Login</a>
-<a href="{{ route('register') }}" id="register">Register</a>
+<a class="selected">Login</a>
+<a href="{{ route('register') }}">Register</a>
 @stop
 
 @section('calendar')
@@ -30,7 +30,7 @@
         </span>
         @enderror
 
-        <label for="email">Password</label>
+        <label for="email">Password:</label>
 
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required><br>
         @error('password')

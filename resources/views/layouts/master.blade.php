@@ -18,7 +18,7 @@
         <div class="company">
         @auth
             <div class="img"></div>
-            Company Name
+            {{ Auth::user()->company }}
         @endauth
         </div>
 

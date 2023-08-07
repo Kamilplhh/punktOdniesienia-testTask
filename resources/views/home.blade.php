@@ -1,23 +1,59 @@
 @extends('layouts.master')
 
+@section('navi')
+<a href="" class="selected">All</a>
+<a href="">Incoming payments</a>
+<a href="">Paid</a>
+@stop
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+@if (session('status'))
+<div class="alert alert-success" role="alert">
+    {{ session('status') }}
+</div>
+@endif
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
+<div class="dataBlock">
+    <div>
+        <i>i</i>
+        <div>
+            Title <br>
+            01.08.2023
         </div>
     </div>
+    <div>
+        <i>i</i>
+        email
+    </div>
+    <div>
+        <span class="btn">paid</span>
+        <div>
+            01.08.2023
+        </div>
+    </div>
+    <div>
+        <div class="price">550</div>
+        <i>i</i>
+    </div>
+    <div class="mailBlock">
+        <i class="exit">X</i>
+        <p>
+            <i>From:</i>
+            retail@ikea.pl
+        </p>
+        <p>
+            <i>Attachments:</i>
+            XXX.pdf
+        </p>
+        <i>Content:</i>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed ratione, incidunt tempore quas vel quia dolor! Delectus nesciunt quibusdam excepturi earum sit? Excepturi beatae alias dolores odio voluptatem ipsum facilis?
+    </div>
 </div>
-@endsection
+</div>
+
+<div class="operations">
+    test
+    <button class="all btn">Send all documents -></button>
+</div>
+
+@stop

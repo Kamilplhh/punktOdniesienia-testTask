@@ -51,7 +51,7 @@
 }
 
 .contentNavi {
-    margin-left: 1rem;
+    margin-left: 2em;
     margin-bottom: 1em;
 }
 
@@ -84,7 +84,8 @@
 }
 
 .arrow {
-    width: 1em !important;
+    width: 2em !important;
+    cursor: pointer;
 }
 
 #next {
@@ -92,7 +93,7 @@
 }
 
 .panel {
-    margin: 0 1em;
+    margin: 0 2em;
 }
 
 .data {
@@ -102,6 +103,99 @@
     height: 70%;
 }
 
+.cost {
+    padding: 1em;
+    background-color: rgb(214, 211, 211);
+    border-radius: 20px 20px 0 0;
+    text-align: end;
+}
+
+.dataBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5em;
+    border-bottom: 1px solid rgb(214, 211, 211);
+}
+
+.dataBlock>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.dataBlock>div i {
+    padding: 0.5em;
+}
+
+.mailBlock {
+    display: none !important;
+    position: absolute;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    align-content: flex-start !important;
+    right: 25%;
+    width: 50%;
+    height: 50vh;
+    padding: 1em;
+    background-color: rgb(214, 211, 211);
+    animation: 1s drop;
+    transition: 1s ease;
+}
+
+.mailBlock i {
+    padding: 0 !important;
+    color: rgb(145, 145, 145);
+}
+
+.exit {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.exit:hover {
+    color: red !important;
+}
+
+span {
+    background-color: rgb(20, 226, 20) !important;
+    margin-right: 0.5em !important;
+}
+
+.btn {
+    padding: 0.3em 0.8em;
+    border-radius: 20px;
+    border: 0;
+}
+
+.operations {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1em;
+    margin-top: 2em;
+}
+
+.operations * {
+    margin-left: 0.5em;
+}
+
+.operations button {
+    background-color: rgb(82, 47, 146);
+    color: white;
+}
+
+.operations button:hover {
+    color: white;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -109,5 +203,12 @@
 
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes drop {
+    0% {
+        opacity: 0;
+        transform: translateY(-800px);
     }
 }

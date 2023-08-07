@@ -1,3 +1,7 @@
+html * {
+    font-style: normal !important;
+}
+
 .navbar * {
     display: flex;
     flex-direction: row;
@@ -90,6 +94,11 @@
 
 #next {
     text-align: end !important;
+}
+
+.disabled {
+    pointer-events: none !important;
+    color: grey;
 }
 
 .panel {

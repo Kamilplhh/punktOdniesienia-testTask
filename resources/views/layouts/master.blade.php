@@ -54,17 +54,17 @@
 
         @section('calendar')
         <div class="calendar">
-            <i class="fa-solid fa-arrow-left arrow" id="back"></i>
+            <i class="fa-solid fa-arrow-left arrow" value="1" id="back"></i>
             <h2>
-                July <sup>2023</sup>
+                <i class="month"></i> <sup class="year"></sup>
             </h2>
-            <i class="fa-solid fa-arrow-right arrow" id="next"></i>
+            <i class="fa-solid fa-arrow-right arrow disabled" value="0" id="next" ></i>
         </div>
         @show
 
         <div class="panel">
             @section('cost')
-            <div class="cost">1800 PLN</div>
+            <div class="cost"></div>
             @show
 
             <div class="data">

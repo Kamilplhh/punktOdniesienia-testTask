@@ -1,0 +1,113 @@
+.navbar * {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: grey;
+    margin: 1em;
+}
+
+.dots {
+    margin: 1em;
+}
+
+.dots:hover {
+    cursor: pointer;
+}
+
+.show {
+    display: flex !important;
+}
+
+.dotsBar {
+    top: 5vh;
+    right: 1vw;
+    display: none;
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 1em;
+    background-color: rgb(190, 187, 187);
+    animation: .3s fadeIn;
+    transition: .3s ease;
+    border-radius: 20%;
+}
+
+.dotsBar a {
+    color: white;
+}
+
+.content {
+    height: 85vh;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.contentNavi {
+    margin-left: 1rem;
+    margin-bottom: 1em;
+}
+
+.contentNavi a {
+    padding-right: 1em !important;
+    color: rgb(185, 183, 183);
+}
+
+.dotsBar a:hover,
+.contentNavi a:hover,
+.selected {
+    cursor: pointer !important;
+    color: rgb(149, 109, 223) !important;
+    text-decoration: none;
+}
+
+.calendar {
+    margin: 2em 0 0.5em 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.calendar h2 {
+    width: 100%;
+}
+
+.calendar sup {
+    color: rgb(211, 211, 211);
+}
+
+.arrow {
+    width: 1em !important;
+}
+
+#next {
+    text-align: end !important;
+}
+
+.panel {
+    margin: 0 1em;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(214, 211, 211);
+    height: 70%;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

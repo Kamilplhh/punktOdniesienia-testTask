@@ -1,0 +1,25 @@
+.data {
+    padding: 2em !important;
+}
+
+label {
+    width: 20% !important;
+    margin-bottom: 1em !important;
+}
+
+input {
+    width: 70% !important;
+    padding: 0 1em !important;
+    margin-bottom: 1em !important;
+}
+
+.operations {
+    padding: 0 !important;
+    width: 90% !important;
+}
+
+.btn {
+    border: 1px solid rgb(194, 191, 191) !important;
+    margin-left: 2em !important;
+}
+

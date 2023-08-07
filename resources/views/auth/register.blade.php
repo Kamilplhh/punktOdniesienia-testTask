@@ -56,7 +56,7 @@
         <label class="form" style="font-weight: bold;">CompanyName@domain.com</label><br>
 
         <label for="emailto">E-mail to send documents:</label>
-        <input type="email" id="emailto" name="emailto"><br>
+        <input type="email" id="emailto" name="emailto" class="form-control" required><br>
 
         <label for="password">Password:</label>
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required><br>

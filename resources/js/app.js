@@ -48,8 +48,6 @@ $('.arrow').on("click", function () {
     $('#back').attr("value", val);
   }
 
-console.log($('#next').attr('value'));
-
   if ($('#next').attr('value') > 0) {
     $('#next').removeClass("disabled");
   } else {
@@ -67,3 +65,10 @@ function itemsPrice() {
 
   $('.cost').text(x + ' PLN');
 }
+
+$('.homeNavi').on("click", function() {
+  let id = $(this).attr('id');
+
+  $('#' + id).addClass("selected");
+  $(".homeNavi:not(#" + id + ")").removeClass("selected");
+})

@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
 @section('navi')
-<a href="" class="selected">All</a>
-<a href="">Incoming payments</a>
-<a href="">Paid</a>
+<a id="all" class="homeNavi selected">All</a>
+<a id="incoming" class="homeNavi">Incoming payments</a>
+<a id="paid" class="homeNavi">Paid</a>
 @stop
 
 @section('content')

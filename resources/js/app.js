@@ -41,7 +41,7 @@ $('.arrow').on("click", function () {
     $(this).attr("value", newVal);
     $('#next').attr("value", val);
   } else {
-    let newVal = val -1;
+    let newVal = val - 1;
     getMonth(newVal);
 
     $(this).attr("value", newVal);
@@ -66,9 +66,44 @@ function itemsPrice() {
   $('.cost').text(x + ' PLN');
 }
 
-$('.homeNavi').on("click", function() {
+$('.homeNavi').on("click", function () {
   let id = $(this).attr('id');
+
+  if (id == "incoming") {
+    showIncoming();
+  } else if (id == "paid") {
+    showPaid();
+  } else {
+    showAll();
+  }
 
   $('#' + id).addClass("selected");
   $(".homeNavi:not(#" + id + ")").removeClass("selected");
+
 })
+
+function showIncoming() {
+  $('span').filter('.btn').each(function () {
+    if ($(this).text() == "Paid") {
+      $(this).closest('.dataBlock').addClass("off");
+    } else {
+      $(this).closest('.dataBlock').removeClass("off");
+    }
+  })
+}
+
+function showPaid() {
+  $('span').filter('.btn').each(function () {
+    if ($(this).text() == "Unpaid") {
+      $(this).closest('.dataBlock').addClass("off");
+    } else {
+      $(this).closest('.dataBlock').removeClass("off");
+    }
+  })
+}
+
+function showAll() {
+  $('span').filter('.btn').each(function () {
+    $(this).closest('.dataBlock').removeClass("off");
+  })
+}

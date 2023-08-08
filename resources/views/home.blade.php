@@ -31,7 +31,7 @@
             01.08.2023
         </div>
     </div>
-    <div>
+    <div class="last">
         <div class="price">550</div>
         <i>i</i>
     </div>
@@ -68,7 +68,7 @@
             08.01.2023 <br>
         </div>
     </div>
-    <div>
+    <div class="last">
         <div class="price">550</div>
         <i>i</i>
     </div>

@@ -122,7 +122,6 @@ html * {
 .dataBlock {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     padding: 0.5em;
     border-bottom: 1px solid rgb(214, 211, 211);
 }
@@ -130,12 +129,17 @@ html * {
 .dataBlock>div {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    width: 25%;
 }
 
 .dataBlock>div i {
     padding: 0.5em;
+}
+
+.last {
+    justify-content: flex-end !important;
 }
 
 .off {

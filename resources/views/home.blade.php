@@ -27,7 +27,7 @@
     </div>
     <div>
         <span class="btn">Paid</span>
-        <div>
+        <div class="date">
             01.08.2023
         </div>
     </div>
@@ -64,9 +64,8 @@
     </div>
     <div>
         <span class="btn unpaid">Unpaid</span>
-        <div>
-            01.08.2023 <br>
-            <h6 class="late">exceeded 3 days</h6>
+        <div class="date">
+            08.01.2023 <br>
         </div>
     </div>
     <div>

@@ -10,7 +10,7 @@ $(".dots").on("click", function () {
 $(document).ready(function () {
   itemsPrice();
   getMonth(0);
-
+  exceeded()
 })
 
 function subtractMonths(date, months) {
@@ -65,6 +65,24 @@ function itemsPrice() {
   })
 
   $('.cost').text(x + ' PLN');
+}
+
+function exceeded() {
+  let date = new Date();
+
+  $('span').filter('.unpaid').each(function() {
+    let block = $(this).next();
+    let textDate = new Date(block.text());
+
+    let difference = date - textDate;
+    if(difference > 0) {
+      difference = Math.round(Math.abs(difference / (1000 * 3600 * 24))-1);
+      if (difference > 1) {
+        block.append('<h6 class="late">exceeded ' + difference + ' days</h6>')
+      }else
+      block.append('<h6 class="late">exceeded ' + difference + ' day</h6>')
+    }
+  })
 }
 
 $('.homeNavi').on("click", function () {

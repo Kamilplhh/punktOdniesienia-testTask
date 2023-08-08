@@ -60,6 +60,7 @@ function itemsPrice() {
   let x = 0;
 
   $('.price').each(function () {
+    if($(this).closest('.dataBlock').attr('class') != "dataBlock off") 
     x = x + parseInt($(this).text());
   })
 
@@ -79,7 +80,7 @@ $('.homeNavi').on("click", function () {
 
   $('#' + id).addClass("selected");
   $(".homeNavi:not(#" + id + ")").removeClass("selected");
-
+  itemsPrice();
 })
 
 function showIncoming() {

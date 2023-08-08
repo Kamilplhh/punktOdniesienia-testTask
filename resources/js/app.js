@@ -109,6 +109,13 @@ function showIncoming() {
       $(this).closest('.dataBlock').removeClass("off");
     }
   })
+  $('.operations').children().each(function (){
+    if($(this).hasClass("incoming")) {
+      $(this).removeClass("off");
+    }else {
+      $(this).addClass("off");
+    }
+  })
 }
 
 function showPaid() {
@@ -119,10 +126,24 @@ function showPaid() {
       $(this).closest('.dataBlock').removeClass("off");
     }
   })
+  $('.operations').children().each(function (){
+    if($(this).hasClass("paid")) {
+      $(this).removeClass("off");
+    }else {
+      $(this).addClass("off");
+    }
+  })
 }
 
 function showAll() {
   $('span').filter('.btn').each(function () {
     $(this).closest('.dataBlock').removeClass("off");
+  })
+  $('.operations').children().each(function (){
+    if($(this).hasClass("all")) {
+      $(this).removeClass("off");
+    }else {
+      $(this).addClass("off");
+    }
   })
 }

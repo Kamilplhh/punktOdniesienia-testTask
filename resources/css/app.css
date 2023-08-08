@@ -114,7 +114,7 @@ html * {
 
 .cost {
     padding: 1em;
-    background-color: rgb(214, 211, 211);
+    background-color: rgb(243, 244, 246);
     border-radius: 20px 20px 0 0;
     text-align: end;
 }
@@ -198,6 +198,16 @@ span {
     padding: 0.3em 0.8em;
     border-radius: 20px;
     border: 0;
+}
+
+.doc {
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid grey;
+}
+
+.incoming.cost {
+    background-color: white;
 }
 
 .operations {

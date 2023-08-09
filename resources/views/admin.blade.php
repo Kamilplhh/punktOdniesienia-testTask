@@ -11,19 +11,21 @@
 @show
 
 @section('content')
-<div class="dataBlock">
-    <div>
+@foreach($users as $user)
+    <div class="dataBlock aPanel">
         <div>
-            Company Name
+            <div>
+                {{ $user->company }}
+            </div>
+        </div>
+        <div>
+            {{ $user->email }}
+        </div>
+        <div class="last">
+            <a href="/deleteuser/{{ $user->id }}" class="btn remove">Remove</a>
         </div>
     </div>
-    <div>
-        email@gmail.
-    </div>
-    <div>
-        <span class="btn">Remove</span>
-    </div>
-</div>
+@endforeach
 </div>
 
 

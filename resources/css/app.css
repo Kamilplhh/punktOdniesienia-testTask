@@ -232,6 +232,21 @@ span {
     color: white;
 }
 
+.aPanel {
+    justify-content: space-between;
+}
+
+.remove {
+    background-color: rgb(255, 0, 0) !important;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+.remove:hover {
+    background-color: rgb(143, 17, 17) !important;
+    color: white;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

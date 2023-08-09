@@ -53,7 +53,7 @@
         @enderror
 
         <label>E-mail to receive invoices:</label>
-        <label class="form" style="font-weight: bold;" id="labelEmail"></label><br>
+        <label class="form" style="font-weight: bold;" id="labelEmail">@domain.com</label><br>
 
         <label for="emailto">E-mail to send documents:</label>
         <input type="email" id="emailto" name="emailto" class="form-control" required><br>

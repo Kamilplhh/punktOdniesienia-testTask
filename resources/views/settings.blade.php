@@ -48,7 +48,7 @@
     @enderror
 
     <label>E-mail to receive invoices:</label>
-    <label class="form" style="font-weight: bold;" id="labelEmail">{{ Auth::user()->company }}</label><br>
+    <label class="form" style="font-weight: bold;" id="labelEmail">{{ Auth::user()->company . '@domain.com'}}</label><br>
 
     <label for="emailto">E-mail to send documents:</label>
     <input type="email" id="emailto" name="emailto" value="{{ Auth::user()->emailto }}" placeholder="{{ Auth::user()->emailto }}" class="form-control"><br>

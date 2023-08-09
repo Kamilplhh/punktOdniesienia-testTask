@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::post('profileUpdate', [SettingsController::class, 'profileUpdate'])->name('profileUpdate'); 
+
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
     Route::get('/settings', function () {
         return view('settings');

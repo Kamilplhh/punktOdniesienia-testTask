@@ -15,12 +15,13 @@
 
 @section('content')
 
-<form method="POST" action="{{ route('edit') }}">
+<form method="POST" action="{{ route('profileUpdate') }}">
+    @csrf
     <label for="logo">Logo:</label>
-    <input type="file" id="logo" name="logo" value="null"><br>
+    <input type="file" id="logo" name="logo" value="null" value="{{ Auth::user()->logo }}"><br>
 
     <label for="company">Company name:</label>
-    <input type="text" id="company" name="company" class="form-control @error('company') is-invalid @enderror"><br>
+    <input type="text" id="company" name="company" value="{{ Auth::user()->company }}" placeholder="{{ Auth::user()->company }}" class="form-control @error('company') is-invalid @enderror"><br>
 
     @error('cName')
     <span class="invalid-feedback" role="alert">
@@ -29,7 +30,7 @@
     @enderror
 
     <label for="name">Username:</label>
-    <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror"><br>
+    <input type="text" id="name" name="name" value="{{ Auth::user()->name }}" placeholder="{{ Auth::user()->name }}" class="form-control @error('name') is-invalid @enderror"><br>
 
     @error('name')
     <span class="invalid-feedback" role="alert">
@@ -38,7 +39,7 @@
     @enderror
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror"><br>
+    <input type="email" id="email" name="email" value="{{ Auth::user()->email }}" placeholder="{{ Auth::user()->email }}" class="form-control @error('email') is-invalid @enderror"><br>
 
     @error('email')
     <span class="invalid-feedback" role="alert">
@@ -47,13 +48,13 @@
     @enderror
 
     <label>E-mail to receive invoices:</label>
-    <label class="form" style="font-weight: bold;" id="labelEmail"></label><br>
+    <label class="form" style="font-weight: bold;" id="labelEmail">{{ Auth::user()->company }}</label><br>
 
     <label for="emailto">E-mail to send documents:</label>
-    <input type="email" id="emailto" name="emailto" class="form-control"><br>
+    <input type="email" id="emailto" name="emailto" value="{{ Auth::user()->emailto }}" placeholder="{{ Auth::user()->emailto }}" class="form-control"><br>
 
     <label for="password">Password:</label>
-    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"><br>
+    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required><br>
     @error('password')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>

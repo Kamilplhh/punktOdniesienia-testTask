@@ -3,20 +3,17 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import $ from 'jquery';
 window.$ = $;
 
-$(".dots").on("click", function () {
-  $(".dotsBar").toggle();
-});
-
+//Page onload functions
 $(document).ready(function () {
   itemsPrice();
   getMonth(0);
   exceeded()
 })
 
-function subtractMonths(date, months) {
-  date.setMonth(date.getMonth() - months);
-  return date;
-}
+//Navbar show buttons
+$(".dots").on("click", function () {
+  $(".dotsBar").toggle();
+});
 
 function getMonth(x) {
   const m = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -30,6 +27,12 @@ function getMonth(x) {
   $('.year').text(year);
 }
 
+function subtractMonths(date, months) {
+  date.setMonth(date.getMonth() - months);
+  return date;
+}
+
+//Function to switch actual month
 $('.arrow').on("click", function () {
   let id = $(this).attr('id');
   let val = parseInt($(this).attr('value'));
@@ -67,6 +70,7 @@ function itemsPrice() {
   $('.cost').text(x + ' PLN');
 }
 
+//Check if there is no payment date exceed
 function exceeded() {
   let date = new Date();
 
@@ -85,6 +89,7 @@ function exceeded() {
   })
 }
 
+//Whole panel navi system
 $('.homeNavi').on("click", function () {
   let id = $(this).attr('id');
 

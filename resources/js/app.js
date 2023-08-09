@@ -10,6 +10,7 @@ $(document).ready(function () {
   exceeded()
 });
 
+//Live preview for settings and register page
 $(document).ready(function () {
   $('#company').on("input", function () {
     let text = $(this).val().replace(/\s/g,'');

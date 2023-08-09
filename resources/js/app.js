@@ -8,7 +8,14 @@ $(document).ready(function () {
   itemsPrice();
   getMonth(0);
   exceeded()
-})
+});
+
+$(document).ready(function () {
+  $('#company').on("input", function () {
+    let text = $(this).val().replace(/\s/g,'');
+    $('#labelEmail').text(text + "@domain.com");
+  });
+});
 
 //Navbar show buttons
 $(".dots").on("click", function () {
@@ -25,12 +32,12 @@ function getMonth(x) {
 
   $('.month').text(month);
   $('.year').text(year);
-}
+};
 
 function subtractMonths(date, months) {
   date.setMonth(date.getMonth() - months);
   return date;
-}
+};
 
 //Function to switch actual month
 $('.arrow').on("click", function () {
@@ -63,31 +70,31 @@ function itemsPrice() {
   let x = 0;
 
   $('.price').each(function () {
-    if($(this).closest('.dataBlock').attr('class') != "dataBlock off") 
-    x = x + parseInt($(this).text());
+    if ($(this).closest('.dataBlock').attr('class') != "dataBlock off")
+      x = x + parseInt($(this).text());
   })
 
   $('.cost').text(x + ' PLN');
-}
+};
 
 //Check if there is no payment date exceed
 function exceeded() {
   let date = new Date();
 
-  $('span').filter('.unpaid').each(function() {
+  $('span').filter('.unpaid').each(function () {
     let block = $(this).next();
     let textDate = new Date(block.text());
 
     let difference = date - textDate;
-    if(difference > 0) {
-      difference = Math.round(Math.abs(difference / (1000 * 3600 * 24))-1);
+    if (difference > 0) {
+      difference = Math.round(Math.abs(difference / (1000 * 3600 * 24)) - 1);
       if (difference > 1) {
         block.append('<h6 class="late">exceeded ' + difference + ' days</h6>')
-      }else
-      block.append('<h6 class="late">exceeded ' + difference + ' day</h6>')
+      } else
+        block.append('<h6 class="late">exceeded ' + difference + ' day</h6>')
     }
   })
-}
+};
 
 //Whole panel navi system
 $('.homeNavi').on("click", function () {
@@ -104,7 +111,7 @@ $('.homeNavi').on("click", function () {
   $('#' + id).addClass("selected");
   $(".homeNavi:not(#" + id + ")").removeClass("selected");
   itemsPrice();
-})
+});
 
 function showIncoming() {
   $('span').filter('.btn').each(function () {
@@ -114,14 +121,14 @@ function showIncoming() {
       $(this).closest('.dataBlock').removeClass("off");
     }
   })
-  $('.operations').children().each(function (){
-    if($(this).hasClass("incoming")) {
+  $('.operations').children().each(function () {
+    if ($(this).hasClass("incoming")) {
       $(this).removeClass("off");
-    }else {
+    } else {
       $(this).addClass("off");
     }
   })
-}
+};
 
 function showPaid() {
   $('span').filter('.btn').each(function () {
@@ -131,24 +138,24 @@ function showPaid() {
       $(this).closest('.dataBlock').removeClass("off");
     }
   })
-  $('.operations').children().each(function (){
-    if($(this).hasClass("paid")) {
+  $('.operations').children().each(function () {
+    if ($(this).hasClass("paid")) {
       $(this).removeClass("off");
-    }else {
+    } else {
       $(this).addClass("off");
     }
   })
-}
+};
 
 function showAll() {
   $('span').filter('.btn').each(function () {
     $(this).closest('.dataBlock').removeClass("off");
   })
-  $('.operations').children().each(function (){
-    if($(this).hasClass("all")) {
+  $('.operations').children().each(function () {
+    if ($(this).hasClass("all")) {
       $(this).removeClass("off");
-    }else {
+    } else {
       $(this).addClass("off");
     }
   })
-}
+};

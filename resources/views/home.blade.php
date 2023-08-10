@@ -21,10 +21,10 @@
 @foreach($files as $file)
 <div class="dataBlock">
     <div>
-        @if(substr($file->file, -3) == "jpg")
-        <i class="fa-solid fa-image"></i>
-        @else
+        @if(substr($file->file, -3) == "pdf")
         <i class="fa-solid fa-file-pdf"></i>
+        @else
+        <i class="fa-solid fa-image"></i>
         @endif
         <div>
             {{ $file->title }} <br>

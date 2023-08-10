@@ -17,7 +17,11 @@
     <div class="navbar">
         <div class="company">
         @auth
+            @if(!empty(Auth::user()->logo))
+            <img src="{{url('uploads/logo/'. Auth::user()->logo)}}" class="img" />
+            @else
             <div class="img"></div>
+            @endif
             {{ Auth::user()->company }}
         @endauth
         </div>

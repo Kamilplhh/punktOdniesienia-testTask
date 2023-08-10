@@ -50,7 +50,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'logo' => ['nullable', 'mimes:jpg,pdf,png', 'size:10240'],
+            'logo' => ['nullable', 'mimes:jpg,png', 'max:1024'],
             'company' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -66,8 +66,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if(isset($data['logo'])){
+            $file = $data['logo'];
+            $fileName = $data['logo']->getClientOriginalName();
+
+            $file->move('uploads/logo',$fileName);
+        } else {
+            $fileName = "";
+        }
+
         return User::create([
-            'logo' => $data['logo'],
+            'logo' => $fileName,
             'company' => $data['company'],
             'name' => $data['name'],
             'email' => $data['email'],

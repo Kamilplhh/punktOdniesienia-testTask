@@ -20,7 +20,7 @@
 
 
 <div>
-    <form method="POST" action="{{ route('register') }}">
+    <form enctype="multipart/form-data" method="POST" action="{{ route('register') }}">
         @csrf
         <label for="logo">Logo:</label>
         <input type="file" id="logo" name="logo" value="null"><br>

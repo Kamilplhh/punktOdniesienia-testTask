@@ -15,7 +15,7 @@ class SettingsController extends Controller
     {
 
         $request->validate([
-            'logo' => ['nullable', 'mimes:jpg,pdf,png', 'size:10240'],
+            'logo' => ['nullable', 'mimes:jpg,png', 'max:1024'],
             'company' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore(Auth::id())],
@@ -23,8 +23,19 @@ class SettingsController extends Controller
             'password' => ['required', 'string', 'min:8'],
         ]);
 
+        
+
+        if(isset($request['logo'])){
+            $file = $request->file('logo');
+            $fileName = $request->file('logo')->getClientOriginalName();
+
+            $file->move('uploads/logo',$fileName);
+        } else {
+            $fileName = "";
+        }
+        
         user::where('id', Auth::id())->update([
-            'logo' => $request['logo'],
+            'logo' => $fileName,
             'company' => $request['company'],
             'name' => $request['name'],
             'email' => $request['email'],
@@ -33,6 +44,6 @@ class SettingsController extends Controller
             'password' => Hash::make($request['password']),
         ]);
 
-        return view('home');
+        return redirect()->back();
     }
 }

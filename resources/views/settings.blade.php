@@ -15,10 +15,10 @@
 
 @section('content')
 
-<form method="POST" action="{{ route('profileUpdate') }}">
+<form enctype="multipart/form-data" method="POST" action="{{ route('profileUpdate') }}">
     @csrf
     <label for="logo">Logo:</label>
-    <input type="file" id="logo" name="logo" value="null" value="{{ Auth::user()->logo }}"><br>
+    <input type="file" id="logo" name="logo"><br>
 
     <label for="company">Company name:</label>
     <input type="text" id="company" name="company" value="{{ Auth::user()->company }}" placeholder="{{ Auth::user()->company }}" class="form-control @error('company') is-invalid @enderror"><br>

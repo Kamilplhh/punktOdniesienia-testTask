@@ -10,9 +10,13 @@ html * {
     align-items: center;
 }
 
+img.img {
+    background-color: white !important;
+}
+
 .img {
-    height: 32px;
-    width: 32px;
+    height: 48px;
+    width: 48px;
     border-radius: 50%;
     background-color: grey;
     margin: 1em;

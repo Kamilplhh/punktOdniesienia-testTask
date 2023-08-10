@@ -13,79 +13,64 @@
 </div>
 @endif
 
+@if(count($files) == 0)
+<center>
+    <h6>There are no files in this month</h6>
+</center>
+@else
+@foreach($files as $file)
 <div class="dataBlock">
     <div>
-        <i>i</i>
+        @if(substr($file->file, -3) == "jpg")
+        <i class="fa-solid fa-image"></i>
+        @else
+        <i class="fa-solid fa-file-pdf"></i>
+        @endif
         <div>
-            Title <br>
-            01.08.2023
+            {{ $file->title }} <br>
+            {{ date('d-m-Y',strtotime($file->created_at)) }}
         </div>
     </div>
+    @if(!empty($file->email))
     <div>
-        <i>i</i>
-        email
+        <i class="fa-solid fa-eye"></i>
+        {{ $file->email }}
     </div>
-    <div>
-        <span class="btn">Paid</span>
-        <div class="date">
-            01.08.2023
-        </div>
-    </div>
-    <div class="last">
-        <div class="price">550</div>
-        <i>i</i>
-    </div>
-    <div class="mailBlock">
+    <div class="mailBlock off">
         <i class="exit">X</i>
         <p>
             <i>From:</i>
-            retail@ikea.pl
+            {{ $file->email }}
         </p>
         <p>
             <i>Attachments:</i>
-            XXX.pdf
+            {{ $file->file}}
         </p>
         <i>Content:</i>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed ratione, incidunt tempore quas vel quia dolor! Delectus nesciunt quibusdam excepturi earum sit? Excepturi beatae alias dolores odio voluptatem ipsum facilis?
+        {{ $file->content }}
     </div>
-</div>
-
-<div class="dataBlock">
+    @endif
     <div>
-        <i>i</i>
-        <div>
-            Title <br>
-            01.08.2023
-        </div>
-    </div>
-    <div>
-        <i>i</i>
-        email
-    </div>
-    <div>
+        @if($file->paid == 0)
         <span class="btn unpaid">Unpaid</span>
+        @else
+        <span class="btn">Paid</span>
+        @endif
         <div class="date">
-            08.01.2023 <br>
+            {{ date('d-m-Y',strtotime($file->date)) }}
         </div>
     </div>
     <div class="last">
-        <div class="price">550</div>
-        <i>i</i>
-    </div>
-    <div class="mailBlock">
-        <i class="exit">X</i>
-        <p>
-            <i>From:</i>
-            retail@ikea.pl
-        </p>
-        <p>
-            <i>Attachments:</i>
-            XXX.pdf
-        </p>
-        <i>Content:</i>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed ratione, incidunt tempore quas vel quia dolor! Delectus nesciunt quibusdam excepturi earum sit? Excepturi beatae alias dolores odio voluptatem ipsum facilis?
+        <div class="price">{{ $file->price }}</div>
+        @if(isset($file->bank) && $file->paid == 0)
+        <i class="fa-regular fa-credit-card"></i>
+        <input type="hidden" name="bank" value="{{ $file->bank }}">
+        @endif
     </div>
 </div>
+@endforeach
+@endif
+
 </div>
 
 <div class="operations">

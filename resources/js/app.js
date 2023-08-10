@@ -97,6 +97,15 @@ function exceeded() {
   })
 };
 
+//Toggle mail block
+$('.fa-eye').on("click", function () {
+  $('.mailBlock').toggleClass('off');
+})
+
+$('.exit').on("click", function () {
+  $('.mailBlock').toggleClass('off');
+})
+
 //Whole panel navi system
 $('.homeNavi').on("click", function () {
   let id = $(this).attr('id');

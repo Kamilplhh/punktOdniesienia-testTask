@@ -126,6 +126,7 @@ img.img {
 .dataBlock {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     padding: 0.5em;
     border-bottom: 1px solid rgb(214, 211, 211);
 }
@@ -151,7 +152,6 @@ img.img {
 }
 
 .mailBlock {
-    display: none !important;
     position: absolute;
     flex-direction: column !important;
     flex-wrap: nowrap !important;
@@ -159,7 +159,7 @@ img.img {
     align-items: flex-start !important;
     align-content: flex-start !important;
     right: 25%;
-    width: 50%;
+    width: 50% !important;
     height: 50vh;
     padding: 1em;
     background-color: rgb(214, 211, 211);
@@ -234,10 +234,6 @@ span {
 
 .operations button:hover {
     color: white;
-}
-
-.aPanel {
-    justify-content: space-between;
 }
 
 .remove {

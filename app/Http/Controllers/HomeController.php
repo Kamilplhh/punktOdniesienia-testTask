@@ -28,6 +28,6 @@ class HomeController extends Controller
     public function index()
     {
         $files = $this->fileRepository->getFiles();
-        return view('home', compact('users'));
+        return view('home', compact('files'));
     }
 }

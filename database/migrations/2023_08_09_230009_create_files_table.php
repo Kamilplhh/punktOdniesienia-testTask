@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
+            $table->string('file');
+            $table->string('title');
+            $table->string('email')->nullable();
+            $table->boolean('paid')->default(false);
+            $table->date('date')->nullable();
+            $table->string('price');
+            $table->string('bank')->nullable();
+            $table->string('content')->nullable();
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }

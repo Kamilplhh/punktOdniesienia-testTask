@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Interfaces\FileRepositoryInterface;
 
 class HomeController extends Controller
 {
+    private FileRepositoryInterface $fileRepository;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(FileRepositoryInterface $fileRepository)
     {
         $this->middleware('auth');
+        $this->fileRepository = $fileRepository;
     }
 
     /**
@@ -23,6 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $files = $this->fileRepository->getFiles();
+        return view('home', compact('users'));
     }
 }

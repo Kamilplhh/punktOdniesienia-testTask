@@ -265,6 +265,15 @@ span {
     color: white;
 }
 
+.download {
+    text-decoration: black underline !important;
+    color: black !important;
+}
+
+.download:hover {
+    text-decoration: none !important;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

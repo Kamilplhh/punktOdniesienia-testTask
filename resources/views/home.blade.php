@@ -18,11 +18,13 @@
 @foreach($files as $file)
 <div class="dataBlock off">
     <div>
-        @if(substr($file->file, -3) == "pdf")
-        <i class="fa-solid fa-file-pdf"></i>
-        @else
-        <i class="fa-solid fa-image"></i>
-        @endif
+        <a class="download" href="{{url('uploads/file/'. $file->file)}}" download>
+            @if(substr($file->file, -3) == "pdf")
+            <i class="fa-solid fa-file-pdf"></i>
+            @else
+            <i class="fa-solid fa-image"></i>
+            @endif
+        </a>
         <div>
             {{ $file->title }} <br>
             <i class="fileDate">{{ date('m-d-Y',strtotime($file->created_at)) }}</i>
@@ -41,7 +43,9 @@
         </p>
         <p>
             <i>Attachments:</i>
-            {{ $file->file}}
+            <a class="download" href="{{url('uploads/file/'. $file->file)}}" download>
+                {{ $file->file}}
+            </a>
         </p>
         <i>Content:</i>
         {{ $file->content }}

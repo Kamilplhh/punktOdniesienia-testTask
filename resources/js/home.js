@@ -119,13 +119,9 @@ function showIncoming() {
       $(this).closest('.dataBlock').removeClass("off offline");
     }
   })
-  $('.operations').children().each(function () {
-    if ($(this).hasClass("incoming")) {
-      $(this).removeClass("off");
-    } else {
-      $(this).addClass("off");
-    }
-  })
+  $('.operations').html('<i class="incoming cost"></i>'+
+  '<button class="btn">Pay all <i class="fa-brands fa-google-pay"></i></button>')
+
   getMonth($('#next').attr('value'));
   checkIfEmpty();
 };
@@ -138,13 +134,9 @@ function showPaid() {
       $(this).closest('.dataBlock').removeClass("off offline");
     }
   })
-  $('.operations').children().each(function () {
-    if ($(this).hasClass("paid")) {
-      $(this).removeClass("off");
-    } else {
-      $(this).addClass("off");
-    }
-  })
+  $('.operations').html('<button class="btn">Add document <i class="fa-solid fa-file-circle-plus"></i></button>'+
+  '<button class="btn">Scan receipts <i class="fa-solid fa-file-lines"></i></button>')
+
   getMonth($('#next').attr('value'));
   checkIfEmpty();
 };
@@ -153,13 +145,7 @@ function showAll() {
   $('span').filter('.btn').each(function () {
     $(this).closest('.dataBlock').removeClass("off offline");
   })
-  $('.operations').children().each(function () {
-    if ($(this).hasClass("all")) {
-      $(this).removeClass("off");
-    } else {
-      $(this).addClass("off");
-    }
-  })
+  $('.operations').html('<button class="btn">Send all documents <i class="fa-solid fa-play"></i></button>')
   getMonth($('#next').attr('value'));
   checkIfEmpty();
 };

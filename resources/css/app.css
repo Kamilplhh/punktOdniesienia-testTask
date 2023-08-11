@@ -220,6 +220,7 @@ span {
 
 .incoming.cost {
     background-color: white;
+    padding: 0 !important;
 }
 
 .operations {

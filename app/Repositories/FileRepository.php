@@ -6,11 +6,15 @@ use App\Interfaces\FileRepositoryInterface;
 use App\Models\File;
 use Illuminate\Support\Facades\Auth;
 
-class FileRepository implements FileRepositoryInterface 
+class FileRepository implements FileRepositoryInterface
 {
     public function getFiles()
     {
         return File::where('user_id', '=', Auth::id())->get();
     }
 
+    public function createFile(array $file)
+    {
+        return File::create($file);
+    }
 }

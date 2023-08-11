@@ -80,7 +80,7 @@
 </div>
 
 <div class="document block off">
-    <form enctype="multipart/form-data" method="POST">
+    <form enctype="multipart/form-data" method="POST" action="{{ route('scanUpload') }}">
         @csrf
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required><br>
@@ -89,16 +89,16 @@
         <input type="file" id="file" name="file" required><br>
 
         <label for="paid">Paid:</label>
-        <input type="checkbox" id="paid" name="paid"><br>
+        <input type="checkbox" id="paid" name="paid" value="0"><br>
 
         <label for="price">Price:</label>
-        <input type="number" id="price" name="price"><br>
+        <input type="number" id="price" name="price" min="0" required><br>
 
         <label for="bank">Bank:</label>
-        <input type="text" id="bank" name="bank"><br>
+        <input type="text" id="bank" name="bank" required><br>
 
         <label for="date">Date of payment:</label>
-        <input type="date" id="date" name="date"><br>
+        <input type="date" id="date" name="date" required><br>
 
         <center><button type="submit">Save</button></center>
     </form>

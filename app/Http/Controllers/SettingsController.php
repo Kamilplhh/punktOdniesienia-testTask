@@ -23,8 +23,6 @@ class SettingsController extends Controller
             'password' => ['required', 'string', 'min:8'],
         ]);
 
-        
-
         if(isset($request['logo'])){
             $file = $request->file('logo');
             $fileName = $request->file('logo')->getClientOriginalName();

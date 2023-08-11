@@ -212,7 +212,7 @@ span {
     border: 0;
 }
 
-.doc {
+.btn:has(> .fa-file-circle-plus) {
     background-color: white !important;
     color: black !important;
     border: 1px solid grey;

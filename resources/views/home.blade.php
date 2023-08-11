@@ -75,7 +75,7 @@
     <button class="all btn">Send all documents <i class="fa-solid fa-play"></i></button>
     <i class="incoming cost off"></i>
     <button class="incoming btn off">Pay all <i class="fa-brands fa-google-pay"></i></button>
-    <button class="paid btn off doc">Add document <i class="fa-solid fa-file-circle-plus"></i></button>
+    <button class="paid btn off">Add document <i class="fa-solid fa-file-circle-plus"></i></button>
     <button class="paid btn off">Scan receipts <i class="fa-solid fa-file-lines"></i></button>
 </div>
 

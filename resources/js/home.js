@@ -134,8 +134,8 @@ function showPaid() {
       $(this).closest('.dataBlock').removeClass("off offline");
     }
   })
-  $('.operations').html('<button class="btn">Add document <i class="fa-solid fa-file-circle-plus"></i></button>' +
-    '<button class="btn">Scan receipts <i class="fa-solid fa-file-lines"></i></button>')
+  $('.operations').html('<button id="add" class="btn">Add document <i class="fa-solid fa-file-circle-plus"></i></button>' +
+    '<button id="scan" class="btn">Scan receipts <i class="fa-solid fa-file-lines"></i></button>')
 
   getMonth($('#next').attr('value'));
   checkIfEmpty();
@@ -181,3 +181,12 @@ function checkIfEmpty() {
     $('#noFiles').removeClass("off");
   }
 }
+
+//Add document
+$('.operations').on('click', '#add', function () {
+  $('.document').toggleClass('off');
+})
+
+$('.operations').on('click', '#scan', function () {
+  $('.scan').toggleClass('off');
+})

@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @vite('resources/js/home.js')
 
+
 @section('navi')
 <a id="all" class="homeNavi selected">All</a>
 <a id="incoming" class="homeNavi">Incoming payments</a>
@@ -76,6 +77,47 @@
 
 <div class="operations">
     <button class="btn">Send all documents <i class="fa-solid fa-play"></i></button>
+</div>
+
+<div class="document block off">
+    <form enctype="multipart/form-data" method="POST">
+        @csrf
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="file">File:</label>
+        <input type="file" id="file" name="file" required><br>
+
+        <label for="paid">Paid:</label>
+        <input type="checkbox" id="paid" name="paid"><br>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price"><br>
+
+        <label for="bank">Bank:</label>
+        <input type="text" id="bank" name="bank"><br>
+
+        <label for="date">Date of payment:</label>
+        <input type="date" id="date" name="date"><br>
+
+        <center><button type="submit">Save</button></center>
+    </form>
+</div>
+
+<div class="scan block off">
+    <form enctype="multipart/form-data" method="POST">
+        @csrf
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="file">File:</label>
+        <input type="file" id="file" name="file" required><br>
+
+        <label for="paid">Paid:</label>
+        <input type="checkbox" id="paid" name="paid"><br>
+
+        <center><button type="submit">Save</button></center>
+    </form>
 </div>
 
 @stop

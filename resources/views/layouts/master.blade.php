@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
@@ -12,31 +12,32 @@
     @vite('resources/js/app.js')
     @vite('resources/css/app.css')
 </head>
+
 <body>
     @section('navbar')
     <div class="navbar">
         <div class="company">
-        @auth
+            @auth
             @if(!empty(Auth::user()->logo))
             <img src="{{url('uploads/logo/'. Auth::user()->logo)}}" class="img" />
             @else
             <div class="img"></div>
             @endif
             {{ Auth::user()->company }}
-        @endauth
+            @endauth
         </div>
 
         <div class="navButton">
-        @auth
+            @auth
             {{ Auth::user()->name }}
-        @endauth
+            @endauth
             <i class="fa-solid fa-ellipsis-vertical fa-xl dots"></i>
             <div class="dotsBar">
-            @guest
+                @guest
                 <a href="{{ route('login') }}">Login</a>
-            @else
+                @else
                 @if((Auth::user()->id) == 1)
-                    <a href="/admin">Admin Panel</a>
+                <a href="/admin">Admin Panel</a>
                 @endif
                 <a href="/">Home</a>
                 <a href="/settings">Account</a>
@@ -45,7 +46,7 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
-            @endguest           
+                @endguest
             </div>
         </div>
     </div>
@@ -62,7 +63,7 @@
             <h2>
                 <i class="month"></i> <sup class="year"></sup>
             </h2>
-            <i class="fa-solid fa-arrow-right arrow disabled" value="0" id="next" ></i>
+            <i class="fa-solid fa-arrow-right arrow disabled" value="0" id="next"></i>
         </div>
         @show
 

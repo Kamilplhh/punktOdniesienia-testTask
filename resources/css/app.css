@@ -151,6 +151,10 @@ img.img {
     display: none !important;
 }
 
+#nofiles {
+    text-align: center;
+}
+
 .mailBlock {
     position: absolute;
     flex-direction: column !important;
@@ -170,6 +174,10 @@ img.img {
 .mailBlock i {
     padding: 0 !important;
     color: rgb(145, 145, 145);
+}
+
+.fileDate {
+    padding: 0 !important;
 }
 
 .exit {

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('title');
             $table->string('email')->nullable();
             $table->boolean('paid')->default(false);
-            $table->date('date')->nullable();
             $table->string('price');
             $table->string('bank')->nullable();
             $table->string('content')->nullable();

@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@vite('resources/js/home.js')
 
 @section('navi')
 <a id="all" class="homeNavi selected">All</a>
@@ -13,11 +14,8 @@
 </div>
 @endif
 
-@if(count($files) == 0)
-<center>
-    <h6>There are no files in this month</h6>
-</center>
-@else
+<h6 class="off" id="noFiles">There are no files in this month</h6>
+
 @foreach($files as $file)
 <div class="dataBlock">
     <div>
@@ -28,7 +26,7 @@
         @endif
         <div>
             {{ $file->title }} <br>
-            {{ date('d-m-Y',strtotime($file->created_at)) }}
+            <i class="fileDate">{{ date('m-d-Y',strtotime($file->created_at)) }}</i>
         </div>
     </div>
     @if(!empty($file->email))
@@ -57,7 +55,7 @@
         <span class="btn">Paid</span>
         @endif
         <div class="date">
-            {{ date('d-m-Y',strtotime($file->date)) }}
+            {{ date('m-d-Y',strtotime($file->created_at)) }}
         </div>
     </div>
     <div class="last">
@@ -69,7 +67,7 @@
     </div>
 </div>
 @endforeach
-@endif
+
 
 </div>
 

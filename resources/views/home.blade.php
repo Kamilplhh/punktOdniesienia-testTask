@@ -33,10 +33,10 @@
     </div>
     @if(!empty($file->email))
     <div>
-        <i class="fa-solid fa-eye"></i>
+        <i class="fa-solid fa-eye" id="{{ $file->id }}"></i>
         {{ $file->email }}
     </div>
-    <div class="mailBlock off">
+    <div class="mailBlock off" id="{{ 'mailBlock' . $file->id }}">
         <i class="exit">X</i>
         <p>
             <i>From:</i>
@@ -59,7 +59,7 @@
         <span class="btn">Paid</span>
         @endif
         <div class="date">
-            {{ date('m-d-Y',strtotime($file->created_at)) }}
+            {{ date('m-d-Y',strtotime($file->paymentDate)) }}
         </div>
     </div>
     <div class="last">

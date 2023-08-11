@@ -87,11 +87,12 @@ function exceeded() {
 
 //Toggle mail block
 $('.fa-eye').on("click", function () {
-  $('.mailBlock').toggleClass('off');
+  let id = $(this).attr('id');
+  $('#mailBlock'+id).toggleClass('off');
 })
 
 $('.exit').on("click", function () {
-  $('.mailBlock').toggleClass('off');
+  $(this).closest('.mailBlock').toggleClass('off');
 })
 
 //Whole panel navi system

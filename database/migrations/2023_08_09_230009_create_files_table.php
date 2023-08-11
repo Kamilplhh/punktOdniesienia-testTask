@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->boolean('paid')->default(false);
             $table->string('price');
+            $table->date('paymentDate');
             $table->string('bank')->nullable();
             $table->string('content')->nullable();
             $table->bigInteger('user_id');

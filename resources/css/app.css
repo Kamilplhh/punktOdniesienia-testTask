@@ -114,6 +114,11 @@ img.img {
     flex-direction: column;
     border: 1px solid rgb(214, 211, 211);
     height: 70%;
+    overflow: auto;
+}
+
+.data *{
+    animation: .4s fadeIn linear;
 }
 
 .cost {
@@ -152,7 +157,11 @@ img.img {
 }
 
 #nofiles {
-    text-align: center;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+    height: 100%;
 }
 
 .mailBlock {

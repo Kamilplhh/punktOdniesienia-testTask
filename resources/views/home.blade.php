@@ -13,11 +13,10 @@
     {{ session('status') }}
 </div>
 @endif
-
 <h6 class="off" id="noFiles">There are no files in this month</h6>
 
 @foreach($files as $file)
-<div class="dataBlock">
+<div class="dataBlock off">
     <div>
         @if(substr($file->file, -3) == "pdf")
         <i class="fa-solid fa-file-pdf"></i>

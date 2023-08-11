@@ -124,6 +124,7 @@ function showIncoming() {
     '<button class="btn">Pay all <i class="fa-brands fa-google-pay"></i></button>')
 
   getMonth($('#next').attr('value'));
+  closeBlocks();
   checkIfEmpty();
 };
 
@@ -139,6 +140,7 @@ function showPaid() {
     '<button id="scan" class="btn">Scan receipts <i class="fa-solid fa-file-lines"></i></button>')
 
   getMonth($('#next').attr('value'));
+  closeBlocks();
   checkIfEmpty();
 };
 
@@ -147,7 +149,9 @@ function showAll() {
     $(this).closest('.dataBlock').removeClass("off offline");
   })
   $('.operations').html('<button class="btn">Send all documents <i class="fa-solid fa-play"></i></button>')
+  
   getMonth($('#next').attr('value'));
+  closeBlocks();
   checkIfEmpty();
 };
 
@@ -191,3 +195,8 @@ $('.operations').on('click', '#add', function () {
 $('.operations').on('click', '#scan', function () {
   $('.scan').toggleClass('off');
 })
+
+function closeBlocks(){
+  $('.document').addClass('off');
+  $('.scan').addClass('off');
+}

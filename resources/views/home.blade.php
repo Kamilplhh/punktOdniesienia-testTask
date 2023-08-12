@@ -85,8 +85,8 @@
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required><br>
 
-        <label for="file">File:</label>
-        <input type="file" id="file" name="file" required><br>
+        <label for="fileScan">File:</label>
+        <input type="file" id="fileScan" name="fileScan" required><br>
 
         <label for="paid">Paid:</label>
         <input type="checkbox" id="paid" name="paid" value="0"><br>

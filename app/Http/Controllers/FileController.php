@@ -19,14 +19,15 @@ class FileController extends Controller
     {
 
         $request->validate([
-            'file' => ['required', 'mimes:jpg,png', 'max:10240'],
+            'fileScan' => ['required', 'mimes:jpg,png', 'max:10240'],
             'title' => ['required', 'string', 'max:255'],
             'price' => ['required', 'numeric', 'min:0'],
             'date' => ['required', 'date'],
             'bank' => ['required', 'string'],
         ]);
-        $file = $request->file('file');
-        $fileName = $request->file('file')->getClientOriginalName();
+        
+        $file = $request->file('fileScan');
+        $fileName = $request->file('fileScan')->getClientOriginalName();
         $file->move('uploads/file', $fileName);
 
         if(isset($request['paid'])){

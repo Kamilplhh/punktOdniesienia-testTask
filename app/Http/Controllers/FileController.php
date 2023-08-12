@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Interfaces\FileRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 
+
 class FileController extends Controller
 {
     private FileRepositoryInterface $fileRepository;
@@ -17,7 +18,6 @@ class FileController extends Controller
 
     public function scanUpload(Request $request)
     {
-
         $request->validate([
             'fileScan' => ['required', 'mimes:jpg,png', 'max:10240'],
             'title' => ['required', 'string', 'max:255'],
@@ -40,6 +40,30 @@ class FileController extends Controller
         $request['paymentDate'] = $request['date'];
         $request['file'] = $fileName;
         $request['user_id'] = Auth::id();
+
+        $fileArray = $request->all([]);
+
+        $this->fileRepository->createFile($fileArray);
+        return redirect()->back();
+    }
+
+    public function pdfUpload(Request $request)
+    {
+        $request->validate([
+            'fileScan' => ['required', 'mimes:pdf', 'max:10240'],
+            'title' => ['required', 'string', 'max:255'],
+        ]);
+        $parser = new \Smalot\PdfParser\Parser(); 
+
+        $file = $request->file('fileScan');
+        $pdf = ($parser->parseFile($file))->getText(); 
+        dd($pdf);
+
+        if(isset($request['paid'])){
+            $request['paid'] = 1;
+        }else {
+            $request['paid'] = 0;
+        }
 
         $fileArray = $request->all([]);
 

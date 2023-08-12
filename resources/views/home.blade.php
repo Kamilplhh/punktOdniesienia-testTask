@@ -105,13 +105,13 @@
 </div>
 
 <div class="scan block off">
-    <form enctype="multipart/form-data" method="POST">
+    <form enctype="multipart/form-data" method="POST" action="{{ route('pdfUpload') }}">
         @csrf
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required><br>
 
         <label for="file">File:</label>
-        <input type="file" id="file" name="file" required><br>
+        <input type="file" id="fileScan" name="fileScan" required><br>
 
         <label for="paid">Paid:</label>
         <input type="checkbox" id="paid" name="paid"><br>

@@ -21,7 +21,7 @@ class FileController extends Controller
         $request->validate([
             'file' => ['required', 'mimes:jpg,png', 'max:10240'],
             'title' => ['required', 'string', 'max:255'],
-            'price' => ['required', 'decimal:0',],
+            'price' => ['required', 'numeric', 'min:0'],
             'date' => ['required', 'date'],
             'bank' => ['required', 'string'],
         ]);

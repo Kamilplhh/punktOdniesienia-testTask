@@ -60,10 +60,10 @@ function itemsPrice() {
 
   $('.price').each(function () {
     if (!$(this).closest('.dataBlock').hasClass('off') && !$(this).closest('.dataBlock').hasClass('offline'))
-      x = x + parseInt($(this).text());
+      x = x + parseFloat($(this).text());
   })
 
-  $('.cost').text(x + ' PLN');
+  $('.cost').text(x.toFixed(2) + ' PLN');
 };
 
 //Check if there is no payment date exceed

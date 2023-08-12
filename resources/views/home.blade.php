@@ -92,7 +92,7 @@
         <input type="checkbox" id="paid" name="paid" value="0"><br>
 
         <label for="price">Price:</label>
-        <input type="number" id="price" name="price" min="0" required><br>
+        <input type="number" id="price" name="price" min="0" step="0.01" required><br>
 
         <label for="bank">Bank:</label>
         <input type="text" id="bank" name="bank" required><br>

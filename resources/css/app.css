@@ -223,9 +223,14 @@ span {
     padding: 0.3em 0.8em;
     border-radius: 20px;
     border: 0;
+    transition: .3s ease-in;
 }
 
-.btn:has(> .fa-file-circle-plus) {
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn:has(> .fa-file-circle-plus), .document.btn {
     background-color: white !important;
     color: black !important;
     border: 1px solid grey;

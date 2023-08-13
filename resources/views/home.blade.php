@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @vite('resources/js/home.js')
 
-
 @section('navi')
 <a id="all" class="homeNavi selected">All</a>
 <a id="incoming" class="homeNavi">Incoming payments</a>
@@ -87,20 +86,20 @@
 
         <label for="fileScan">File:</label>
         <input type="file" id="fileScan" name="fileScan" required><br>
-
-        <label for="paid">Paid:</label>
-        <input type="checkbox" id="paid" name="paid" value="0"><br>
-
+        
         <label for="price">Price:</label>
         <input type="number" id="price" name="price" min="0" step="0.01" required><br>
-
+        
         <label for="bank">Bank:</label>
         <input type="text" id="bank" name="bank" required><br>
-
+        
         <label for="date">Date of payment:</label>
         <input type="date" id="date" name="date" required><br>
-
-        <center><button type="submit">Save</button></center>
+        
+        <label for="paid">Paid:</label>
+        <input type="checkbox" id="paid" name="paid" value="0"><br>
+        
+        <center><button class="document btn" type="submit">Add document <i class="fa-solid fa-file-circle-plus"></i></button></center>
     </form>
 </div>
 
@@ -116,7 +115,7 @@
         <label for="paid">Paid:</label>
         <input type="checkbox" id="paid" name="paid"><br>
 
-        <center><button type="submit">Save</button></center>
+        <center><button class="document btn" type="submit">Scan receipts <i class="fa-solid fa-file-lines"></i></button></center>
     </form>
 </div>
 

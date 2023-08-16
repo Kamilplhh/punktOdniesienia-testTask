@@ -230,7 +230,7 @@ span {
     transform: scale(1.05);
 }
 
-.btn:has(> .fa-file-circle-plus), .document.btn {
+.btn:has(> .fa-file-circle-plus), .doc.btn {
     background-color: white !important;
     color: black !important;
     border: 1px solid grey;

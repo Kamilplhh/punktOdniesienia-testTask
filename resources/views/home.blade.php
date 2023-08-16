@@ -99,7 +99,7 @@
         <label for="paid">Paid:</label>
         <input type="checkbox" id="paid" name="paid" value="0"><br>
         
-        <center><button class="document btn" type="submit">Add document <i class="fa-solid fa-file-circle-plus"></i></button></center>
+        <center><button class="doc btn" type="submit">Add document <i class="fa-solid fa-file-circle-plus"></i></button></center>
     </form>
 </div>
 
@@ -115,7 +115,7 @@
         <label for="paid">Paid:</label>
         <input type="checkbox" id="paid" name="paid"><br>
 
-        <center><button class="document btn" type="submit">Scan receipts <i class="fa-solid fa-file-lines"></i></button></center>
+        <center><button class="doc btn" type="submit">Scan receipts <i class="fa-solid fa-file-lines"></i></button></center>
     </form>
 </div>
 

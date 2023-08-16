@@ -57,7 +57,7 @@ class FileController extends Controller
 
         $file = $request->file('fileScan');
         $pdf = ($parser->parseFile($file))->getText(); 
-        dd($pdf);
+        echo $pdf;
 
         if(isset($request['paid'])){
             $request['paid'] = 1;
@@ -67,7 +67,7 @@ class FileController extends Controller
 
         $fileArray = $request->all([]);
 
-        $this->fileRepository->createFile($fileArray);
-        return redirect()->back();
+
+        return view('upload', compact('pdf'));
     }
 }

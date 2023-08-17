@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/css/settings.css',
                 'resources/js/app.js',
                 'resources/js/home.js',
+                'resources/js/upload.js',
             ],
             refresh: true,
         }),

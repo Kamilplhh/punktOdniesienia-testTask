@@ -30,7 +30,4 @@
 @endforeach
 </div>
 @endif
-
-
-
 @stop

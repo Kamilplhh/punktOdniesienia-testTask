@@ -53,21 +53,49 @@ class FileController extends Controller
             'fileScan' => ['required', 'mimes:pdf', 'max:10240'],
             'title' => ['required', 'string', 'max:255'],
         ]);
-        $parser = new \Smalot\PdfParser\Parser(); 
+        if (!empty($request['bank'])) {
+            $request->validate([
+                'price' => ['required', 'numeric', 'min:0'],
+                'date' => ['required', 'date'],
+                'bank' => ['required', 'string'],
+            ]);
 
-        $file = $request->file('fileScan');
-        $pdf = ($parser->parseFile($file))->getText(); 
-        echo $pdf;
+            $file = $request->file('fileScan');
+            $fileName = $request->file('fileScan')->getClientOriginalName();
+            $file->move('uploads/file', $fileName);
 
-        if(isset($request['paid'])){
-            $request['paid'] = 1;
-        }else {
-            $request['paid'] = 0;
+            if (isset($request['paid'])) {
+                $request['paid'] = 1;
+            } else {
+                $request['paid'] = 0;
+            }
+
+            $request['date'] = date("Y-m-d", strtotime($request['date']));
+            $request['paymentDate'] = $request['date'];
+            $request['file'] = $fileName;
+            $request['user_id'] = Auth::id();
+
+            $fileArray = $request->all([]);
+
+            $this->fileRepository->createFile($fileArray);
+            return redirect()->back();
+        } else {
+            $parser = new \Smalot\PdfParser\Parser();
+
+            $file = $request->file('fileScan');
+            $pdf = ($parser->parseFile($file))->getText();
+            echo $pdf;
+
+            if (isset($request['paid'])) {
+                $request['paid'] = 1;
+            } else {
+                $request['paid'] = 0;
+            }
+
+            $fileArray = $request->all([]);
+
+
+            return view('upload', compact('pdf'));
         }
-
-        $fileArray = $request->all([]);
-
-
-        return view('upload', compact('pdf'));
     }
 }

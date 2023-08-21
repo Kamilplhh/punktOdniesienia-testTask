@@ -115,6 +115,19 @@
         <label for="paid">Paid:</label>
         <input type="checkbox" id="paid" name="paid"><br>
 
+        <p class="border"></p>
+        <h5>In case when scanner is not working</h5><br>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" min="0" step="0.01"><br>
+        
+        <label for="bank">Bank:</label>
+        <input type="text" id="bank" name="bank"><br>
+        
+        <label for="date">Date of payment:</label>
+        <input type="date" id="date" name="date"><br>
+        <p class="border"></p>
+
         <center><button class="doc btn" type="submit">Scan receipts <i class="fa-solid fa-file-lines"></i></button></center>
     </form>
 </div>

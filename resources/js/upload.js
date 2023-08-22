@@ -21,7 +21,20 @@ function test(){
     let time = timeText.slice(0,10);
 
 
-console.log(time);
 }
 
-test();
+function data(){
+    $.ajax({
+        url: 'getScanText',
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+           console.log(response);
+        },
+        error: function () {
+            alert('Something went wrong');
+        }
+      });
+}
+
+data();

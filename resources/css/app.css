@@ -311,6 +311,12 @@ span {
     margin-top: .3em;
 }
 
+.doc.btn:hover {
+    background-color: rgb(113, 81, 242) !important;
+    color: white !important;
+    transform: none !important;
+}
+
 .border {
     width: 100%;
     margin: 0 !important;

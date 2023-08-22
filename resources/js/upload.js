@@ -3,6 +3,7 @@ window.$ = $;
 
 function test(data){
     let text = ($('body').text()).replace(/\s/g, '');
+    let paid = 0;
     let priceArray = "";
     let bankArray = "";
     let timeArray = "";
@@ -27,6 +28,7 @@ function test(data){
             }
         })
     });
+
     let priceText = priceArray.pop();
     let bankText = bankArray.pop();
     let timeText = timeArray.pop();
@@ -38,6 +40,12 @@ function test(data){
     console.log(price);
     console.log(bank);
     console.log(time);
+
+    if(text.match('Paid')){
+        paid = 1;
+    }
+
+    let title = (text.split("===")).pop();
 }
 
 function data(){
@@ -55,4 +63,6 @@ function data(){
       });
 }
 
-data();
+$(document).ready(function () {
+    data();
+  });

@@ -86,11 +86,15 @@ class FileController extends Controller
             $pdf = ($parser->parseFile($file))->getText();
             echo $pdf;
 
+            $file = $request->file('fileScan');
+            $fileName = $request->file('fileScan')->getClientOriginalName();
+            $file->move('uploads/file', $fileName);
+
             if (isset($request['paid'])) {
-                $request['paid'] = 1;
-            } else {
-                $request['paid'] = 0;
+                echo " Paid ";
             }
+
+            echo "===" . $fileName;
 
             $fileArray = $request->all([]);
 

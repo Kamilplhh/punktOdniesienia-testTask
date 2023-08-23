@@ -3,8 +3,8 @@
 
 @section('navi')
 @if((Auth::user()->id) == 1)
-<a class="homeNavi selected" id="adminPanel">Admin panel</a>
-<a class="homeNavi" id="scanner">Scanner data</a>
+<a class="adminNavi selected" id="adminPanel">Admin panel</a>
+<a class="adminNavi" id="scanner">Scanner data</a>
 @endif
 @stop
 
@@ -32,6 +32,23 @@
     </div>
 </div>
 @endforeach
+<div class="dataBlock sPanel off">
+    <form method="POST" action="{{ route('addScanner') }}">
+        @csrf
+        <label for="pText">Price text:</label>
+        <input type="text" id="pText" name="pText">
+
+        <label for="tText">Time text:</label>
+        <input type="text" id="tText" name="tText">
+
+        <label for="bText">Bank text:</label>
+        <input type="text" id="bText" name="bText">
+
+        <div class="operations">
+            <button type="submit" class="btn">Add</button>
+        </div>
+    </form>
+</div>
 </div>
 @endif
 @stop

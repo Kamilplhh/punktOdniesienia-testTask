@@ -40,4 +40,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/getScanText', [ScanController::class, 'getData']);
 
     Route::post('/send', [FileController::class, 'sendScan'])->name('sendScan'); 
+
+    Route::post('/addScanner', [ScanController::class, 'addScanner'])->name('addScanner'); 
 });
+

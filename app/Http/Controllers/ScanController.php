@@ -14,4 +14,8 @@ class ScanController extends Controller
 
         return response()->json($response);
     }
+
+    public function addScanner(){
+        
+    }
 }

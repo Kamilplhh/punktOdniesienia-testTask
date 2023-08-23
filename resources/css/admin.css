@@ -1,0 +1,15 @@
+.dataBlock {
+    height: 100%;
+}
+
+.sPanel form {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    align-content: center !important;
+    width: auto;
+    height: 100%;
+    float: left;
+}

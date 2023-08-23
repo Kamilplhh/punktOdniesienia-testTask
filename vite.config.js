@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/home.js',
                 'resources/js/upload.js',
+                'resources/js/admin.js',
             ],
             refresh: true,
         }),

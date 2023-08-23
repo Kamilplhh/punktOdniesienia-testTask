@@ -89,7 +89,7 @@ class FileController extends Controller
             $file->move('uploads/file', $fileName);
 
             echo '<div class="loader"></div><center><h1>Your file is uploading</h1></center>';
-            echo '<div id="textFile">' . $pdf;
+            echo '<div id="textFile" style="display:none !important">' . $pdf;
             if (isset($request['paid'])) {
                 echo " Paid ";
             }

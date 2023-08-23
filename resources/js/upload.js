@@ -28,40 +28,45 @@ function test(data) {
             }
         })
     });
-    let title = ((text.split('-+=')).pop().split('=+-').shift())
-    let fileName = (text.split('===')).pop();
+    if (priceArray === "" || bankArray === "" || timeArray === "") {
+        alert('Something went wrong');
+        $(location).prop('href', '/');
+    } else {
+        let title = ((text.split('-+=')).pop().split('=+-').shift())
+        let fileName = (text.split('===')).pop();
 
-    let priceText = priceArray.pop();
-    let bankText = bankArray.pop();
-    let timeText = timeArray.pop();
+        let priceText = priceArray.pop();
+        let bankText = bankArray.pop();
+        let timeText = timeArray.pop();
 
-    let price = priceText.split('PLN').shift();
-    let bank = bankText.slice(0, 26);
-    let time = timeText.slice(0, 10);
+        let price = priceText.split('PLN').shift();
+        let bank = bankText.slice(0, 26);
+        let time = timeText.slice(0, 10);
 
-    if (text.match('Paid')) {
-        paid = 1;
-    }
-    $.ajax({
-        url: 'send',
-        type: 'POST',
-        data: {
-            _token: $('#signup-token').val(),
-            file: fileName,
-            title: title,
-            price: price,
-            date: time,
-            bank: bank,
-            paid: paid,
-        },
-        success: function () {
-            $(location).prop('href', '/');
-        },
-        error: function () {
-            alert('Something went wrong');
-            $(location).prop('href', '/');
+        if (text.match('Paid')) {
+            paid = 1;
         }
-    });
+        $.ajax({
+            url: 'send',
+            type: 'POST',
+            data: {
+                _token: $('#signup-token').val(),
+                file: fileName,
+                title: title,
+                price: price,
+                date: time,
+                bank: bank,
+                paid: paid,
+            },
+            success: function () {
+                $(location).prop('href', '/');
+            },
+            error: function () {
+                alert('Something went wrong');
+                $(location).prop('href', '/');
+            }
+        });
+    }
 }
 
 function data() {

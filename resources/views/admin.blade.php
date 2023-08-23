@@ -1,7 +1,11 @@
 @extends('layouts.master')
+@vite('resources/js/admin.js')
 
 @section('navi')
-<a class="selected">Admin panel</a>
+@if((Auth::user()->id) == 1)
+<a class="homeNavi selected" id="adminPanel">Admin panel</a>
+<a class="homeNavi" id="scanner">Scanner data</a>
+@endif
 @stop
 
 @section('calendar')

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Scan extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'priceText',
+        'bankText',
+        'timeText',
+    ];
 }

@@ -35,14 +35,14 @@
 <div class="dataBlock sPanel off">
     <form method="POST" action="{{ route('addScanner') }}">
         @csrf
-        <label for="pText">Price text:</label>
-        <input type="text" id="pText" name="pText">
+        <label for="priceText">Price text:</label>
+        <input type="text" id="priceText" name="priceText" value="">
 
-        <label for="tText">Time text:</label>
-        <input type="text" id="tText" name="tText">
+        <label for="timeText">Time text:</label>
+        <input type="text" id="timeText" name="timeText" value="">
 
-        <label for="bText">Bank text:</label>
-        <input type="text" id="bText" name="bText">
+        <label for="bankText">Bank text:</label>
+        <input type="text" id="bankText" name="bankText" value="">
 
         <div class="operations">
             <button type="submit" class="btn">Add</button>

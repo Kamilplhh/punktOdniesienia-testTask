@@ -15,7 +15,15 @@ class ScanController extends Controller
         return response()->json($response);
     }
 
-    public function addScanner(){
-        
+    public function addScanner(Request $request){
+        $request->validate([
+            'priceText' => ['nullable', 'string', 'max:255'],
+            'timeText' => ['nullable', 'string', 'max:255'],
+            'bankText' => ['nullable', 'string', 'max:255'],
+        ]);
+
+        $fileArray = $request->all([]);
+        Scan::create($fileArray);
+        return redirect()->back();
     }
 }

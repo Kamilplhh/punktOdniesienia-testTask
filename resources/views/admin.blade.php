@@ -48,6 +48,22 @@
             <button type="submit" class="btn">Add</button>
         </div>
     </form>
+    <div class="scansBlock">
+        <table>
+            <tr>
+                <th>PriceText</th>
+                <th>TimeText</th>
+                <th>BankText</th>
+            </tr>
+            @foreach($scans as $scan)
+            <tr>
+                <td>{{$scan->priceText}}</td>
+                <td>{{$scan->timeText}}</td>
+                <td>{{$scan->bankText}}</td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
 </div>
 </div>
 @endif

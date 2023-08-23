@@ -1,5 +1,6 @@
 .sPanel {
     height: 100%;
+    justify-content: flex-start;
 }
 
 .sPanel form {
@@ -9,7 +10,27 @@
     justify-content: center !important;
     align-items: center !important;
     align-content: center !important;
-    width: auto;
     height: 100%;
-    float: left;
+}
+
+.scansBlock {
+    margin-left: 2em;
+    height: 100%;
+    width: 100% !important;
+    display: block !important; 
+}
+
+.scansBlock table {
+    width: 100%;
+    overflow-y: auto;
+}
+
+.scansBlock th{
+    text-align: center;
+}
+
+.scansBlock td{
+    border: 2px solid rgb(0, 0, 0);
+    text-align: center;
+    border-spacing: 2rem 0rem;
 }

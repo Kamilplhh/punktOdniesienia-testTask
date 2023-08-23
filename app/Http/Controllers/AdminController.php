@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Interfaces\AdminRepositoryInterface;
+use App\Models\Scan;
 
 class AdminController extends Controller
 {
@@ -17,8 +18,9 @@ class AdminController extends Controller
 
     public function getUsers()
     {
+        $scans = Scan::get();
         $users = $this->adminRepository->getAllUsers();
-        return view('admin', compact('users'));
+        return view('admin', compact('users', 'scans'));
     }
 
     public function deleteUser($id)

@@ -205,12 +205,13 @@ img.img {
     color: red !important;
 }
 
-span {
+.paid {
     background-color: rgb(158, 255, 0) !important;
     margin-right: 0.5em !important;
 }
 
 .unpaid {
+    margin-right: 0.5em !important;
     background-color: rgb(224, 217, 255) !important;
 }
 

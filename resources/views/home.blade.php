@@ -55,7 +55,7 @@
         @if($file->paid == 0)
         <span class="btn unpaid">Unpaid</span>
         @else
-        <span class="btn">Paid</span>
+        <span class="btn paid">Paid</span>
         @endif
         <div class="date">
             {{ date('m-d-Y',strtotime($file->paymentDate)) }}

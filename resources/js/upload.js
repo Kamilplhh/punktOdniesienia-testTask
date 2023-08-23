@@ -2,7 +2,7 @@ import $, { error } from 'jquery';
 window.$ = $;
 
 function test(data) {
-    let text = ($('body').text()).replace(/\s/g, '');
+    let text = ($('#textFile').text()).replace(/\s/g, '');
     let paid = 0;
     let priceArray = "";
     let bankArray = "";

@@ -83,17 +83,19 @@ class FileController extends Controller
 
             $file = $request->file('fileScan');
             $pdf = ($parser->parseFile($file))->getText();
-            echo $pdf;
+
 
             $fileName = $request->file('fileScan')->getClientOriginalName();
             $file->move('uploads/file', $fileName);
 
+            echo '<div class="loader"></div><center><h1>Your file is uploading</h1></center>';
+            echo '<div id="textFile">' . $pdf;
             if (isset($request['paid'])) {
                 echo " Paid ";
             }
             echo " -+=" . $request['title'] . "=+- ";
-            echo "===" . $fileName;
-            return view('upload', compact('pdf'));
+            echo "===" . $fileName .'<div>';
+            return view('upload');
         }
     }
 

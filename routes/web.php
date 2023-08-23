@@ -38,4 +38,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/deleteuser/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
 
     Route::get('/getScanText', [ScanController::class, 'getData']);
+
+    Route::post('/send', [FileController::class, 'sendScan'])->name('sendScan'); 
 });

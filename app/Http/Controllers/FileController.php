@@ -25,14 +25,14 @@ class FileController extends Controller
             'date' => ['required', 'date'],
             'bank' => ['required', 'string'],
         ]);
-        
+
         $file = $request->file('fileScan');
         $fileName = $request->file('fileScan')->getClientOriginalName();
         $file->move('uploads/file', $fileName);
 
-        if(isset($request['paid'])){
+        if (isset($request['paid'])) {
             $request['paid'] = 1;
-        }else {
+        } else {
             $request['paid'] = 0;
         }
 
@@ -69,7 +69,6 @@ class FileController extends Controller
             } else {
                 $request['paid'] = 0;
             }
-
             $request['date'] = date("Y-m-d", strtotime($request['date']));
             $request['paymentDate'] = $request['date'];
             $request['file'] = $fileName;
@@ -86,20 +85,27 @@ class FileController extends Controller
             $pdf = ($parser->parseFile($file))->getText();
             echo $pdf;
 
-            $file = $request->file('fileScan');
             $fileName = $request->file('fileScan')->getClientOriginalName();
             $file->move('uploads/file', $fileName);
 
             if (isset($request['paid'])) {
                 echo " Paid ";
             }
-
+            echo " -+=" . $request['title'] . "=+- ";
             echo "===" . $fileName;
-
-            $fileArray = $request->all([]);
-
-
             return view('upload', compact('pdf'));
         }
+    }
+
+    public function sendScan(Request $request)
+    {
+        $fileArray = $request->post();
+        $fileArray['date'] = date("Y-m-d", strtotime($fileArray['date']));
+        $fileArray['paymentDate'] = $fileArray['date'];
+        $fileArray['user_id'] = Auth::id();
+        $fileArray['paid'] = intval($fileArray['paid']);
+        $fileArray['price'] = floatval($fileArray['price']);
+
+        $this->fileRepository->createFile($fileArray);
     }
 }

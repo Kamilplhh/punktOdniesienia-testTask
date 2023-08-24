@@ -76,7 +76,7 @@ function exceeded() {
 
     let difference = date - textDate;
     if (difference > 0) {
-      difference = Math.round(Math.abs(difference / (1000 * 3600 * 24)) - 1);
+      difference = Math.round(Math.abs(difference / (1000 * 3600 * 24)));
       if (difference > 1) {
         block.append('<h6 class="late">exceeded ' + difference + ' days</h6>')
       } else

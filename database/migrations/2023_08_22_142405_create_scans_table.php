@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('priceText')->nullable();
             $table->string('bankText')->nullable();
             $table->string('timeText')->nullable();
+            $table->string('nipText')->nullable();
+            $table->string('recipentText')->nullable();
+            $table->string('invoiceText')->nullable();
             $table->timestamps();
         });
     }

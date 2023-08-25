@@ -44,6 +44,15 @@
         <label for="bankText">Bank text:</label>
         <input type="text" id="bankText" name="bankText" value="">
 
+        <label for="nipText">NIP text:</label>
+        <input type="text" id="nipText" name="nipText" value="">
+
+        <label for="recipentText">Recipent text:</label>
+        <input type="text" id="recipentText" name="recipent" value="">
+
+        <label for="invoiceText">InvoiceNumber text:</label>
+        <input type="text" id="invoiceText" name="invoiceText" value="">
+
         <div class="operations">
             <button type="submit" class="btn">Add</button>
         </div>
@@ -54,12 +63,18 @@
                 <th>PriceText</th>
                 <th>TimeText</th>
                 <th>BankText</th>
+                <th>Recipent</th>
+                <th>NIP</th>
+                <th>InvoiceNumber</th>
             </tr>
             @foreach($scans as $scan)
             <tr>
                 <td>{{$scan->priceText}}</td>
                 <td>{{$scan->timeText}}</td>
                 <td>{{$scan->bankText}}</td>
+                <td>{{$scan->nipText}}</td>
+                <td>{{$scan->recipentText}}</td>
+                <td>{{$scan->invoiceText}}</td>
             </tr>
             @endforeach
         </table>

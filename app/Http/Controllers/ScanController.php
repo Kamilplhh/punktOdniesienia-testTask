@@ -19,6 +19,9 @@ class ScanController extends Controller
             'priceText' => ['nullable', 'string', 'max:255'],
             'timeText' => ['nullable', 'string', 'max:255'],
             'bankText' => ['nullable', 'string', 'max:255'],
+            'nipText' => ['nullable', 'string', 'max:255'],
+            'recipentText' => ['nullable', 'string', 'max:255'],
+            'invoiceText' => ['nullable', 'string', 'max:255'],
         ]);
 
         $fileArray = $request->all([]);

@@ -18,8 +18,12 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->boolean('paid')->default(false);
             $table->float('price', 8, 2);
-            $table->date('paymentDate');
-            $table->string('bank')->nullable();
+            $table->date('paymentDate'); 
+            $table->Integer('bank')->nullable();
+            $table->Integer('nip')->nullable();
+            $table->Integer('invoice_number')->nullable();
+            $table->string('recipient')->nullable();
+            $table->string('adress')->nullable();
             $table->string('content')->nullable();
             $table->bigInteger('user_id');
             $table->timestamps();

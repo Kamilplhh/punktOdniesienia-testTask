@@ -61,8 +61,9 @@ function itemsPrice() {
   $('.price').each(function () {
     if (!$(this).closest('.dataBlock').hasClass('off') && !$(this).closest('.dataBlock').hasClass('offline'))
       x = x + parseFloat($(this).text());
-  })
+  });
 
+  checkBankSet();
   $('.cost').text(x.toFixed(2) + ' PLN');
 };
 
@@ -199,4 +200,24 @@ $('.operations').on('click', '#scan', function () {
 function closeBlocks(){
   $('.document').addClass('off');
   $('.scan').addClass('off');
+}
+
+function checkBankSet(){
+  let z = 0;
+
+  $('.fa-credit-card').each(function () {
+    if(!$(this).closest('.dataBlock').hasClass("off")){
+      if($(this).attr('value') == 0){
+        $(this).addClass('disabled');
+        z = z +1;
+      }
+    }
+  });
+
+  if(z > 0){
+    $('.fa-google-pay').closest('.btn').addClass('disabled');
+  }
+  else {
+    $('.fa-google-pay').closest('.btn').removeClass('disabled');
+  }
 }

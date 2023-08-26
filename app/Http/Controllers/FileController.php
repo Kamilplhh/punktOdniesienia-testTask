@@ -90,7 +90,6 @@ class FileController extends Controller
             $file = $request->file('fileScan');
             $pdf = ($parser->parseFile($file))->getText();
 
-
             $fileName = $request->file('fileScan')->getClientOriginalName();
             $file->move('uploads/file', $fileName);
 
@@ -100,6 +99,8 @@ class FileController extends Controller
                 echo " Paid ";
             }
             echo " -+=" . $request['title'] . "=+- ";
+            echo " -=-" . $request['adress'] . "-=- ";
+            echo " +=+" . $request['recipient'] . "+=+ ";
             echo "===" . $fileName . '<div>';
             return view('upload');
         }
@@ -112,6 +113,7 @@ class FileController extends Controller
         $fileArray['paymentDate'] = $fileArray['date'];
         $fileArray['user_id'] = Auth::id();
         $fileArray['paid'] = intval($fileArray['paid']);
+        $fileArray['nip'] = intval($fileArray['nip']);
         $fileArray['price'] = floatval($fileArray['price']);
 
         $this->fileRepository->createFile($fileArray);

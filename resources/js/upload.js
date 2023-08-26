@@ -45,7 +45,9 @@ function test(data) {
         alert('Something went wrong');
         $(location).prop('href', '/');
     } else {
-        let title = ((text.split('-+=')).pop().split('=+-').shift())
+        let adress = ((text.split('-=-')).pop().split('-=-').shift());
+        let recipient = ((text.split('+=+')).pop().split('+=+').shift());
+        let title = ((text.split('-+=')).pop().split('=+-').shift());
         let fileName = (text.split('===')).pop();
 
         let priceText = priceArray.pop();
@@ -76,6 +78,8 @@ function test(data) {
                 paid: paid,
                 nip: nip,
                 invoice_number: invoice,
+                adress: adress,
+                recipient: recipient,
             },
             success: function () {
                 $(location).prop('href', '/');

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('paymentDate'); 
             $table->Integer('bank')->nullable();
             $table->Integer('nip')->nullable();
-            $table->Integer('invoice_number')->nullable();
+            $table->string('invoice_number')->nullable();
             $table->string('recipient')->nullable();
             $table->string('adress')->nullable();
             $table->string('content')->nullable();

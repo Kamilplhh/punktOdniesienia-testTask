@@ -47,9 +47,6 @@
         <label for="nipText">NIP text:</label>
         <input type="text" id="nipText" name="nipText" value="">
 
-        <label for="recipentText">Recipent text:</label>
-        <input type="text" id="recipentText" name="recipent" value="">
-
         <label for="invoiceText">InvoiceNumber text:</label>
         <input type="text" id="invoiceText" name="invoiceText" value="">
 
@@ -63,7 +60,6 @@
                 <th>PriceText</th>
                 <th>TimeText</th>
                 <th>BankText</th>
-                <th>Recipent</th>
                 <th>NIP</th>
                 <th>InvoiceNumber</th>
             </tr>
@@ -73,7 +69,6 @@
                 <td>{{$scan->timeText}}</td>
                 <td>{{$scan->bankText}}</td>
                 <td>{{$scan->nipText}}</td>
-                <td>{{$scan->recipentText}}</td>
                 <td>{{$scan->invoiceText}}</td>
             </tr>
             @endforeach

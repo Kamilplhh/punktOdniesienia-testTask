@@ -22,10 +22,13 @@ class FileController extends Controller
             'fileScan' => ['required', 'mimes:jpg,png', 'max:10240'],
             'title' => ['required', 'string', 'max:255'],
             'price' => ['required', 'numeric', 'min:0'],
+            'bank' => ['required', 'numeric', 'min:0'],
+            'nip' => ['required', 'numeric', 'min:0'],
+            'invoice_number' => ['required', 'string', 'max:255'],
             'date' => ['required', 'date'],
-            'bank' => ['required', 'string'],
+            'adress' => ['required', 'string', 'max:255'],
+            'recipient' => ['required', 'string', 'max:255'],
         ]);
-
         $file = $request->file('fileScan');
         $fileName = $request->file('fileScan')->getClientOriginalName();
         $file->move('uploads/file', $fileName);
@@ -52,14 +55,17 @@ class FileController extends Controller
         $request->validate([
             'fileScan' => ['required', 'mimes:pdf', 'max:10240'],
             'title' => ['required', 'string', 'max:255'],
+            'adress' => ['required', 'string', 'max:255'],
+            'recipient' => ['required', 'string', 'max:255'],
         ]);
         if (!empty($request['bank'])) {
             $request->validate([
+                'bank' => ['required', 'numeric', 'min:0'],
                 'price' => ['required', 'numeric', 'min:0'],
+                'nip' => ['required', 'numeric', 'min:0'],
+                'invoice_number' => ['required', 'string', 'max:255'],
                 'date' => ['required', 'date'],
-                'bank' => ['required', 'string'],
             ]);
-
             $file = $request->file('fileScan');
             $fileName = $request->file('fileScan')->getClientOriginalName();
             $file->move('uploads/file', $fileName);
@@ -94,7 +100,7 @@ class FileController extends Controller
                 echo " Paid ";
             }
             echo " -+=" . $request['title'] . "=+- ";
-            echo "===" . $fileName .'<div>';
+            echo "===" . $fileName . '<div>';
             return view('upload');
         }
     }

@@ -17,6 +17,10 @@ class File extends Model
         'price',
         'paymentDate',
         'bank',
+        'nip',
+        'invoice_number',
+        'recipient',
+        'adress',
         'content',
         'user_id',
     ];

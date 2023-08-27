@@ -20,8 +20,8 @@ function test(data) {
             if (object.priceText != 0) p = object.priceText;
             if (object.bankText != 0) b = object.bankText;
             if (object.timeText != 0) t = object.timeText;
-            if (object.nipText != 0) p = object.nipText;
-            if (object.invoiceText != 0) t = object.invoiceText;
+            if (object.nipText != 0) n = object.nipText;
+            if (object.invoiceText != 0) i = object.invoiceText;
 
             if (!($.isEmptyObject(text.match(p)))) {
                 priceArray = text.split(p);

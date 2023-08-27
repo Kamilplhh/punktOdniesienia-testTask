@@ -13,5 +13,7 @@ class Scan extends Model
         'priceText',
         'bankText',
         'timeText',
+        'nipText',
+        'invoiceText',
     ];
 }

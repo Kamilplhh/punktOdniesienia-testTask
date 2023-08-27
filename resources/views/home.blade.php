@@ -137,16 +137,16 @@
         <h5>In case when scanner is not working</h5><br>
 
         <label for="bank">Bank:</label>
-        <input type="number" id="bank" name="bank" min="0" required><br>
+        <input type="number" id="bank" name="bank" min="0"><br>
         
         <label for="price">Price:</label>
         <input type="number" id="price" name="price" min="0" step="0.01"><br>
 
         <label for="nip">NIP:</label>
-        <input type="number" id="nip" name="nip" min="0" required><br>
+        <input type="number" id="nip" name="nip" min="0"><br>
 
         <label for="invoice_number">Invoice number:</label>
-        <input type="text" id="invoice_number" name="invoice_number" required><br>
+        <input type="text" id="invoice_number" name="invoice_number"><br>
         
         <label for="date">Date of payment:</label>
         <input type="date" id="date" name="date"><br>

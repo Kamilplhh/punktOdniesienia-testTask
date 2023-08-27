@@ -112,6 +112,7 @@ class FileController extends Controller
         $fileArray['date'] = date("Y-m-d", strtotime($fileArray['date']));
         $fileArray['paymentDate'] = $fileArray['date'];
         $fileArray['user_id'] = Auth::id();
+        $fileArray['bank'] = intval($fileArray['bank']);
         $fileArray['paid'] = intval($fileArray['paid']);
         $fileArray['nip'] = intval($fileArray['nip']);
         $fileArray['price'] = floatval($fileArray['price']);

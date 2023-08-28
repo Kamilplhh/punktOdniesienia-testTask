@@ -70,8 +70,6 @@
     </div>
 </div>
 @endforeach
-
-
 </div>
 
 <div class="operations">
@@ -86,10 +84,10 @@
 
         <label for="fileScan">File:</label>
         <input type="file" id="fileScan" name="fileScan" required><br>
-        
+
         <label for="price">Price:</label>
         <input type="number" id="price" name="price" min="0" step="0.01" required><br>
-        
+
         <label for="bank">Bank:</label>
         <input type="number" id="bank" name="bank" min="0" required><br>
 
@@ -98,19 +96,19 @@
 
         <label for="invoice_number">Invoice number:</label>
         <input type="text" id="invoice_number" name="invoice_number" required><br>
-        
+
         <label for="date">Date of payment:</label>
         <input type="date" id="date" name="date" required><br>
-        
+
         <label for="adress">Adress:</label>
         <input type="text" id="adress" name="adress" required><br>
-        
+
         <label for="recipient">Recipient:</label>
         <input type="text" id="recipient" name="recipient" required><br>
-        
+
         <label for="paid">Paid:</label>
         <input type="checkbox" id="paid" name="paid" value="0"><br>
-        
+
         <center><button class="doc btn" type="submit">Add document <i class="fa-solid fa-file-circle-plus"></i></button></center>
     </form>
 </div>
@@ -126,7 +124,7 @@
 
         <label for="adress">Adress:</label>
         <input type="text" id="adress" name="adress" required><br>
-        
+
         <label for="recipient">Recipient:</label>
         <input type="text" id="recipient" name="recipient" required><br>
 
@@ -138,7 +136,7 @@
 
         <label for="bank">Bank:</label>
         <input type="number" id="bank" name="bank" min="0"><br>
-        
+
         <label for="price">Price:</label>
         <input type="number" id="price" name="price" min="0" step="0.01"><br>
 
@@ -147,7 +145,7 @@
 
         <label for="invoice_number">Invoice number:</label>
         <input type="text" id="invoice_number" name="invoice_number"><br>
-        
+
         <label for="date">Date of payment:</label>
         <input type="date" id="date" name="date"><br>
         <p class="border"></p>

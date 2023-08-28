@@ -221,3 +221,8 @@ function checkBankSet(){
     $('.fa-google-pay').closest('.btn').removeClass('disabled');
   }
 }
+
+$('.fa-credit-card').on("click", function () {
+  let test = $(this).closest('input').attr('value');
+  console.log(test);
+})

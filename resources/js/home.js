@@ -229,27 +229,33 @@ $('.credit').on("click", function () {
   let firstName = nameArray[0];
   let lastName = nameArray[1];
   
+  let amount = $('#bank' +id).attr('value');
+  let email = $('#email' +id).attr('value');
   console.log(nameArray);
 })
 
 // $.ajax({
-//   url: 'send',
+//   url: 'https://api.imoje.pl/v1/merchant/6yt3gjtm9p7b8h9xsdqz/transaction',
 //   type: 'POST',
 //   data: {
-//       type: ,
-// serviceId: ,
-// amount: ,
+//       type: 'sale',
+// serviceId: , !i
+// amount: amount,
 // currency: 'PLN',
-// orderId: ,
-// paymentMethod: ing,
-// paymentMethodCode: ,
-// successReturnUrl: ,
-// failureReturnUrl: ,
+// title: '',
+// orderId: , !i
+// paymentMethod: 'ing',
+// paymentMethodCode:'ing',
+// successReturnUrl: 'http://127.0.0.1/',
+// failureReturnUrl: 'http://127.0.0.1/',
 // customer: [
 // {
-//   firstName: ,
-//   lastName: ,
-//   email: ,
+//    firstName: firstName,
+//    lastName: lastName,
+//    cid: '',
+//    company: '',
+//    phone: '',
+//    email: email,
 // },
 // ]
 //   },

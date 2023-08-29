@@ -64,8 +64,11 @@
     <div class="last">
         <div class="price">{{ $file->price }}</div>
         @if(isset($file->bank) && $file->paid == 0)
-        <i class="fa-regular fa-credit-card" value=0></i>
-        <input type="hidden" name="bank" value="{{ $file->bank }}">
+        <i class="fa-regular fa-credit-card credit" id="{{ $file->id }}" value="{{ $file->bank }}"></i>
+        <div class="off">
+            <input type="hidden" id="{{'bank' . $file->id}}" value="{{ $file->bank }}">
+            <input type="hidden" id="{{'name' . $file->id}}" value="{{ $file->recipient }}">
+        </div>
         @endif
     </div>
 </div>

@@ -205,7 +205,7 @@ function closeBlocks(){
 function checkBankSet(){
   let z = 0;
 
-  $('.fa-credit-card').each(function () {
+  $('.credit').each(function () {
     if(!$(this).closest('.dataBlock').hasClass("off")){
       if($(this).attr('value') == 0){
         $(this).addClass('disabled');
@@ -222,7 +222,13 @@ function checkBankSet(){
   }
 }
 
-$('.fa-credit-card').on("click", function () {
-  let test = $(this).closest('input').attr('value');
-  console.log(test);
+$('.credit').on("click", function () {
+  let id = $(this).attr('id');
+  let name = $('#name' +id).attr('value');
+  let nameArray = name.split(" ");
+  let firstName = nameArray[0];
+  let lastName = nameArray[1];
+  
+  console.log(nameArray);
 })
+

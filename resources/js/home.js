@@ -232,3 +232,24 @@ $('.credit').on("click", function () {
   console.log(nameArray);
 })
 
+// $.ajax({
+//   url: 'send',
+//   type: 'POST',
+//   data: {
+//       type: ,
+// serviceId: ,
+// amount: ,
+// currency: 'PLN',
+// orderId: ,
+// paymentMethod: ing,
+// paymentMethodCode: ,
+// successReturnUrl: ,
+// failureReturnUrl: ,
+// customer: [
+// {
+//   firstName: ,
+//   lastName: ,
+//   email: ,
+// },
+// ]
+//   },

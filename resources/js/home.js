@@ -264,7 +264,7 @@ $('.operations').on('click', '#payAll', function () {
   $('.priceI').each(function () {
     if (!$(this).closest('.dataBlock').hasClass("off")) {
       let id = $(this).attr('id').slice(-1);
-      
+
       let amount = $(this).attr('value');
       let bank = $('#bank' + id).attr('value');
       let email = $('#email' + id).attr('value');
@@ -275,3 +275,30 @@ $('.operations').on('click', '#payAll', function () {
     }
   })
 })
+
+
+// $.ajax({
+//   url: 'https://api.imoje.pl/v1/merchant/6yt3gjtm9p7b8h9xsdqz/transaction',
+//   type: 'POST',
+//   data: {
+//       'merchantId' => '6yt3gjtm9p1odfgx8491', !i
+// serviceId: , !i
+// amount: amount,
+// currency: 'PLN',
+// orderId: , !i
+// orderDescription: 'Invoice payment',
+// customerFirstName: '',
+// customerLastName: '',
+// customerEmail: email,
+// customerPhone: '',
+// urlSuccess: 'http://127.0.0.1/',
+// urlFailure: 'http://127.0.0.1/',
+// urlReturn: 'http://127.0.0.1/',
+// multipayout: payoutArray 
+//   },
+
+// [
+//   'ban': bank,
+//   amount: cost,
+//   label: email,
+// ]

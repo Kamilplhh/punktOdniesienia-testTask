@@ -67,6 +67,7 @@
         <i class="fa-regular fa-credit-card credit" id="{{ $file->id }}" value="{{ $file->bank }}"></i>
         <div class="off">
             <input type="hidden" class="bankI" id="{{'bank' . $file->id}}" value="{{ $file->bank }}">
+            <input type="hidden" class="priceI" id="{{'price' . $file->id}}" value="{{ $file->price }}">
             <input type="hidden" class="nameI" id="{{'name' . $file->id}}" value="{{ $file->recipient }}">
             <input type="hidden" class="emailI" id="{{'email' . $file->id}}" value="{{ Auth::user()->email }}">
         </div>

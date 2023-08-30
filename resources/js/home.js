@@ -122,7 +122,7 @@ function showIncoming() {
     }
   })
   $('.operations').html('<i class="incoming cost"></i>' +
-    '<button class="btn">Pay all <i class="fa-brands fa-google-pay"></i></button>')
+    '<button id="payAll" class="btn">Pay all <i class="fa-brands fa-google-pay"></i></button>')
 
   getMonth($('#next').attr('value'));
   closeBlocks();
@@ -229,9 +229,9 @@ $('.credit').on("click", function () {
   let firstName = nameArray[0];
   let lastName = nameArray[1];
   
-  let amount = $('#bank' +id).attr('value');
+  let amount = $('#price' +id).attr('value');
+  let bank = $('#bank' +id).attr('value');
   let email = $('#email' +id).attr('value');
-  console.log(nameArray);
 })
 
 // $.ajax({
@@ -259,3 +259,8 @@ $('.credit').on("click", function () {
 // },
 // ]
 //   },
+
+$('.operations').on('click', '#payAll', function () {
+  console.log('test');
+
+})

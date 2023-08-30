@@ -89,7 +89,7 @@ function exceeded() {
 //Toggle mail block
 $('.fa-eye').on("click", function () {
   let id = $(this).attr('id');
-  $('#mailBlock'+id).toggleClass('off');
+  $('#mailBlock' + id).toggleClass('off');
 })
 
 $('.exit').on("click", function () {
@@ -150,7 +150,7 @@ function showAll() {
     $(this).closest('.dataBlock').removeClass("off offline");
   })
   $('.operations').html('<button class="btn">Send all documents <i class="fa-solid fa-play"></i></button>')
-  
+
   getMonth($('#next').attr('value'));
   closeBlocks();
   checkIfEmpty();
@@ -197,24 +197,24 @@ $('.operations').on('click', '#scan', function () {
   $('.scan').toggleClass('off');
 })
 
-function closeBlocks(){
+function closeBlocks() {
   $('.document').addClass('off');
   $('.scan').addClass('off');
 }
 
-function checkBankSet(){
+function checkBankSet() {
   let z = 0;
 
   $('.credit').each(function () {
-    if(!$(this).closest('.dataBlock').hasClass("off")){
-      if($(this).attr('value') == 0){
+    if (!$(this).closest('.dataBlock').hasClass("off")) {
+      if ($(this).attr('value') == 0) {
         $(this).addClass('disabled');
-        z = z +1;
+        z = z + 1;
       }
     }
   });
 
-  if(z > 0){
+  if (z > 0) {
     $('.fa-google-pay').closest('.btn').addClass('disabled');
   }
   else {
@@ -224,14 +224,14 @@ function checkBankSet(){
 
 $('.credit').on("click", function () {
   let id = $(this).attr('id');
-  let name = $('#name' +id).attr('value');
+  let name = $('#name' + id).attr('value');
   let nameArray = name.split(" ");
   let firstName = nameArray[0];
   let lastName = nameArray[1];
-  
-  let amount = $('#price' +id).attr('value');
-  let bank = $('#bank' +id).attr('value');
-  let email = $('#email' +id).attr('value');
+
+  let amount = $('#price' + id).attr('value');
+  let bank = $('#bank' + id).attr('value');
+  let email = $('#email' + id).attr('value');
 })
 
 // $.ajax({
@@ -261,6 +261,17 @@ $('.credit').on("click", function () {
 //   },
 
 $('.operations').on('click', '#payAll', function () {
-  console.log('test');
-
+  $('.priceI').each(function () {
+    if (!$(this).closest('.dataBlock').hasClass("off")) {
+      let id = $(this).attr('id').slice(-1);
+      
+      let amount = $(this).attr('value');
+      let bank = $('#bank' + id).attr('value');
+      let email = $('#email' + id).attr('value');
+      let name = $('#name' + id).attr('value');
+      let nameArray = name.split(" ");
+      let firstName = nameArray[0];
+      let lastName = nameArray[1];
+    }
+  })
 })

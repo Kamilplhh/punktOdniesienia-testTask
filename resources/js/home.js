@@ -261,6 +261,8 @@ $('.credit').on("click", function () {
 //   },
 
 $('.operations').on('click', '#payAll', function () {
+  let payoutArray = [];
+  let cost = 0;
   $('.priceI').each(function () {
     if (!$(this).closest('.dataBlock').hasClass("off")) {
       let id = $(this).attr('id').slice(-1);
@@ -272,6 +274,14 @@ $('.operations').on('click', '#payAll', function () {
       let nameArray = name.split(" ");
       let firstName = nameArray[0];
       let lastName = nameArray[1];
+
+      cost = cost + parseInt(amount);
+      let object = {
+        ban: bank,
+        amount: amount,
+        label: email
+      };
+      payoutArray.push(object);
     }
   })
 })
@@ -283,7 +293,7 @@ $('.operations').on('click', '#payAll', function () {
 //   data: {
 //       'merchantId' => '6yt3gjtm9p1odfgx8491', !i
 // serviceId: , !i
-// amount: amount,
+// amount: cost,
 // currency: 'PLN',
 // orderId: , !i
 // orderDescription: 'Invoice payment',
@@ -296,9 +306,3 @@ $('.operations').on('click', '#payAll', function () {
 // urlReturn: 'http://127.0.0.1/',
 // multipayout: payoutArray 
 //   },
-
-// [
-//   'ban': bank,
-//   amount: cost,
-//   label: email,
-// ]

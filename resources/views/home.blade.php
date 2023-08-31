@@ -70,7 +70,6 @@
             <input type="hidden" class="priceI" id="{{'price' . $file->id}}" value="{{ $file->price }}">
             <input type="hidden" id="{{'name' . $file->id}}" value="{{ Auth::user()->name }}">
             <input type="hidden" id="{{'email' . $file->id}}" value="{{ Auth::user()->email }}">
-            <input type="hidden" id="{{'company' . $file->id}}" value="{{ Auth::user()->company }}">
         </div>
         @endif
     </div>

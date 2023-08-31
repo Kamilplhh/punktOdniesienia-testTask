@@ -232,6 +232,7 @@ $('.credit').on("click", function () {
   let amount = $('#price' + id).attr('value');
   let bank = $('#bank' + id).attr('value');
   let email = $('#email' + id).attr('value');
+  let company = $('#company' + id).attr('value');
 })
 
 // $.ajax({
@@ -253,7 +254,7 @@ $('.credit').on("click", function () {
 //    firstName: firstName,
 //    lastName: lastName,
 //    cid: '',
-//    company: '',
+//    company: company,
 //    phone: '',
 //    email: email,
 // },
@@ -271,14 +272,17 @@ $('.operations').on('click', '#payAll', function () {
       let bank = $('#bank' + id).attr('value');
       let email = $('#email' + id).attr('value');
       let name = $('#name' + id).attr('value');
+      let company = $('#company' + id).attr('value');
       let nameArray = name.split(" ");
       let firstName = nameArray[0];
       let lastName = nameArray[1];
 
       cost = cost + parseInt(amount);
       let object = {
+        id: '',
         ban: bank,
         amount: amount,
+        title: '',
         label: email
       };
       payoutArray.push(object);
@@ -291,18 +295,19 @@ $('.operations').on('click', '#payAll', function () {
 //   url: 'https://api.imoje.pl/v1/merchant/6yt3gjtm9p7b8h9xsdqz/transaction',
 //   type: 'POST',
 //   data: {
-//       'merchantId' => '6yt3gjtm9p1odfgx8491', !i
 // serviceId: , !i
 // amount: cost,
 // currency: 'PLN',
 // orderId: , !i
-// orderDescription: 'Invoice payment',
-// customerFirstName: '',
-// customerLastName: '',
-// customerEmail: email,
-// customerPhone: '',
-// urlSuccess: 'http://127.0.0.1/',
-// urlFailure: 'http://127.0.0.1/',
-// urlReturn: 'http://127.0.0.1/',
+// title: 'Invoice payment',
+// successReturnUrl: 'http://127.0.0.1/',
+// failureReturnUrl: 'http://127.0.0.1/',
+// customer: [
+// {
+//    firstName: firstName,
+//    lastName: lastName,
+//    email: email,
+//    company: '',
+// },
 // multipayout: payoutArray 
 //   },

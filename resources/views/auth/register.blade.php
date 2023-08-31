@@ -34,7 +34,7 @@
         </span>
         @enderror
 
-        <label for="name">Username:</label>
+        <label for="name">Firstname and lastname:</label>
         <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" required><br>
 
         @error('name')

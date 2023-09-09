@@ -255,6 +255,10 @@ img.img {
     margin-left: 0.5em;
 }
 
+.credit:hover {
+    cursor: pointer;
+}
+
 .operations button {
     background-color: rgb(113, 81, 242);
     color: white;

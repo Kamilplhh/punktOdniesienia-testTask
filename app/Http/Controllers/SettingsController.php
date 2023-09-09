@@ -13,7 +13,6 @@ class SettingsController extends Controller
 {
     public function profileUpdate(Request $request)
     {
-
         $request->validate([
             'logo' => ['nullable', 'mimes:jpg,png', 'max:1024'],
             'company' => ['required', 'string', 'max:255'],

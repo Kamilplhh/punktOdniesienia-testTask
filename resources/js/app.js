@@ -1,4 +1,5 @@
 import './bootstrap';
+import '../css/bootstrap.min.css';
 import "@fortawesome/fontawesome-free/css/all.css";
 import $, { error } from 'jquery';
 window.$ = $;
@@ -9,9 +10,4 @@ $(document).ready(function () {
     let text = $(this).val().replace(/\s/g,'');
     $('#labelEmail').text(text + "@domain.com");
   });
-});
-
-//Navbar show buttons
-$(".dots").on("click", function () {
-  $(".dotsBar").toggle();
 });

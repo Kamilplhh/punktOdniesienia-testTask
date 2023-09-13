@@ -176,11 +176,13 @@ function checkIfEmpty() {
   $('.dataBlock').each(function () {
     if (!$(this).hasClass('off')) {
       x = x + 1;
-      $('#noFiles').addClass("off");
+      $('#empty').addClass("off");
+      $('#main').removeClass("off");
     }
   })
   if (x === 0) {
-    $('#noFiles').removeClass("off");
+    $('#empty').removeClass("off");
+    $('#main').addClass("off");
   }
 }
 

@@ -27,7 +27,7 @@
                 @auth
                 <a class="navbar-brand" href="/">{{ Auth::user()->company }}</a>
                 @if(!empty(Auth::user()->logo))
-                <button class="profile" style="background-image: {{url('uploads/logo/'. Auth::user()->logo)}};" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="profile" style="background-image: url({{asset('uploads/logo/'. Auth::user()->logo)}}) !important" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
                     @else
                     <button class="profile" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
                         @endif
@@ -86,10 +86,7 @@
     @show
 
     <div class="panel">
-        <div class="data">
             @yield('content')
-        </div>
-
     </div>
 </body>
 

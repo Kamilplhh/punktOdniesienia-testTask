@@ -12,7 +12,17 @@
         </div>
     </div>
 </div>
-<main class="container">
+<main class="container off" id="empty">
+    <div class="list-container">
+        <div class="flex-column d-flex justify-content-center">
+            <h1 class="display-6 d-flex justify-content-center mt-3 text-center text-secondary">Czekamy na Twoje dokumenty</h1>
+            <img src="img/Listening To Feedback.png" class="mt-3">
+        </div>
+    </div>
+    </div>
+</main>
+
+<main class="container" id="main">
 
     <div class="list-container">
         @php($i = 0)
@@ -177,7 +187,7 @@
                         </button>
                         @else
                         <button type="button" class="btn btn-sm d-flex align-items-center rounded-pill">
-                            <span class="material-symbols-outlined text-success status" id="p" >paid</span>
+                            <span class="material-symbols-outlined text-success status" id="p">paid</span>
                         </button>
                         @endif
                         <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill ms-2" data-bs-toggle="dropdown" aria-expanded="false">

@@ -61,24 +61,23 @@
     </div>
     @show
 
-
     @section('calendar')
     <div class="container">
         <div class="d-flex justify-content-between mt-1">
 
             <div class="d-flex align-items-center">
-                <button class="btn btn-sm btn-dark d-flex align-items-center rounded-pill pe-2" type="button" value="1" id="back">
+                <button class="btn btn-sm btn-dark d-flex align-items-center rounded-pill pe-2 arrow" type="button" value="1" id="back">
                     <span class="material-symbols-outlined">arrow_back</span>
                 </button>
-                <div class="text-primary px-2">Sierpień<sup class="text-secondary">2023</sup></div>
+                <div class="text-primary px-2 month"></div>
                 <button class="btn btn-sm btn-dark d-flex align-items-center rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
                     <span class="material-symbols-outlined">more_horiz</span>
                 </button>
             </div>
 
             <div class="d-flex align-items-center">
-                <div class="px-2 text-secondary">Wrzesień</div>
-                <button class="btn btn-sm btn-dark d-flex align-items-center rounded-pill pe-2 disabled" type="button" value="0" id="next">
+                <div class="px-2 text-secondary nextMonth"></div>
+                <button class="btn btn-sm btn-dark d-flex align-items-center rounded-pill pe-2 arrow disabled" type="button" value="0" id="next">
                     <span class="material-symbols-outlined">arrow_forward</span>
                 </button>
             </div>

@@ -9,15 +9,16 @@ $(document).ready(function () {
 
 //Get month for calendar
 function getMonth(x) {
-  const m = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const m = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
 
   let date = new Date();
   let d = subtractMonths(date, x);
   let month = m[d.getMonth()];
   let year = d.getFullYear();
+  let nextMonth = m[d.getMonth() +1];
 
-  $('.month').text(month);
-  $('.year').text(year);
+  $('.month').html(month + '<sup class="text-secondary">'+ year +'</sup>');
+  $('.nextMonth').text(nextMonth);
 
   let dataDate = year + '-' + (d.getMonth() + 1);
   getDataFromMonth(dataDate);
@@ -64,7 +65,8 @@ function itemsPrice() {
   });
 
   checkBankSet();
-  $('.cost').text(x.toFixed(2) + ' PLN');
+  $('.fullPrice').html('Razem: ' + x.toFixed(2) +
+  '<small class="ps-1 text-secondary">PLN</small>');
 };
 
 //Check if there is no payment date exceed

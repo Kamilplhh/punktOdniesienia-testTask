@@ -4,7 +4,7 @@ window.$ = $;
 //Page onload functions
 $(document).ready(function () {
   getMonth(0);
-  exceeded()
+  // exceeded()
 });
 
 //Get month for calendar
@@ -64,39 +64,39 @@ function itemsPrice() {
       x = x + parseFloat($(this).text());
   });
 
-  checkBankSet();
+  // checkBankSet();
   $('.fullPrice').html('Razem: ' + x.toFixed(2) +
   '<small class="ps-1 text-secondary">PLN</small>');
 };
 
 //Check if there is no payment date exceed
-function exceeded() {
-  let date = new Date();
+// function exceeded() {
+//   let date = new Date();
 
-  $('span').filter('.unpaid').each(function () {
-    let block = $(this).next();
-    let textDate = new Date(block.text());
+//   $('span').filter('.unpaid').each(function () {
+//     let block = $(this).next();
+//     let textDate = new Date(block.text());
 
-    let difference = date - textDate;
-    if (difference > 0) {
-      difference = Math.round(Math.abs(difference / (1000 * 3600 * 24)));
-      if (difference > 1) {
-        block.append('<h6 class="late">exceeded ' + difference + ' days</h6>')
-      } else
-        block.append('<h6 class="late">exceeded ' + difference + ' day</h6>')
-    }
-  })
-};
+//     let difference = date - textDate;
+//     if (difference > 0) {
+//       difference = Math.round(Math.abs(difference / (1000 * 3600 * 24)));
+//       if (difference > 1) {
+//         block.append('<h6 class="late">exceeded ' + difference + ' days</h6>')
+//       } else
+//         block.append('<h6 class="late">exceeded ' + difference + ' day</h6>')
+//     }
+//   })
+// };
 
 //Toggle mail block
-$('.fa-eye').on("click", function () {
-  let id = $(this).attr('id');
-  $('#mailBlock' + id).toggleClass('off');
-})
+// $('.fa-eye').on("click", function () {
+//   let id = $(this).attr('id');
+//   $('#mailBlock' + id).toggleClass('off');
+// })
 
-$('.exit').on("click", function () {
-  $(this).closest('.mailBlock').toggleClass('off');
-})
+// $('.exit').on("click", function () {
+//   $(this).closest('.mailBlock').toggleClass('off');
+// })
 
 //Whole panel navi system
 $('.homeNavi').on("click", function () {
@@ -110,8 +110,10 @@ $('.homeNavi').on("click", function () {
     showAll();
   }
 
-  $('#' + id).addClass("selected");
-  $(".homeNavi:not(#" + id + ")").removeClass("selected");
+  $('#' + id).addClass("text-primary");
+  $('#' + id).removeClass("text-secondary");
+  $(".homeNavi:not(#" + id + ")").addClass("text-secondary");
+  $(".homeNavi:not(#" + id + ")").removeClass("text-primary");
   itemsPrice();
 });
 
@@ -123,11 +125,8 @@ function showIncoming() {
       $(this).closest('.dataBlock').removeClass("off offline");
     }
   })
-  $('.operations').html('<i class="incoming cost"></i>' +
-    '<button id="payAll" class="btn">Pay all <i class="fa-brands fa-google-pay"></i></button>')
 
   getMonth($('#next').attr('value'));
-  closeBlocks();
   checkIfEmpty();
 };
 
@@ -139,11 +138,8 @@ function showPaid() {
       $(this).closest('.dataBlock').removeClass("off offline");
     }
   })
-  $('.operations').html('<button id="add" class="btn">Add document <i class="fa-solid fa-file-circle-plus"></i></button>' +
-    '<button id="scan" class="btn">Scan receipts <i class="fa-solid fa-file-lines"></i></button>')
 
   getMonth($('#next').attr('value'));
-  closeBlocks();
   checkIfEmpty();
 };
 
@@ -151,10 +147,8 @@ function showAll() {
   $('span').filter('.btn').each(function () {
     $(this).closest('.dataBlock').removeClass("off offline");
   })
-  $('.operations').html('<button class="btn">Send all documents <i class="fa-solid fa-play"></i></button>')
 
   getMonth($('#next').attr('value'));
-  closeBlocks();
   checkIfEmpty();
 };
 
@@ -190,82 +184,68 @@ function checkIfEmpty() {
   }
 }
 
-//Add document
-$('.operations').on('click', '#add', function () {
-  $('.document').toggleClass('off');
-})
+// function checkBankSet() {
+//   let z = 0;
 
-$('.operations').on('click', '#scan', function () {
-  $('.scan').toggleClass('off');
-})
+//   $('.credit').each(function () {
+//     if (!$(this).closest('.dataBlock').hasClass("off")) {
+//       if ($(this).attr('value') == 0) {
+//         $(this).addClass('disabled');
+//         z = z + 1;
+//       }
+//     }
+//   });
 
-function closeBlocks() {
-  $('.document').addClass('off');
-  $('.scan').addClass('off');
-}
+//   if (z > 0) {
+//     $('.fa-google-pay').closest('.btn').addClass('disabled');
+//   }
+//   else {
+//     $('.fa-google-pay').closest('.btn').removeClass('disabled');
+//   }
+// }
 
-function checkBankSet() {
-  let z = 0;
+// $('.credit').on("click", function () {
+//   let id = $(this).attr('id');
+//   let name = $('#name' + id).attr('value');
+//   let nameArray = name.split(" ");
+//   let firstName = nameArray[0];
+//   let lastName = nameArray[1];
 
-  $('.credit').each(function () {
-    if (!$(this).closest('.dataBlock').hasClass("off")) {
-      if ($(this).attr('value') == 0) {
-        $(this).addClass('disabled');
-        z = z + 1;
-      }
-    }
-  });
+//   let bank = $('#bank' + id).attr('value');
+//   let email = $('#email' + id).attr('value');
+//   let amount = $('#price' + id).attr('value');
+//   amount = String(amount);
+//   amount = parseInt(amount + '00');
 
-  if (z > 0) {
-    $('.fa-google-pay').closest('.btn').addClass('disabled');
-  }
-  else {
-    $('.fa-google-pay').closest('.btn').removeClass('disabled');
-  }
-}
-
-$('.credit').on("click", function () {
-  let id = $(this).attr('id');
-  let name = $('#name' + id).attr('value');
-  let nameArray = name.split(" ");
-  let firstName = nameArray[0];
-  let lastName = nameArray[1];
-
-  let bank = $('#bank' + id).attr('value');
-  let email = $('#email' + id).attr('value');
-  let amount = $('#price' + id).attr('value');
-  amount = String(amount);
-  amount = parseInt(amount + '00');
-
-})
+// })
 
 
-$('.operations').on('click', '#payAll', function () {
-  let payoutArray = [];
-  let cost = 0;
-  $('.priceI').each(function () {
-    if (!$(this).closest('.dataBlock').hasClass("off")) {
-      let id = $(this).attr('id').slice(-1);
+// $('.operations').on('click', '#payAll', function () {
+//   let payoutArray = [];
+//   let cost = 0;
+//   $('.priceI').each(function () {
+//     if (!$(this).closest('.dataBlock').hasClass("off")) {
+//       let id = $(this).attr('id').slice(-1);
 
-      let bank = $('#bank' + id).attr('value');
-      let email = $('#email' + id).attr('value');
-      let name = $('#name' + id).attr('value');
-      let nameArray = name.split(" ");
-      let firstName = nameArray[0];
-      let lastName = nameArray[1];
-      let amount = $('#price' + id).attr('value');
-      amount = String(amount);
-      amount = parseInt(amount + '00');
+//       let bank = $('#bank' + id).attr('value');
+//       let email = $('#email' + id).attr('value');
+//       let name = $('#name' + id).attr('value');
+//       let nameArray = name.split(" ");
+//       let firstName = nameArray[0];
+//       let lastName = nameArray[1];
+//       let amount = $('#price' + id).attr('value');
+//       amount = String(amount);
+//       amount = parseInt(amount + '00');
 
-      cost = cost + parseInt(amount);
-      let object = {
-        id: '',
-        ban: bank,
-        amount: amount,
-        title: '',
-        label: email
-      };
-      payoutArray.push(object);
-    }
-  })
-})
+//       cost = cost + parseInt(amount);
+//       let object = {
+//         id: '',
+//         ban: bank,
+//         amount: amount,
+//         title: '',
+//         label: email
+//       };
+//       payoutArray.push(object);
+//     }
+//   })
+// })

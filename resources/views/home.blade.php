@@ -6,9 +6,9 @@
 <div class="container">
     <div class="d-flex justify-content-center mt-3">
         <div class="btn-group " role="group" aria-label="Basic example">
-            <button type="button" id="all" class="btn btn-dark d-flex align-items-center text-primary">Wszystkie</button>
-            <button type="button" id="incoming" class="btn btn-dark d-flex align-items-center text-secondary">Nieopłacone</button>
-            <button type="button" id="paid" class="btn btn-dark d-flex align-items-center text-secondary">Opłacone</button>
+            <button type="button" id="all" class="btn btn-dark d-flex align-items-center text-primary homeNavi">Wszystkie</button>
+            <button type="button" id="incoming" class="btn btn-dark d-flex align-items-center text-secondary homeNavi">Nieopłacone</button>
+            <button type="button" id="paid" class="btn btn-dark d-flex align-items-center text-secondary homeNavi">Opłacone</button>
         </div>
     </div>
 </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div>
                         <div class="mb-1">{{ $file->title }}</div>
-                        <small class="text-secondary">{{ date('m-d-Y',strtotime($file->created_at)) }}</small>
+                        <small class="text-secondary fileDate">{{ date('m-d-Y',strtotime($file->created_at)) }}</small>
                     </div>
                 </div>
 
@@ -164,7 +164,7 @@
                     </div>
                     <div>
                         <div class="mb-1">{{ $file->title }}</div>
-                        <small class="text-secondary">{{ date('m-d-Y',strtotime($file->created_at)) }}</small>
+                        <small class="text-secondary fileDate">{{ date('m-d-Y',strtotime($file->created_at)) }}</small>
                     </div>
                 </div>
 
@@ -314,7 +314,7 @@
                     </div>
                     <div>
                         <div class="mb-1">{{ $file->title }}</div>
-                        <small class="text-secondary">{{ date('m-d-Y',strtotime($file->created_at)) }}</small>
+                        <small class="text-secondary fileDate">{{ date('m-d-Y',strtotime($file->created_at)) }}</small>
                     </div>
                 </div>
 

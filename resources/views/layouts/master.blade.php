@@ -53,7 +53,6 @@
                                     <span class="material-symbols-outlined ms-2">logout</span>
                                 </a>
                             </li>
-
                         </ul>
                     </div>
             </div>
@@ -86,7 +85,7 @@
     @show
 
     <div class="panel">
-            @yield('content')
+        @yield('content')
     </div>
 </body>
 

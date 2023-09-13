@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/js/home.js',
                 'resources/js/upload.js',
                 'resources/js/admin.js',
+                'resources/js/settings.js',
                 'resources/js/color-modes.js',
             ],
             refresh: true,

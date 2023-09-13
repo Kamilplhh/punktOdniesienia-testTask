@@ -1,7 +1,6 @@
 @extends('layouts.master')
-@vite('resources/css/settings.css')
-@vite('resources/css/login.css')
-
+@vite('resources/css/index.css')
+@vite('resources/js/settings.js')
 
 @section('navi')
 <a class="selected">Account settings</a>
@@ -10,61 +9,114 @@
 @section('calendar')
 @show
 
-@section('cost')
-@show
-
 @section('content')
 
-<form enctype="multipart/form-data" method="POST" action="{{ route('profileUpdate') }}">
-    @csrf
-    <label for="logo">Logo:</label>
-    <input type="file" id="logo" name="logo"><br>
-
-    <label for="company">Company name:</label>
-    <input type="text" id="company" name="company" value="{{ Auth::user()->company }}" placeholder="{{ Auth::user()->company }}" class="form-control @error('company') is-invalid @enderror"><br>
-
-    @error('cName')
-    <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }}</strong>
-    </span>
-    @enderror
-
-    <label for="name">Firstname and lastname:</label>
-    <input type="text" id="name" name="name" value="{{ Auth::user()->name }}" placeholder="{{ Auth::user()->name }}" class="form-control @error('name') is-invalid @enderror"><br>
-
-    @error('name')
-    <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }}</strong>
-    </span>
-    @enderror
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" value="{{ Auth::user()->email }}" placeholder="{{ Auth::user()->email }}" class="form-control @error('email') is-invalid @enderror"><br>
-
-    @error('email')
-    <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }}</strong>
-    </span>
-    @enderror
-
-    <label>E-mail to receive invoices:</label>
-    <label class="form" style="font-weight: bold;" id="labelEmail">{{ Auth::user()->company . '@domain.com'}}</label><br>
-
-    <label for="emailto">E-mail to send documents:</label>
-    <input type="email" id="emailto" name="emailto" value="{{ Auth::user()->emailto }}" placeholder="{{ Auth::user()->emailto }}" class="form-control"><br>
-
-    <label for="password">Password:</label>
-    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required><br>
-    @error('password')
-    <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }}</strong>
-    </span>
-    @enderror
-
-    <div class="operations">
-        <a href="/" class="btn">Cancel</a>
-        <button type="submit" class="btn">Save</button>
+<div class="container">
+    <div class="list-container">
+        <h4 class="container text-secondary">Ustawienia konta</h4>
     </div>
-</form>
+</div>
+
+<div class="container">
+    <div class="d-flex justify-content-center mt-3">
+        <div class="btn-group " role="group" aria-label="Basic example">
+            <button type="button" id="account" class="btn btn-dark d-flex align-items-center text-primary navi">Konto</button>
+            <button type="button" id="password" class="btn btn-dark d-flex align-items-center text-secondary navi">Hasło</button>
+            <button type="button" id="email" class="btn btn-dark d-flex align-items-center text-secondary navi">E-mail do faktur</button>
+        </div>
+    </div>
+</div>
+
+
+<main class="container">
+
+    <div class="list-container">
+
+        <div class="bg-body-tertiary p-3 rounded mt-4 block account">
+
+            <div class="col-md-12 mb-3">
+                <label for="inputAddress" class="form-label">Nazwa firmy</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Logo firmy</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+
+            <hr class="divider">
+
+            <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email </label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="col-md-12">
+                <label for="inputAddress" class="form-label">E-mail do księgowości</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-body-tertiary p-3 rounded mt-4 block password off">
+
+            <div class="col-md-12 mb-3">
+                <label for="inputAddress" class="form-label">Hasło</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="inputPassword">
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label for="inputPassword" class="col-form-label">Powtórzenie hasła</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="inputPassword">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bg-body-tertiary p-3 rounded mt-4 block email off">
+
+            <div class="col-md-12 mb-3">
+                <label for="inputAddress" class="form-label">Adres e-mail do odbioru faktur</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label for="inputAddress" class="form-label">Port SMTP</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<footer class="footer mt-auto py-3 bg-body-tertiary fixed-bottom z-5">
+    <div class="container">
+        <div class="list-container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+
+                </div>
+                <div class="d-flex flex-row">
+                    <button type="button" class="btn btn-primary btn-sm">Zapisz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 @stop

@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif !important;
 }
 .footer {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

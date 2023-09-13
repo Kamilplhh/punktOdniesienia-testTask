@@ -86,10 +86,6 @@
     @show
 
     <div class="panel">
-        @section('cost')
-        <div class="cost"></div>
-        @show
-
         <div class="data">
             @yield('content')
         </div>

@@ -39,11 +39,11 @@
                         <div class="pe-2 price">{{ $file->price }}</div>
                         @if($file->paid == 0)
                         <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill">
-                            <span class="material-symbols-outlined text-primary">send_money</span>
+                            <span class="material-symbols-outlined text-primary status">send_money</span>
                         </button>
                         @else
                         <button type="button" class="btn btn-sm d-flex align-items-center rounded-pill">
-                            <span class="material-symbols-outlined text-success">paid</span>
+                            <span class="material-symbols-outlined text-success status" id="p">paid</span>
                         </button>
                         @endif
                         <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill ms-2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -173,11 +173,11 @@
                         <div class="pe-2 price">{{ $file->price }}</div>
                         @if($file->paid == 0)
                         <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill">
-                            <span class="material-symbols-outlined text-primary">send_money</span>
+                            <span class="material-symbols-outlined text-primary status">send_money</span>
                         </button>
                         @else
                         <button type="button" class="btn btn-sm d-flex align-items-center rounded-pill">
-                            <span class="material-symbols-outlined text-success">paid</span>
+                            <span class="material-symbols-outlined text-success status" id="p" >paid</span>
                         </button>
                         @endif
                         <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill ms-2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -323,11 +323,11 @@
                         <div class="pe-2 price">{{ $file->price }}</div>
                         @if($file->paid == 0)
                         <button type="button" class="btn btn-sm d-flex align-items-center rounded-pill">
-                            <span class="material-symbols-outlined text-danger">paid</span>
+                            <span class="material-symbols-outlined text-danger status">paid</span>
                         </button>
                         @else
                         <button type="button" class="btn btn-sm d-flex align-items-center rounded-pill">
-                            <span class="material-symbols-outlined text-success">paid</span>
+                            <span class="material-symbols-outlined text-success status" id="p">paid</span>
                         </button>
                         @endif
                         <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill ms-2" data-bs-toggle="dropdown" aria-expanded="false">

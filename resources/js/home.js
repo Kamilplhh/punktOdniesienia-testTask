@@ -118,8 +118,8 @@ $('.homeNavi').on("click", function () {
 });
 
 function showIncoming() {
-  $('span').filter('.btn').each(function () {
-    if ($(this).text() == "Paid") {
+  $('span').filter('.status').each(function () {
+    if ($(this).attr('id') == "p") {
       $(this).closest('.dataBlock').addClass("off offline");
     } else {
       $(this).closest('.dataBlock').removeClass("off offline");
@@ -131,11 +131,11 @@ function showIncoming() {
 };
 
 function showPaid() {
-  $('span').filter('.btn').each(function () {
-    if ($(this).text() == "Unpaid") {
-      $(this).closest('.dataBlock').addClass("off offline");
+  $('span').filter('.status').each(function () {
+    if ($(this).attr('id') == "p") {
+      $(this).closest('.dataBlock').removeClass("off offline");  
     } else {
-      $(this).closest('.dataBlock').removeClass("off offline");
+      $(this).closest('.dataBlock').addClass("off offline");
     }
   })
 
@@ -144,7 +144,7 @@ function showPaid() {
 };
 
 function showAll() {
-  $('span').filter('.btn').each(function () {
+  $('span').filter('.status').each(function () {
     $(this).closest('.dataBlock').removeClass("off offline");
   })
 

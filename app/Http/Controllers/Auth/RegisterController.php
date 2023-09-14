@@ -50,12 +50,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'logo' => ['nullable', 'mimes:jpg,png', 'max:1024'],
-            'company' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'emailto' => ['required', 'string', 'email', 'max:255'],
+            'login' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8'],
+            'company' => ['required', 'string', 'max:255'],
+            'logo' => ['nullable', 'mimes:jpg,png', 'max:1024'],
+            'emailto' => ['required', 'string', 'email', 'max:255'],
+            'invoiceemail' => ['nullable', 'string', 'email', 'max:255'],
+            'emailpassword' => ['nullable', 'string', 'max:255'],
+            'emailport' => ['nullable', 'string', 'max:255'],
         ]);
     }
     /**
@@ -76,13 +78,14 @@ class RegisterController extends Controller
         }
 
         return User::create([
-            'logo' => $fileName,
-            'company' => $data['company'],
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'emailfrom' => (trim($data['company']) . '@domain.com'),
-            'emailto' => $data['emailto'],
+            'login' => $data['login'],
             'password' => Hash::make($data['password']),
+            'company' => $data['company'],
+            'logo' => $fileName,
+            'emailTo' => $data['emailto'],
+            'invoiceEmail' => $data['invoiceemail'],
+            'emailPassword' => $data['emailpassword'],
+            'emailPort' => $data['emailport'],
         ]);
     }
 }

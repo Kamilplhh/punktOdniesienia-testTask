@@ -17,79 +17,84 @@
 
 <main class="container">
     <div class="list-container">
+        <form enctype=" multipart/form-data" method="POST" action="{{ route('register') }}">
+            @csrf
 
-        <div class="bg-body-tertiary p-3 rounded mt-4 block" id="0">
-            <div class="col-md-12 mb-3">
-                <label for="inputAddress" class="form-label">Login</label>
-                <div class="input-group">
-                    <input type="login" class="form-control" id="login" name="login">
+            <div class="bg-body-tertiary p-3 rounded mt-4 block" id="0">
+
+                <div class="col-md-12 mb-3">
+                    <label for="login" class="form-label">Login</label>
+                    <div class="input-group">
+                        <input type="login" class="form-control" name="login" id="login">
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-12 mb-3">
-                <label for="inputAddress" class="form-label">Hasło</label>
-                <div class="input-group">
-                    <input type="password" class="form-control" id="inputPassword" name="password">
+                <div class="col-md-12 mb-3">
+                    <label for="password" class="form-label">Hasło</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-12 mb-3">
-                <label for="inputPassword" class="col-form-label">Powtórzenie hasła</label>
-                <div class="input-group">
-                    <input type="password" class="form-control" id="inputPassword" name="passwordRepeat">
+                <div class="col-md-12 mb-3">
+                    <label class="col-form-label">Powtórzenie hasła</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control passwordRepeat">
+                    </div>
                 </div>
+
             </div>
-        </div>
 
-        <div class="bg-body-tertiary p-3 rounded mt-4 off block" id="1">
+            <div class="bg-body-tertiary p-3 rounded mt-4 block off" id="1">
 
-            <div class="col-md-12 mb-3">
-                <label for="inputAddress" class="form-label">Nazwa firmy</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                <div class="col-md-12 mb-3">
+                    <label for="company" class="form-label">Nazwa firmy</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="company" id="company">
+                    </div>
                 </div>
-            </div>
 
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Logo firmy</label>
-                <input class="form-control" type="file" id="formFile">
-            </div>
-
-            <hr class="divider">
-
-            <div class="col-md-12">
-                <label for="inputAddress" class="form-label">E-mail do księgowości</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                <div class="mb-3">
+                    <label for="logo" class="form-label">Logo firmy</label>
+                    <input class="form-control skip" type="file" name="logo" id="logo">
                 </div>
-            </div>
 
-        </div>
+                <hr class="divider">
 
-
-        <div class="bg-body-tertiary p-3 rounded mt-4 off block" id="2">
-            <div class="col-md-12 mb-3">
-                <label for="inputAddress" class="form-label">Adres e-mail do odbioru faktur</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                <div class="col-md-12">
+                    <label for="emailTo" class="form-label">E-mail do księgowości</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="emailto" id="emailto">
+                    </div>
                 </div>
+
             </div>
 
-            <div class="col-md-12 mb-3">
-                <label for="inputAddress" class="form-label">Hasło</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+
+            <div class="bg-body-tertiary p-3 rounded mt-4 block off" id="2">
+
+                <div class="col-md-12 mb-3">
+                    <label for="invoiceemail" class="form-label">Adres e-mail do odbioru faktur</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control skip" name="invoiceemail" id="invoiceemail">
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-12 mb-3">
-                <label for="inputAddress" class="form-label">Port SMTP</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                <div class="col-md-12 mb-3">
+                    <label for="emailpassword" class="form-label">Hasło</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control skip" name="emailpassword" id="emailpassword">
+                    </div>
                 </div>
-            </div>
 
-        </div>
+                <div class="col-md-12 mb-3">
+                    <label for="emailport" class="form-label">Port SMTP</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control skip" name="emailport" id="emailport">
+                    </div>
+                </div>
+
+            </div>
     </div>
     </div>
 
@@ -102,6 +107,7 @@
                     </div>
                     <div class="d-flex flex-row">
                         <button type="submit" id="skip" class="btn btn-outline-secondary btn-sm me-3 off">Pomiń</button><button type="button" class="btn btn-primary btn-sm submit">Dalej</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -110,4 +116,3 @@
 </main>
 
 @stop
-

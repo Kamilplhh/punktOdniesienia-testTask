@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('login');
-            $table->string('password');
-            $table->string('company');
+            $table->string('login')->nullable();
+            $table->string('password')->nullable();
+            $table->string('company')->nullable();
             $table->string('logo')->nullable();
-            $table->string('emailTo');
+            $table->string('emailTo')->nullable();
             $table->string('invoiceEmail')->nullable();
             $table->string('emailPassword')->nullable();
             $table->string('emailPort')->nullable();
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */

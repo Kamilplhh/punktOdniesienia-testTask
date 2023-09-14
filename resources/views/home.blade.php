@@ -28,6 +28,9 @@
         @php($i = 0)
         @foreach($files as $file)
         @php($i++)
+        @if(!empty($file->contractor_id))
+            @php($file = $file->contractor)
+        @endif
 
         {{--Dla maili--}}
         @if($file->type == "mail")
@@ -100,7 +103,7 @@
                     <div class="col-12">
                         <label for="companyName" class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $file->contractor }}">
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">domain_add</span></button>
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -121,14 +124,14 @@
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputAddress" value="">
+                            <input type="text" class="form-control" id="inputAddress" value="{{ $file->address1 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputCity" value="">
+                            <input type="text" class="form-control" id="inputCity" value="{{ $file->address2 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
@@ -149,7 +152,7 @@
                     <div class="col-12">
                         <label for="companyName" class="form-label">Opis płatności</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="opisplatnosci" value="">
+                            <input type="text" class="form-control" id="opisplatnosci" value="{{ $file->description }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
@@ -227,7 +230,7 @@
 
                     <div class="col-12">
                         <label for="companyName" class="form-label">Nazwa płatności</label>
-                        <input type="text" class="form-control" id="companyName" value="Zus">
+                        <input type="text" class="form-control" id="companyName" value="{{ $file->title }}">
                     </div>
 
                     <div class="col-12">
@@ -249,7 +252,7 @@
                     <div class="col-12">
                         <label for="companyName" class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $file->contractor }}">
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">domain_add</span></button>
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -270,14 +273,14 @@
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputAddress" value="">
+                            <input type="text" class="form-control" id="inputAddress" value="{{ $file->address1 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputCity" value="">
+                            <input type="text" class="form-control" id="inputCity" value="{{ $file->address2 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
@@ -298,7 +301,7 @@
                     <div class="col-12">
                         <label for="companyName" class="form-label">Opis płatności</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="opisplatnosci" value="">
+                            <input type="text" class="form-control" id="opisplatnosci" value="{{ $file->description }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
@@ -418,7 +421,7 @@
                     <button class="btn btn-primary d-flex justify-content-center" type="button">Wyślij wszystkie dokumenty
                         <span class="material-symbols-outlined ms-2">forward_to_inbox</span>
                     </button>
-                    <small class="text-secondary">Dokumenty wysłane na adres: kontakt@twojaksiegowa.pl</small>
+                    <small class="text-secondary">Dokumenty wysłane na adres: {{ Auth::user()->emailTo }}</small>
                 </div>
             </div>
         </div>

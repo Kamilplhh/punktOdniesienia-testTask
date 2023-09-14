@@ -21,9 +21,9 @@
                 @csrf
 
                 <div class="col-md-12 mb-3">
-                    <label for="inputAddress" class="form-label">Email</label>
+                    <label for="login" class="form-label">Login</label>
                     <div class="input-group">
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <input type="login" class="form-control" id="login" name="login" required>
                     </div>
                 </div>
 

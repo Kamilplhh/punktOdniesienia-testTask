@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('scans', function (Blueprint $table) {
             $table->id();
-            $table->string('priceText')->nullable();
+            $table->string('contractorText')->nullable();
+            $table->string('address1Text')->nullable();
+            $table->string('address2Text')->nullable();
             $table->string('bankText')->nullable();
-            $table->string('timeText')->nullable();
             $table->string('nipText')->nullable();
-            $table->string('invoiceText')->nullable();
+            $table->string('priceText')->nullable();
             $table->timestamps();
         });
     }

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('contractors', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('adress1');
+            $table->string('contractor');
+            $table->string('address1');
             $table->string('address2');
             $table->Integer('bank');
             $table->Integer('nip');

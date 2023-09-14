@@ -13,20 +13,24 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->string('file');
-            $table->string('title');
+            $table->string('title')->nullable();
+            $table->date('date')->nullable();
             $table->string('email')->nullable();
-            $table->boolean('paid')->default(false);
-            $table->float('price', 8, 2);
-            $table->date('paymentDate'); 
+            $table->string('file')->nullable();
+            $table->string('contractor')->nullable();
+            $table->string('address1')->nullable();
+            $table->string('address2')->nullable();
             $table->Integer('bank')->nullable();
             $table->Integer('nip')->nullable();
-            $table->string('invoice_number')->nullable();
-            $table->string('recipient')->nullable();
-            $table->string('adress')->nullable();
-            $table->string('content')->nullable();
+            $table->string('description')->nullable();
+            $table->float('price', 8, 2)->nullable();
+            $table->boolean('paid')->default(false);
+            // $table->date('paymentDate'); 
+            $table->string('type');
+            $table->date('cycleDate')->nullable();
+            $table->Integer('cycleFrequency')->nullable();
             $table->bigInteger('user_id');
-            $table->bigInteger('contractor_id');
+            $table->bigInteger('contractor_id')->nullable();
             $table->timestamps();
         });
     }

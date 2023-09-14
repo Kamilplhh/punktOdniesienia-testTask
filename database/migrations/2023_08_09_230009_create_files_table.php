@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('adress')->nullable();
             $table->string('content')->nullable();
             $table->bigInteger('user_id');
+            $table->bigInteger('contractor_id');
             $table->timestamps();
         });
     }

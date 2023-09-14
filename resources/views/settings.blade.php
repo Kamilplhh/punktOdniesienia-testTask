@@ -2,10 +2,6 @@
 @vite('resources/css/index.css')
 @vite('resources/js/settings.js')
 
-@section('navi')
-<a class="selected">Account settings</a>
-@stop
-
 @section('calendar')
 @show
 

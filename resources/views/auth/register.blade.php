@@ -1,74 +1,113 @@
 @extends('layouts.master')
-@vite('resources/css/settings.css')
-@vite('resources/css/login.css')
+@vite('resources/css/index.css')
+@vite('resources/js/register.js')
 
 @section('navbar')
-@stop
-
-@section('navi')
-<a href="{{ route('login') }}">Login</a>
-<a class="selected">Register</a>
 @stop
 
 @section('calendar')
 @show
 
-@section('cost')
-@show
-
 @section('content')
-
-
-<div>
-    <form enctype="multipart/form-data" method="POST" action="{{ route('register') }}">
-        @csrf
-        <label for="logo">Logo:</label>
-        <input type="file" id="logo" name="logo" value="null"><br>
-
-        <label for="company">Company name:</label>
-        <input type="text" id="company" name="company" class="form-control @error('company') is-invalid @enderror" required><br>
-
-        @error('cName')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-
-        <label for="name">Firstname and lastname:</label>
-        <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" required><br>
-
-        @error('name')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" required><br>
-
-        @error('email')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-
-        <label>E-mail to receive invoices:</label>
-        <label class="form" style="font-weight: bold;" id="labelEmail">@domain.com</label><br>
-
-        <label for="emailto">E-mail to send documents:</label>
-        <input type="email" id="emailto" name="emailto" class="form-control" required><br>
-
-        <label for="password">Password:</label>
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required><br>
-        @error('password')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-
-        <div class="operations">
-            <button type="submit" class="btn">Register</button>
-        </div>
-    </form>
+<div class="container mt-4">
+    <div class="list-container">
+        <h4 class="container text-secondary">Pierwsze ustawienia konta</h4>
+    </div>
 </div>
+
+<main class="container">
+    <div class="list-container">
+
+        <div class="bg-body-tertiary p-3 rounded mt-4 block" id="0">
+            <div class="col-md-12 mb-3">
+                <label for="inputAddress" class="form-label">Login</label>
+                <div class="input-group">
+                    <input type="login" class="form-control" id="login" name="login">
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label for="inputAddress" class="form-label">Hasło</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="inputPassword" name="password">
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label for="inputPassword" class="col-form-label">Powtórzenie hasła</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="inputPassword" name="passwordRepeat">
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-body-tertiary p-3 rounded mt-4 off block" id="1">
+
+            <div class="col-md-12 mb-3">
+                <label for="inputAddress" class="form-label">Nazwa firmy</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Logo firmy</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+
+            <hr class="divider">
+
+            <div class="col-md-12">
+                <label for="inputAddress" class="form-label">E-mail do księgowości</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="bg-body-tertiary p-3 rounded mt-4 off block" id="2">
+            <div class="col-md-12 mb-3">
+                <label for="inputAddress" class="form-label">Adres e-mail do odbioru faktur</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label for="inputAddress" class="form-label">Hasło</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label for="inputAddress" class="form-label">Port SMTP</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <footer class=" footer mt-auto py-3 bg-body-tertiary fixed-bottom z-5">
+        <div class="container">
+            <div class="list-container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <button type="button" class="btn btn-primary btn-sm back" value=0>Cofnij</button>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <button type="submit" id="skip" class="btn btn-outline-secondary btn-sm me-3 off">Pomiń</button><button type="button" class="btn btn-primary btn-sm submit">Dalej</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</main>
+
 @stop
+

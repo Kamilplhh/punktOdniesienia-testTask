@@ -5,6 +5,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ScanController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\ContractorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('pdfUpload', [FileController::class, 'pdfUpload'])->name('pdfUpload'); 
     
     Route::get('/admin', [AdminController::class, 'getUsers']);
+
+    Route::get('/contractors', [ContractorController::class, 'getData']);
 
     Route::get('/deleteuser/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
 

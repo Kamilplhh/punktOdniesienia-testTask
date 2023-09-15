@@ -10,23 +10,22 @@ class File extends Model
     use HasFactory;
 
     protected $fillable = [
-        'file',
         'title',
+        'date',
         'email',
-        'paid',
-        'price',
-        'paymentDate',
+        'file',
+        'contractor',
+        'address1',
+        'address2',
         'bank',
         'nip',
-        'invoice_number',
-        'recipient',
-        'adress',
-        'content',
+        'description',
+        'price',
+        'paid',
+        'type',
+        'cycleDate',
         'user_id',
+        'contractor_id',
     ];
 
-    public function contractor()
-    {
-        return $this->belongsTo(Contractor::class);
-    }
 }

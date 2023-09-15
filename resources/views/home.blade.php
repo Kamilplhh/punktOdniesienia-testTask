@@ -28,9 +28,6 @@
         @php($i = 0)
         @foreach($files as $file)
         @php($i++)
-        @if(!empty($file->contractor_id))
-            @php($file = $file->contractor)
-        @endif
 
         {{--Dla maili--}}
         @if($file->type == "mail")
@@ -99,6 +96,9 @@
                     @endif
                 </div>
 
+                @if(!empty($file->contractor_id))
+                @php($file = $file->contractor)
+                @endif
                 <form class="row g-3">
                     <div class="col-12">
                         <label for="companyName" class="form-label">Nazwa kontrahenta</label>

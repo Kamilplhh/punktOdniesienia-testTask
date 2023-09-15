@@ -14,6 +14,8 @@
 
 <main class="container">
     <div class="list-container">
+        @foreach($files as $file)
+        @foreach($file as $objects)
         <div class="bg-body-tertiary p-3 rounded mt-4">
             <div class="d-flex justify-content-between">
                 <div class="d-flex" data-bs-toggle="collapse" data-bs-target="#1" aria-expanded="false" aria-controls="1">
@@ -22,8 +24,8 @@
                         <div><span class="material-symbols-outlined text-secondary">expand_more</span></div>
                     </div>
                     <div>
-                        <div class="mb-1">IKEA Retail sp. z o.o.</div>
-                        <small class="text-secondary">6.08.2023</small>
+                        <div class="mb-1">{{ $objects->contractor }}</div>
+                        <small class="text-secondary">{{ date('m-d-Y',strtotime($objects->created_at)) }}</small>
                     </div>
                 </div>
 
@@ -45,7 +47,7 @@
                 <div class="col-12 mb-3">
                     <label for="email" class="form-label">Powiązany adres e-mail</label>
                     <div class="input-group">
-                        <input class="form-control" type="text" placeholder="you@example.com" aria-label="Disabled input example">
+                        <input class="form-control" type="text" placeholder="{{ $objects->email }}" aria-label="Disabled input example">
                         <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">add</span></button>
                         <div class="invalid-feedback">
@@ -60,7 +62,7 @@
                     <div class="col-12">
                         <label for="companyName" class="form-label">Nazwa dostawcy</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="{{ $objects->contractor }}">
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
 
                         </div>
@@ -68,34 +70,36 @@
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputAddress" placeholder="">
+                            <input type="text" class="form-control" id="inputAddress" placeholder="{{ $objects->address1 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputCity" placeholder="">
+                            <input type="text" class="form-control" id="inputCity" placeholder="{{ $objects->address2 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="kwota" class="form-label">Numer rachunku dostawcy</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="Numerrachunku">
+                            <input type="text" class="form-control" id="Numerrachunku" placeholder="{{ $objects->bank}}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="nip" class="form-label">NIP</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="nip" placeholder="">
+                            <input type="text" class="form-control" id="nip" placeholder="{{ $objects->nip }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+        @endforeach
+        @endforeach
     </div>
 </main>
 

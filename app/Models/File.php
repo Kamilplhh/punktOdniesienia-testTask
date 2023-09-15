@@ -24,4 +24,9 @@ class File extends Model
         'content',
         'user_id',
     ];
+
+    public function contractor()
+    {
+        return $this->belongsTo(Contractor::class);
+    }
 }

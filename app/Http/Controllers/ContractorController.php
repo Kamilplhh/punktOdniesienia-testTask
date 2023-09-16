@@ -30,4 +30,19 @@ class ContractorController extends Controller
         return redirect()->back();
     }
     
+    public function deleteContractor($id)
+    {
+        Contractor::destroy($id);
+        return redirect()->back();
+    }
+
+    public function editContractor(Request $request)
+    {
+        $request['user_id'] = Auth::id();
+
+        $fileArray = $request->all([]);
+        Contractor::find($request['id'])->update($fileArray);
+        return redirect()->back();
+    }
+
 }

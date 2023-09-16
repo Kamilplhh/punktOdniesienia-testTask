@@ -12,3 +12,7 @@ $('.navi').on("click", function () {
     $(".navi:not(#" + id + ")").addClass("text-secondary");
     $(".navi:not(#" + id + ")").removeClass("text-primary");
   });
+
+$('.edit').on("click", function() {
+  $(this).closest('form').submit();
+})

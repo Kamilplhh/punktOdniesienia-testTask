@@ -40,6 +40,10 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::post('/addContractor', [ContractorController::class, 'addContractor'])->name('addContractor'); 
 
+    Route::post('/editContractor', [ContractorController::class, 'editContractor'])->name('editContractor'); 
+
+    Route::get('/deleteContractor/{id}', [ContractorController::class, 'deleteContractor'])->name('deleteContractor');
+
     Route::get('/deleteuser/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
 
     Route::get('/getScanText', [ScanController::class, 'getData']);

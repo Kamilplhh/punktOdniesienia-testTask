@@ -16,7 +16,7 @@
     <div class="list-container">
         @foreach($files as $file)
         @foreach($file as $objects)
-        <div class="bg-body-tertiary p-3 rounded mt-4">
+        <div class="bg-body-tertiary p-3 rounded mt-2">
             <div class="d-flex justify-content-between">
                 <div class="d-flex" data-bs-toggle="collapse" data-bs-target="#1" aria-expanded="false" aria-controls="1">
                     <div class="pe-3">

@@ -17,4 +17,10 @@ class FileRepository implements FileRepositoryInterface
     {
         return File::create($file);
     }
+
+    public function deleteFile($fileId) 
+    {
+        File::destroy($fileId);
+    }
 }
+

@@ -16,6 +16,12 @@ class FileController extends Controller
         $this->fileRepository = $fileRepository;
     }
 
+    public function deleteFile($id)
+    {
+        $this->fileRepository->deleteFile($id);
+        return redirect()->back();
+    }
+
     public function scanUpload(Request $request)
     {
         $request->validate([

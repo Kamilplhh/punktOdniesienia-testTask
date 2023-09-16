@@ -60,7 +60,8 @@
                             <span class="material-symbols-outlined">more_vert</span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Usuń</a></li>
+                            <li><a class="dropdown-item">Edytuj</a></li>
+                            <li><a class="dropdown-item" href="/deletefile/{{ $file->id }}">Usuń</a></li>
                         </ul>
                     </div>
                 </div>
@@ -200,7 +201,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="#">Usuń tą płatność</a></li>
-                            <li><a class="dropdown-item" href="#">Usuń tą płatność i kolejne</a></li>
+                            <li><a class="dropdown-item" href="/deletefile/{{ $file->id }}">Usuń tą płatność i kolejne</a></li>
                         </ul>
                     </div>
                 </div>
@@ -355,7 +356,8 @@
                             <span class="material-symbols-outlined">more_vert</span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Usuń</a></li>
+                            <li><a class="dropdown-item">Edytuj</a></li>
+                            <li><a class="dropdown-item" href="/deletefile/{{ $file->id }}">Usuń</a></li>
                         </ul>
                     </div>
                 </div>

@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::post('/send', [FileController::class, 'sendScan'])->name('sendScan'); 
 
+    Route::get('/deletefile/{id}', [FileController::class, 'deleteFile'])->name('deleteFile');
+
     Route::post('/addScanner', [ScanController::class, 'addScanner'])->name('addScanner'); 
 });
 

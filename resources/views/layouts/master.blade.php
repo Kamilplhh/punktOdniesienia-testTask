@@ -41,6 +41,14 @@
                                     <span class="material-symbols-outlined ms-2">groups</span></a>
                             </li>
                             <li class="nav-item">
+                            @if(Auth::user()->id = 1)
+                                <a class="nav-link d-flex justify-content-end" href="/admin">Panel administratora
+                            @else
+                                <a class="nav-link d-flex justify-content-end" href="/contractors">Słownik
+                            @endif
+                                    <span class="material-symbols-outlined ms-2">settings</span></a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link d-flex justify-content-end" href="/settings">Ustawienia
                                     <span class="material-symbols-outlined ms-2">settings</span></a>
                             </li>

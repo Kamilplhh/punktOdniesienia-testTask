@@ -1,18 +1,16 @@
-import '../css/admin.css';
 import $, { error } from 'jquery';
 window.$ = $;
 
-$('.adminNavi').on("click", function () {
-    let id = $(this).attr('id');
+$('.next').on("click", function () {
+    $(this).addClass('off');
+    $('.aPanel').addClass('off');
+    $('.back').removeClass('off');
+    $('.dPanel').removeClass('off');
+});
 
-    if (id == "adminPanel") {
-        $('.sPanel').addClass('off');
-        $('.aPanel').removeClass('off');
-    }else{
-        $('.aPanel').addClass('off');
-        $('.sPanel').removeClass('off');
-    }
-
-    $('#' + id).addClass("selected");
-    $(".adminNavi:not(#" + id + ")").removeClass("selected");
+$('.back').on("click", function () {
+    $(this).addClass('off');
+    $('.dPanel').addClass('off');
+    $('.next').removeClass('off');
+    $('.aPanel').removeClass('off');
 });

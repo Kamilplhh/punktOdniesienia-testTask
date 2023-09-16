@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('scans', function (Blueprint $table) {
             $table->id();
             $table->string('contractorText')->nullable();
-            $table->string('address1Text')->nullable();
-            $table->string('address2Text')->nullable();
+            $table->string('addressText')->nullable();
             $table->string('bankText')->nullable();
             $table->string('nipText')->nullable();
             $table->string('priceText')->nullable();

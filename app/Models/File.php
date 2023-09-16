@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Contractor;
 
 class File extends Model
 {
@@ -27,5 +28,10 @@ class File extends Model
         'user_id',
         'contractor_id',
     ];
+
+    public function contractor()
+    {
+        return $this->belongsTo(Contractor::class);
+    }
 
 }

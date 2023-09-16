@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\File;
 
 class Contractor extends Model
 {
@@ -18,9 +17,4 @@ class Contractor extends Model
         'nip',
         'email',
     ];
-
-    public function file()
-    {
-        return $this->belongsTo(File::class);
-    }
 }

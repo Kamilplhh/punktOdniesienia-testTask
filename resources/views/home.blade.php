@@ -97,7 +97,7 @@
                 </div>
 
                 @if(!empty($file->contractor_id))
-                @php($file = $file->contractor)
+                @php($file = $file->Contractor)
                 @endif
                 <form class="row g-3">
                     <div class="col-12">

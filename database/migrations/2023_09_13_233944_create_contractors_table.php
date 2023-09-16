@@ -19,6 +19,7 @@ return new class extends Migration
             $table->Integer('bank');
             $table->Integer('nip');
             $table->string('email');
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }

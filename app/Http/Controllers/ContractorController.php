@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contractor;
-use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,12 +10,24 @@ class ContractorController extends Controller
 {
     public function getData()
     {
-        $objects = File::where('user_id', '=', Auth::id())->whereNotNull('contractor_id')->get('contractor_id');
-        $files = [];
-        foreach ($objects as $object) {
-            $data = Contractor::where('id', '=', $object->contractor_id)->get();
-            array_push($files, $data);
-        }
+        $files = Contractor::where('user_id', '=', Auth::id())->get();
         return view('contractors', compact('files'));
     }
+
+    public function addContractor(Request $request){
+        $request->validate([
+            'contractor' => ['required', 'string', 'max:255'],
+            'address1' => ['required', 'string', 'max:255'],
+            'address2' => ['required', 'string', 'max:255'],
+            'bank' => ['required', 'numeric', 'min:0'],
+            'nip' => ['required', 'numeric', 'min:0'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+        ]);
+        $request['user_id'] = Auth::id();
+
+        $fileArray = $request->all([]);
+        Contractor::create($fileArray);
+        return redirect()->back();
+    }
+    
 }

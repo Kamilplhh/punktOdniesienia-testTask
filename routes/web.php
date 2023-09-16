@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/contractors', [ContractorController::class, 'getData']);
 
+    Route::post('/addContractor', [ContractorController::class, 'addContractor'])->name('addContractor'); 
+
     Route::get('/deleteuser/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
 
     Route::get('/getScanText', [ScanController::class, 'getData']);

@@ -10,10 +10,10 @@ class Scan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'priceText',
+        'contractorText',
+        'addressText',
         'bankText',
-        'timeText',
         'nipText',
-        'invoiceText',
+        'priceText',
     ];
 }

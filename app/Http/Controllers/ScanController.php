@@ -16,11 +16,11 @@ class ScanController extends Controller
 
     public function addScanner(Request $request){
         $request->validate([
-            'priceText' => ['nullable', 'string', 'max:255'],
-            'timeText' => ['nullable', 'string', 'max:255'],
+            'contractorText' => ['nullable', 'string', 'max:255'],
+            'addressText' => ['nullable', 'string', 'max:255'],
             'bankText' => ['nullable', 'string', 'max:255'],
             'nipText' => ['nullable', 'string', 'max:255'],
-            'invoiceText' => ['nullable', 'string', 'max:255'],
+            'priceText' => ['nullable', 'string', 'max:255'],
         ]);
 
         $fileArray = $request->all([]);

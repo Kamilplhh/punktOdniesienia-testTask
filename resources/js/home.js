@@ -4,6 +4,7 @@ window.$ = $;
 //Page onload functions
 $(document).ready(function () {
   getMonth(0);
+  markEmpty();
   // exceeded()
 });
 
@@ -184,6 +185,12 @@ function checkIfEmpty() {
     $('#empty').removeClass("off");
     $('#main').addClass("off");
   }
+}
+
+function markEmpty(){
+  $('input').each(function(){
+    if($(this).val().length === 0) $(this).addClass('is-invalid');
+  })
 }
 
 // function checkBankSet() {

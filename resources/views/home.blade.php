@@ -33,7 +33,7 @@
         @if($file->type == "mail")
         <div class="bg-body-tertiary p-3 rounded mt-2 dataBlock">
             <div class="d-flex justify-content-between">
-                <div class="d-flex" data-bs-toggle="collapse" data-bs-target="#{{ $i }}" aria-expanded="false" aria-controls="{{ $i }}">
+                <div class="d-flex pointer" data-bs-toggle="collapse" data-bs-target="#{{ $i }}" aria-expanded="false" aria-controls="{{ $i }}">
                     <div class="pe-3">
                         <div><span class="material-symbols-outlined {{($file->type)}}">{{($file->type)}}</span></div>
                         <div><span class="material-symbols-outlined text-secondary">expand_more</span></div>
@@ -97,7 +97,9 @@
                 </div>
 
                 @if(!empty($file->contractor_id))
-                @php($file = $file->Contractor)
+                @php($object = $file->Contractor)
+                @else
+                @php($object = $file)
                 @endif
                 <form class="row g-3">
                     <div class="col-12">
@@ -124,28 +126,28 @@
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputAddress" value="{{ $file->address1 }}">
+                            <input type="text" class="form-control" id="inputAddress" value="{{ $object->address1 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputCity" value="{{ $file->address2 }}">
+                            <input type="text" class="form-control" id="inputCity" value="{{ $object->address2 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="kwota" class="form-label">Numer rachunku kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="Numerrachunku" value="{{ $file->bank }}">
+                            <input type="text" class="form-control" id="Numerrachunku" value="{{ $object->bank }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="nip" class="form-label">NIP</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="nip" value="{{ $file->nip }}">
+                            <input type="text" class="form-control" id="nip" value="{{ $object->nip }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
@@ -170,7 +172,7 @@
         @elseif($file->type == "avg_pace")
         <div class="bg-body-tertiary p-3 rounded mt-2 dataBlock">
             <div class="d-flex justify-content-between">
-                <div class="d-flex" data-bs-toggle="collapse" data-bs-target="#{{ $i }}" aria-expanded="false" aria-controls="{{ $i }}">
+                <div class="d-flex pointer" data-bs-toggle="collapse" data-bs-target="#{{ $i }}" aria-expanded="false" aria-controls="{{ $i }}">
                     <div class="pe-3">
                         <div><span class="material-symbols-outlined {{($file->type)}}">{{($file->type)}}</span></div>
                         <div><span class="material-symbols-outlined text-secondary">expand_more</span></div>
@@ -249,10 +251,15 @@
                         </select>
                     </div>
 
+                    @if(!empty($file->contractor_id))
+                    @php($object = $file->Contractor)
+                    @else
+                    @php($object = $file)
+                    @endif
                     <div class="col-12">
                         <label for="companyName" class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $file->contractor }}">
+                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $object->contractor }}">
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">domain_add</span></button>
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -273,28 +280,28 @@
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputAddress" value="{{ $file->address1 }}">
+                            <input type="text" class="form-control" id="inputAddress" value="{{ $object->address1 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputCity" value="{{ $file->address2 }}">
+                            <input type="text" class="form-control" id="inputCity" value="{{ $object->address2 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="kwota" class="form-label">Numer rachunku kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="Numerrachunku" value="{{ $file->bank }}">
+                            <input type="text" class="form-control" id="Numerrachunku" value="{{ $object->bank }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="nip" class="form-label">NIP</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="nip" value="{{ $file->nip }}">
+                            <input type="text" class="form-control" id="nip" value="{{ $object->nip }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
@@ -305,6 +312,7 @@
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
+                    @php($file = $file)
                     <div class="col-md-6">
                         <label for="inputCity" class="form-label">Kwota</label>
                         <div class="input-group">
@@ -320,7 +328,7 @@
         @else
         <div class="bg-body-tertiary p-3 rounded mt-2 dataBlock">
             <div class="d-flex justify-content-between">
-                <div class="d-flex" data-bs-toggle="collapse" data-bs-target="#{{ $i }}" aria-expanded="false" aria-controls="{{ $i }}">
+                <div class="d-flex pointer" data-bs-toggle="collapse" data-bs-target="#{{ $i }}" aria-expanded="false" aria-controls="{{ $i }}">
                     <div class="pe-3">
                         <div><span class="material-symbols-outlined {{($file->type)}}">{{($file->type)}}</span></div>
                         <div><span class="material-symbols-outlined text-secondary">expand_more</span></div>

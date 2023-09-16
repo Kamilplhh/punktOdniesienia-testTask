@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="col-12 mb-3">
-                    <label for="email" class="form-label">Wysłane z adresu e-mail</label>
+                    <label class="form-label">Wysłane z adresu e-mail</label>
                     <div class="input-group">
                         <input class="form-control" type="text" value="{{ $file->email }}">
                         <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
@@ -87,7 +87,7 @@
                 <p class="fs-5 text-secondary">Dane pobrane z faktury</p>
 
                 <div class="col-12 mb-3">
-                    <label for="companyName" class="form-label pe-2">Załącznik</label>
+                    <label class="form-label pe-2">Załącznik</label>
                     @if($file->file == 0)
                     <button type="button" class="btn btn-dark">Dodaj</button>
                     @else
@@ -104,7 +104,7 @@
                 @endif
                 <form class="row g-3">
                     <div class="col-12">
-                        <label for="companyName" class="form-label">Nazwa kontrahenta</label>
+                        <label class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
                             <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $file->contractor }}">
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
@@ -132,16 +132,16 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputAddress" class="form-label">Address</label>
+                        <label for="inputCity" class="form-label">Address</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="inputCity" value="{{ $object->address2 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="kwota" class="form-label">Numer rachunku kontrahenta</label>
+                        <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="Numerrachunku" value="{{ $object->bank }}">
+                            <input type="text" class="form-control" id="numerRachunku" value="{{ $object->bank }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
@@ -153,14 +153,14 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <label for="companyName" class="form-label">Opis płatności</label>
+                        <label for="opisplatnosci" class="form-label">Opis płatności</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="opisplatnosci" value="{{ $file->description }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputCity" class="form-label">Kwota na fakturze</label>
+                        <label for="kwota" class="form-label">Kwota na fakturze</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="kwota" value="{{ $file->price }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
@@ -219,7 +219,7 @@
                 <p class="fs-5 text-secondary">Ustawienie płatności</p>
 
                 <div class="col-12 mb-3">
-                    <label for="companyName" class="form-label pe-2">Załącznik</label>
+                    <label class="form-label pe-2">Załącznik</label>
                     @if($file->file == 0)
                     <button type="button" class="btn btn-dark">Dodaj</button>
                     @else
@@ -237,7 +237,7 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="companyName" class="form-label">Cykl płatności od dnia</label>
+                        <label for="startDate" class="form-label">Cykl płatności od dnia</label>
                         <input id="startDate" class="form-control" type="date" />
                         <span id="startDateSelected"></span>
                     </div>
@@ -258,7 +258,7 @@
                     @php($object = $file)
                     @endif
                     <div class="col-12">
-                        <label for="companyName" class="form-label">Nazwa kontrahenta</label>
+                        <label class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
                             <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $object->contractor }}">
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
@@ -286,16 +286,16 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputAddress" class="form-label">Address</label>
+                        <label for="inputCity" class="form-label">Address</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="inputCity" value="{{ $object->address2 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="kwota" class="form-label">Numer rachunku kontrahenta</label>
+                        <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="Numerrachunku" value="{{ $object->bank }}">
+                            <input type="text" class="form-control" id="numerRachunku" value="{{ $object->bank }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
@@ -307,7 +307,7 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <label for="companyName" class="form-label">Opis płatności</label>
+                        <label for="opisplatnosci" class="form-label">Opis płatności</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="opisplatnosci" value="{{ $file->description }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
@@ -315,7 +315,7 @@
                     </div>
                     @php($file = $file)
                     <div class="col-md-6">
-                        <label for="inputCity" class="form-label">Kwota</label>
+                        <label for="kwota" class="form-label">Kwota</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="kwota" value="{{ $file->price }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
@@ -373,7 +373,7 @@
                 </div>
 
                 <div class="col-12 mb-3">
-                    <label for="companyName" class="form-label pe-2">Załącznik</label>
+                    <label class="form-label pe-2">Załącznik</label>
                     @if($file->file == 0)
                     <button type="button" class="btn btn-dark">Dodaj</button>
                     @else
@@ -388,7 +388,7 @@
                 <form class="row g-3">
 
                     <div class="col-12">
-                        <label for="Name" class="form-label">Nazwa skanu</label>
+                        <label class="form-label">Nazwa skanu</label>
                         <input type="text" class="form-control" id="Nazwaplatnosci" value="{{ $file->title }}">
                     </div>
 
@@ -464,7 +464,7 @@
 
 
                     <div class="col-12">
-                        <label for="companyName" class="form-label">Cykl płatności od dnia</label>
+                        <label for="startDate" class="form-label">Cykl płatności od dnia</label>
                         <input id="startDate" class="form-control" type="date" />
                         <span id="startDateSelected"></span>
                     </div>
@@ -484,7 +484,7 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="companyName" class="form-label">Nazwa kontrahenta</label>
+                        <label class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
                             <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">domain_add</span></button>
@@ -510,15 +510,15 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputAddress" class="form-label">Address</label>
+                        <label for="inputCity" class="form-label">Address</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="inputCity" placeholder="">
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="kwota" class="form-label">Numer rachunku kontrahenta</label>
+                        <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="Numerrachunku">
+                            <input type="text" class="form-control" id="numerRachunku">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -528,13 +528,13 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <label for="companyName" class="form-label">Opis płatności</label>
+                        <label for="opisplatnosci" class="form-label">Opis płatności</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="opisplatnosci" placeholder="">
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputCity" class="form-label">Kwota</label>
+                        <label for="kwota" class="form-label">Kwota</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="kwota">
                         </div>

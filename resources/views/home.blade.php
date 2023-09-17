@@ -1,8 +1,10 @@
 @extends('layouts.master')
 @vite('resources/js/home.js')
+@vite('resources/js/download.js')
 @vite('resources/css/index.css')
 
 @section('content')
+<input id="token" name="_token" type="hidden" value="{{csrf_token()}}">
 <div class="container">
     <div class="d-flex justify-content-center mt-3">
         <div class="btn-group " role="group" aria-label="Basic example">
@@ -92,7 +94,7 @@
                     <button type="button" class="btn btn-dark">Dodaj</button>
                     @else
                     <a class="download" href="{{url('uploads/file/'. $file->file)}}" download>
-                        <button type="button" class="btn btn-dark">{{ $file->file}}</button>
+                        <button type="button" class="btn btn-dark fileName">{{ $file->file}}</button>
                     </a>
                     @endif
                 </div>
@@ -224,7 +226,7 @@
                     <button type="button" class="btn btn-dark">Dodaj</button>
                     @else
                     <a class="download" href="{{url('uploads/file/'. $file->file)}}" download>
-                        <button type="button" class="btn btn-dark">{{ $file->file}}</button>
+                        <button type="button" class="btn btn-dark fileName">{{ $file->file}}</button>
                     </a>
                     @endif
                 </div>
@@ -378,7 +380,7 @@
                     <button type="button" class="btn btn-dark">Dodaj</button>
                     @else
                     <a class="download" href="{{url('uploads/file/'. $file->file)}}" download>
-                        <button type="button" class="btn btn-dark">{{ $file->file}}</button>
+                        <button type="button" class="btn btn-dark fileName">{{ $file->file}}</button>
                     </a>
                     @endif
                 </div>
@@ -425,7 +427,7 @@
             </div>
             <div class="offcanvas-body small">
                 <div class="d-grid gap-3">
-                    <button class="btn btn-primary d-flex justify-content-center" type="button">Pobierz wszystkie dokumenty
+                    <button class="btn btn-primary d-flex justify-content-center" id="downloadAll" type="button">Pobierz wszystkie dokumenty
                         <span class="material-symbols-outlined ms-1">download</span>
                     </button>
                     <button class="btn btn-primary d-flex justify-content-center" type="button">Wyślij wszystkie dokumenty

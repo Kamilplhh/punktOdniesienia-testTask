@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Interfaces\FileRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
-
+use File;
 
 class FileController extends Controller
 {
@@ -124,5 +124,27 @@ class FileController extends Controller
         $fileArray['price'] = floatval($fileArray['price']);
 
         $this->fileRepository->createFile($fileArray);
+    }
+
+    public function downloadAll(Request $request)
+    {
+        $objects = $request['files'];
+
+        $zip = new \ZipArchive();
+        $fileName = strval(rand()) . 'invoices.zip';
+        if ($zip->open('uploads/file/' . $fileName, \ZipArchive::CREATE) == TRUE) {
+            $files = File::files('uploads/file');
+            foreach ($files as $key => $value) {
+                $relativeName = basename($value);
+                foreach ($objects as $object) {
+                    if ($relativeName = $object) {
+                        $zip->addFile($value, $relativeName);
+                    }
+                }
+            }
+            $zip->close();
+        }
+
+        return response($fileName);
     }
 }

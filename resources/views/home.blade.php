@@ -441,12 +441,12 @@
 </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="cost1" tabindex="-1" aria-labelledby="cost1" aria-hidden="true">
+<!-- Modal-platnosc cykliczna -->
+<div class="modal fade" id="cost" tabindex="-1" aria-labelledby="cost" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-sm-down">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="cost1">Dodaj koszt</h5>
+                <h5 class="modal-title" id="cost">Dodaj koszt</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -552,6 +552,92 @@
     </div>
 </div>
 
+<!-- Modal-scan -->
+<div class="modal fade" id="addScan" tabindex="-1" aria-labelledby="addScan" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <form enctype="multipart/form-data" method="POST" action="{{ route('scanUpload') }}">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addScan">Dodaj scan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row g-3">
+
+                        <div class="col-12">
+                            <label for="title" class="form-label">Nazwa płatności</label>
+                            <input class="form-control" type="text" id="title" name="title" required>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="price" class="form-label">Kwota</label>
+                            <input class="form-control" type="number" id="price" name="price" min="0" step="0.01" required>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="button" autocomplete="off">Nie zapłacono</button>
+                        </div>
+
+                        <div class="col-12">
+                            <input type="file" id="fileScan" name="fileScan" required></input>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+                    <button type="button" class="btn btn-primary">Dodaj</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal-draft -->
+<div class="modal fade" id="addDraft" tabindex="-1" aria-labelledby="addDraft" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <form enctype="multipart/form-data" method="POST" action="{{ route('pdfUpload') }}">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addScan">Zeskanuj dokument</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row g-3">
+
+                        <div class="col-12">
+                            <label for="title" class="form-label">Nazwa płatności</label>
+                            <input class="form-control" type="text" id="title" name="title" required>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="price" class="form-label">Kwota</label>
+                            <input class="form-control" type="number" id="price" name="price" min="0" step="0.01" required>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="button" autocomplete="off">Nie zapłacono</button>
+                        </div>
+
+                        <div class="col-12">
+                            <input type="file" id="fileScan" name="fileScan" required></input>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+                    <button type="button" class="btn btn-primary">Dodaj</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <footer class="footer mt-auto py-3 bg-body-tertiary fixed-bottom z-5">
     <div class="container">
         <div class="list-container">
@@ -560,13 +646,13 @@
                     <p class="mb-0">Dodaj koszt</p>
                 </div>
                 <div class="d-flex flex-row">
-                    <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill ms-3" data-bs-toggle="modal" data-bs-target="#cost1">
+                    <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill ms-3" data-bs-toggle="modal" data-bs-target="#cost">
                         <span class="material-symbols-outlined avg_pace">avg_pace</span>
                     </button>
-                    <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill ms-3" data-bs-toggle="modal" data-bs-target="#cost2">
+                    <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill ms-3" data-bs-toggle="modal" data-bs-target="#addScan">
                         <span class="material-symbols-outlined scan">scan</span>
                     </button>
-                    <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill ms-3" data-bs-toggle="modal" data-bs-target="#cost3">
+                    <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill ms-3" data-bs-toggle="modal" data-bs-target="#addDraft">
                         <span class="material-symbols-outlined draft">draft</span>
                     </button>
                 </div>

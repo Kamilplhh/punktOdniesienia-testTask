@@ -4,10 +4,16 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import $, { error } from 'jquery';
 window.$ = $;
 
-//Live preview for settings and register page
+
 $(document).ready(function () {
-  $('#company').on("input", function () {
-    let text = $(this).val().replace(/\s/g,'');
-    $('#labelEmail').text(text + "@domain.com");
-  });
+  $('.addon').on('click', function () {
+    let text = $(this).closest("div").find("input").val();
+    let sampleTextarea = document.createElement("textarea");
+
+    document.body.appendChild(sampleTextarea);
+    sampleTextarea.value = text; 
+    sampleTextarea.select(); 
+    document.execCommand("copy");
+    document.body.removeChild(sampleTextarea);
+  })
 });

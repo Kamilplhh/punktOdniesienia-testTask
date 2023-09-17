@@ -50,22 +50,22 @@
                 <div class="col-12">
                     <label class="form-label">Email</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="{{ $user->email }}" disabled>
-                        <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $user->email }}" disabled>
+                        <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                     </div>
                 </div>
                 <div class="col-12">
                     <label class="form-label">Email do księgowej</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="{{ $user->emailTo }}" disabled>
-                        <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $user->emailTo }}" disabled>
+                        <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                     </div>
                 </div>
                 <div class="col-12">
                     <label class="form-label">Email od faktur</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="{{ $user->invoiceEmail }}" disabled>
-                        <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $user->invoiceEmail }}" disabled>
+                        <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                     </div>
                 </div>
             </div>

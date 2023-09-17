@@ -53,8 +53,8 @@
                         <label for="email" class="form-label">Powiązany adres e-mail</label>
                         <div class="input-group">
                             <input class="form-control" type="text" name="email" value="{{ $file->email }}" aria-label="Disabled input example">
-                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">add</span></button>
+                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button addon"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">add</span></button>
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@
                             <label class="form-label">Nazwa dostawcy</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" name="contractor" value="{{ $file->contractor }}">
-                                <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                                <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
 
                             </div>
                         </div>
@@ -73,28 +73,28 @@
                             <label for="inputAddress" class="form-label">Address</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ $file->address1 }}">
-                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="inputAddress" class="form-label">Address</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="inputCity" name="address2" value="{{ $file->address2 }}">
-                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"<span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="kwota" class="form-label">Numer rachunku dostawcy</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="Numerrachunku" name="bank" value="{{ $file->bank}}">
-                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="nip" class="form-label">NIP</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="nip" name="nip" value="{{ $file->nip }}">
-                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
 

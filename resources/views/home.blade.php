@@ -80,7 +80,7 @@
                     <label class="form-label">Wysłane z adresu e-mail</label>
                     <div class="input-group">
                         <input class="form-control" type="text" value="{{ $file->email }}">
-                        <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                        <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                     </div>
                 </div>
 
@@ -107,8 +107,8 @@
                         <label class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
                             <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $file->contractor }}">
-                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
-                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">domain_add</span></button>
+                            <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">domain_add</span></button>
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
@@ -128,42 +128,42 @@
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="inputAddress" value="{{ $object->address1 }}">
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputCity" class="form-label">Address</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="inputCity" value="{{ $object->address2 }}">
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="numerRachunku" value="{{ $object->bank }}">
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="nip" class="form-label">NIP</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="nip" value="{{ $object->nip }}">
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-12">
                         <label for="opisplatnosci" class="form-label">Opis płatności</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="opisplatnosci" value="{{ $file->description }}">
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="kwota" class="form-label">Kwota na fakturze</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="kwota" value="{{ $file->price }}">
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                 </form>
@@ -261,8 +261,8 @@
                         <label class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
                             <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $object->contractor }}">
-                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
-                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">domain_add</span></button>
+                            <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">domain_add</span></button>
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
@@ -282,35 +282,35 @@
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="inputAddress" value="{{ $object->address1 }}">
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputCity" class="form-label">Address</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="inputCity" value="{{ $object->address2 }}">
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="numerRachunku" value="{{ $object->bank }}">
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="nip" class="form-label">NIP</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="nip" value="{{ $object->nip }}">
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-12">
                         <label for="opisplatnosci" class="form-label">Opis płatności</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="opisplatnosci" value="{{ $file->description }}">
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     @php($file = $file)
@@ -318,7 +318,7 @@
                         <label for="kwota" class="form-label">Kwota</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="kwota" value="{{ $file->price }}">
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">content_copy</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                 </form>
@@ -487,7 +487,7 @@
                         <label class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
                             <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
-                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button" id="button-addon2"><span class="material-symbols-outlined">domain_add</span></button>
+                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button"><span class="material-symbols-outlined">domain_add</span></button>
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>

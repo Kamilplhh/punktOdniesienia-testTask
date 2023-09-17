@@ -40,7 +40,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
 
-                                <li><a class="dropdown-item edit" id="{{ $i }}">Edytuj</a></li>
+                                <li><a class="dropdown-item edit">Edytuj</a></li>
                                 <li><a class="dropdown-item" href="/deleteContractor/{{ $file->id }}">Usuń</a></li>
                             </ul>
                         </div>

@@ -23,9 +23,9 @@
             <div class="bg-body-tertiary p-3 rounded mt-4 block" id="0">
 
                 <div class="col-md-12 mb-3">
-                    <label for="login" class="form-label">Login</label>
+                    <label for="email" class="form-label">Email</label>
                     <div class="input-group">
-                        <input type="login" class="form-control" name="login" id="login">
+                        <input type="email" class="form-control" name="email" id="email">
                     </div>
                 </div>
 

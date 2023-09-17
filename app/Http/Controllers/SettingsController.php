@@ -14,32 +14,41 @@ class SettingsController extends Controller
     public function profileUpdate(Request $request)
     {
         $request->validate([
-            'logo' => ['nullable', 'mimes:jpg,png', 'max:1024'],
+            // 'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore(Auth::id())],
             'company' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore(Auth::id())],
-            'emailto' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8'],
+            'icon' => ['nullable', 'mimes:jpg,png', 'max:1024'],
+            'emailto' => ['nullable', 'string', 'max:255'],
+            'invoiceEmail' => ['nullable', 'string', 'max:255'],
+            'emailPort' => ['nullable', 'string', 'max:255'],
         ]);
-
-        if(isset($request['logo'])){
-            $file = $request->file('logo');
-            $fileName = $request->file('logo')->getClientOriginalName();
-
-            $file->move('uploads/logo',$fileName);
-        } else {
-            $fileName = "";
+        if (isset($request['icon'])) {
+            $file = $request->file('icon');
+            $fileName = strval(rand()) . $request->file('icon')->getClientOriginalName();
+            $request->files->remove('icon');
+            $request['logo'] = $fileName;
+            
+            $file->move('uploads/logo', $fileName);
         }
-        
-        user::where('id', Auth::id())->update([
-            'logo' => $fileName,
-            'company' => $request['company'],
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'emailfrom' => (trim($request['company']) . '@domain.com'),
-            'emailto' => $request['emailto'],
-            'password' => Hash::make($request['password']),
-        ]);
+
+        if (strlen($request['password']) > 0) {
+            $request->validate([
+                'password' => ['string', 'min:8']
+            ]);
+            $request['password'] = Hash::make($request['password']);
+        } else {
+            $request->request->remove('password');
+        }
+
+        if (strlen($request['emailPassword']) > 0) {
+            $request->validate([
+                'emailPassword' => ['string']
+            ]);
+        } else {
+            $request->request->remove('emailPassword');
+        }
+
+        $fileArray = $request->all([]);
+        user::find(Auth::id())->update($fileArray);
 
         return redirect()->back();
     }

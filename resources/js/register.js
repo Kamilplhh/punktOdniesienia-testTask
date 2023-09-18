@@ -41,8 +41,9 @@ function checkForm() {
     let password = $('#password').val();
     let password2 = $('.passwordRepeat').val();
 
-    $(":input").not(".skip").each(function( index ) {
+    $(".form-control").not(".skip").each(function() {
         if(!$(this).val()) {
+            console.log($(this).attr('id'));
             status = status +1;
             $(this).addClass('is-invalid'); 
         }
@@ -53,33 +54,35 @@ function checkForm() {
             $('.passwordRepeat').addClass('is-invalid');
             alert('Hasła się nie zgadzają');
     
-            $('.back').val(0);
-            backButton();
+            back();
         }
     
         if(password > 7){
             $('#password').addClass('is-invalid');
             alert('Hasło jest za krótkie');
     
-            $('.back').val(0);
-            backButton();
+            back();
         }
     
-        let email = $('#emailto').val();
+        let email = $('#emailTo').val();
     
         if(email.search('@') === -1){
-            $('.passwordRepeat').addClass('is-invalid');
             alert('Email nie jest poprawny');
     
-            $('.back').val(1);
-            $('#emailto').addClass('is-invalid');
-            $('#invoiceemail').addClass('is-invalid');
-            backButton();
+            $('#emailTo').addClass('is-invalid');
+            $('#invoiceEmail').addClass('is-invalid');
+            back();
+        }
+        else {
+            $('.submit').attr("type", "submit");
         }
     } else {
         alert('Prosze uzupełnić wszystkie pola');
-        $('.back').val(0);
-        backButton();
+        back();
     }
-    
+}
+
+function back() {
+    $('.back').val(0);
+        backButton();
 }

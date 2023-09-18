@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -53,11 +54,11 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8'],
             'company' => ['required', 'string', 'max:255'],
-            'logo' => ['nullable', 'mimes:jpg,png', 'max:1024'],
-            'emailto' => ['required', 'string', 'email', 'max:255'],
-            'invoiceemail' => ['nullable', 'string', 'email', 'max:255'],
-            'emailpassword' => ['nullable', 'string', 'max:255'],
-            'emailport' => ['nullable', 'string', 'max:255'],
+            'logo' => ['nullable', 'mimes:jpg,png', 'max:4096'],
+            'emailTo' => ['required', 'string', 'email', 'max:255'],
+            'invoiceEmail' => ['nullable', 'string', 'email', 'max:255'],
+            'emailPassword' => ['nullable', 'string', 'max:255'],
+            'emailPort' => ['nullable', 'string', 'max:255'],
         ]);
     }
     /**
@@ -82,10 +83,10 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'company' => $data['company'],
             'logo' => $fileName,
-            'emailTo' => $data['emailto'],
-            'invoiceEmail' => $data['invoiceemail'],
-            'emailPassword' => $data['emailpassword'],
-            'emailPort' => $data['emailport'],
+            'emailTo' => $data['emailTo'],
+            'invoiceEmail' => $data['invoiceEmail'],
+            'emailPassword' => $data['emailPassword'],
+            'emailPort' => $data['emailPort'],
         ]);
     }
 }

@@ -22,6 +22,9 @@ class SettingsController extends Controller
             'emailPort' => ['nullable', 'string', 'max:255'],
         ]);
         if (isset($request['icon'])) {
+            $request->validate([
+                'icon' => ['mimes:jpg,png', 'max:4096']
+            ]);
             $file = $request->file('icon');
             $fileName = strval(rand()) . $request->file('icon')->getClientOriginalName();
             $request->files->remove('icon');

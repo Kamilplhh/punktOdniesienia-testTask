@@ -17,7 +17,7 @@
 
 <main class="container">
     <div class="list-container">
-        <form enctype=" multipart/form-data" method="POST" action="{{ route('register') }}">
+        <form enctype="multipart/form-data" method="POST" action="{{ route('register') }}">
             @csrf
 
             <div class="bg-body-tertiary p-3 rounded mt-4 block" id="0">
@@ -56,7 +56,7 @@
 
                 <div class="mb-3">
                     <label for="logo" class="form-label">Logo firmy</label>
-                    <input class="form-control skip" type="file" name="logo" id="logo">
+                    <input class="form-control skip" type="file" name="logo" id="logo" value="null">
                 </div>
 
                 <hr class="divider">
@@ -64,7 +64,7 @@
                 <div class="col-md-12">
                     <label for="emailTo" class="form-label">E-mail do księgowości</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="emailto" id="emailto">
+                        <input type="text" class="form-control" name="emailTo" id="emailTo">
                     </div>
                 </div>
 
@@ -74,23 +74,23 @@
             <div class="bg-body-tertiary p-3 rounded mt-4 block off" id="2">
 
                 <div class="col-md-12 mb-3">
-                    <label for="invoiceemail" class="form-label">Adres e-mail do odbioru faktur</label>
+                    <label for="invoiceEmail" class="form-label">Adres e-mail do odbioru faktur</label>
                     <div class="input-group">
-                        <input type="text" class="form-control skip" name="invoiceemail" id="invoiceemail">
+                        <input type="text" class="form-control skip" name="invoiceEmail" id="invoiceEmail">
                     </div>
                 </div>
 
                 <div class="col-md-12 mb-3">
-                    <label for="emailpassword" class="form-label">Hasło</label>
+                    <label for="emailPassword" class="form-label">Hasło</label>
                     <div class="input-group">
-                        <input type="password" class="form-control skip" name="emailpassword" id="emailpassword">
+                        <input type="password" class="form-control skip" name="emailPassword" id="emailPassword">
                     </div>
                 </div>
 
                 <div class="col-md-12 mb-3">
-                    <label for="emailport" class="form-label">Port SMTP</label>
+                    <label for="emailPort" class="form-label">Port SMTP</label>
                     <div class="input-group">
-                        <input type="text" class="form-control skip" name="emailport" id="emailport">
+                        <input type="text" class="form-control skip" name="emailPort" id="emailPort">
                     </div>
                 </div>
 

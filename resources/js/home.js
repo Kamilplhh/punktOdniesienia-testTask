@@ -184,6 +184,7 @@ $('.paidStatus').on("click", function() {
     
 }) 
 
+//Adding contractor on click
 $('.addContractor').on("click", function() {
   let contractor = $(this).closest('div.data').find('input[name="contractor"]').val();
   let address1 = $(this).closest('div.data').find('input[name="address1"]').val();

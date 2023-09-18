@@ -25,30 +25,17 @@ class FileController extends Controller
     public function scanUpload(Request $request)
     {
         $request->validate([
-            'fileScan' => ['required', 'mimes:jpg,png', 'max:10240'],
+            'fileName' => ['required', 'mimes:jpg,png', 'max:10240'],
             'title' => ['required', 'string', 'max:255'],
             'price' => ['required', 'numeric', 'min:0'],
-            'bank' => ['required', 'numeric', 'min:0'],
-            'nip' => ['required', 'numeric', 'min:0'],
-            'invoice_number' => ['required', 'string', 'max:255'],
-            'date' => ['required', 'date'],
-            'adress' => ['required', 'string', 'max:255'],
-            'recipient' => ['required', 'string', 'max:255'],
         ]);
-        $file = $request->file('fileScan');
-        $fileName = $request->file('fileScan')->getClientOriginalName();
+        $file = $request->file('fileName');
+        $fileName = strval(rand()) . $request->file('fileName')->getClientOriginalName();
         $file->move('uploads/file', $fileName);
 
-        if (isset($request['paid'])) {
-            $request['paid'] = 1;
-        } else {
-            $request['paid'] = 0;
-        }
-
-        $request['date'] = date("Y-m-d", strtotime($request['date']));
-        $request['paymentDate'] = $request['date'];
         $request['file'] = $fileName;
         $request['user_id'] = Auth::id();
+        $request['type'] = 'scan';
 
         $fileArray = $request->all([]);
 

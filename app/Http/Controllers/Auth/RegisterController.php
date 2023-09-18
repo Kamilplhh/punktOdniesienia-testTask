@@ -71,7 +71,7 @@ class RegisterController extends Controller
     {
         if(isset($data['logo'])){
             $file = $data['logo'];
-            $fileName = $data['logo']->getClientOriginalName();
+            $fileName = strval(rand()) . $data['logo']->getClientOriginalName();
 
             $file->move('uploads/logo',$fileName);
         } else {

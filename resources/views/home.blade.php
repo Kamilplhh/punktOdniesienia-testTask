@@ -103,21 +103,23 @@
 
                 @if(!empty($file->contractor_id))
                 @php($object = $file->Contractor)
+                @php($contractor_id = $object->id)
                 @else
                 @php($object = $file)
+                @php($contractor_id = $object->contractor_id)
                 @endif
                 <form class="row g-3">
                     <div class="col-12">
                         <label class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" name="contractor" value="{{ $file->contractor }}">
+                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" name="contractor" value="{{ $object->contractor }}">
                             <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             <button class="btn btn-outline-secondary d-flex align-items-center addon addContractor" type="button"><span class="material-symbols-outlined">domain_add</span></button>
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <input class="form-control form-control-sm skip" type="text" placeholder="Search" value="" aria-label=".form-control-sm example">
+                                <input class="form-control form-control-sm skip" type="text" placeholder="Search" name='contractor_id' value="{{ $contractor_id }}" aria-label=".form-control-sm example">
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -260,8 +262,10 @@
 
                     @if(!empty($file->contractor_id))
                     @php($object = $file->Contractor)
+                    @php($contractor_id = $object->id)
                     @else
                     @php($object = $file)
+                    @php($contractor_id = $object->contractor_id)
                     @endif
                     <div class="col-12">
                         <label class="form-label">Nazwa kontrahenta</label>
@@ -273,7 +277,7 @@
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <input class="form-control form-control-sm skip" type="text" placeholder="Search" value="" aria-label=".form-control-sm example">
+                                <input class="form-control form-control-sm skip" type="text" placeholder="Search" name='contractor_id' value="{{ $contractor_id }}" aria-label=".form-control-sm example">
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -501,7 +505,7 @@
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <input class="form-control form-control-sm skip" type="text" placeholder="Search" value="" aria-label=".form-control-sm example">
+                                <input class="form-control form-control-sm skip" type="text" placeholder="Search" name='contractor_id' value="" aria-label=".form-control-sm example">
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -588,14 +592,14 @@
                         </div>
 
                         <div class="col-12">
-                            <input type="file" id="fileScan" name="file" required></input>
+                            <input type="file" id="fileScan" name="fileName" required></input>
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
-                    <button type="button" class="btn btn-primary">Dodaj</button>
+                    <button type="submit" class="btn btn-primary">Dodaj</button>
                 </div>
             </form>
         </div>

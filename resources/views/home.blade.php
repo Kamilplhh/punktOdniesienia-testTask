@@ -72,9 +72,11 @@
 
                 <div class="col-sm-12 mt-3 mb-3">
                     @if($file->paid == 0)
-                    <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="button" autocomplete="off">Nie zapłacono</button>
+                    <button type="button" class="btn paidStatus btn-outline-primary w-100" autocomplete="off">Nie zapłacono</button>
+                    <input type="hidden" class="paidHidden" name="paid" value="0">
                     @else
-                    <button type="button" class="btn btn-success w-100" data-bs-toggle="button" autocomplete="off">Zapłacono</button>
+                    <button type="button" class="btn paidStatus btn-success w-100" autocomplete="off">Zapłacono</button>
+                    <input type="hidden" class="paidHidden" name="paid" value="1">
                     @endif
                 </div>
 
@@ -115,14 +117,13 @@
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <input class="form-control form-control-sm" type="text" placeholder="Search" aria-label=".form-control-sm example">
+                                <input class="form-control form-control-sm" type="text" placeholder="Search" value="" aria-label=".form-control-sm example">
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Company name</a></li>
-                                <li><a class="dropdown-item" href="#">Company name</a></li>
-                                <li><a class="dropdown-item" href="#">Company name</a></li>
-                                <li><a class="dropdown-item" href="#">Company name</a></li>
+                                @foreach($contractors as $contractor)
+                                <li><a class="dropdown-item pointer" value="{{ $contractor->id }}">{{ $contractor->contractor }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -212,9 +213,11 @@
 
                 <div class="col-sm-12 mt-3 mb-3">
                     @if($file->paid == 0)
-                    <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="button" autocomplete="off">Nie zapłacono</button>
+                    <button type="button" class="btn paidStatus btn-outline-primary w-100" autocomplete="off">Nie zapłacono</button>
+                    <input type="hidden" class="paidHidden" name="paid" value="0">
                     @else
-                    <button type="button" class="btn btn-success w-100" data-bs-toggle="button" autocomplete="off">Zapłacono</button>
+                    <button type="button" class="btn paidStatus btn-success w-100" autocomplete="off">Zapłacono</button>
+                    <input type="hidden" class="paidHidden" name="paid" value="1">
                     @endif
                 </div>
 
@@ -269,14 +272,13 @@
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <input class="form-control form-control-sm" type="text" placeholder="Search" aria-label=".form-control-sm example">
+                                <input class="form-control form-control-sm" type="text" placeholder="Search" value="" aria-label=".form-control-sm example">
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Company name</a></li>
-                                <li><a class="dropdown-item" href="#">Company name</a></li>
-                                <li><a class="dropdown-item" href="#">Company name</a></li>
-                                <li><a class="dropdown-item" href="#">Company name</a></li>
+                                @foreach($contractors as $contractor)
+                                <li><a class="dropdown-item pointer" value="{{ $contractor->id }}">{{ $contractor->contractor }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -368,9 +370,11 @@
 
                 <div class="col-sm-12 mt-3 mb-3">
                     @if($file->paid == 0)
-                    <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="button" autocomplete="off">Nie zapłacono</button>
+                    <button type="button" class="btn paidStatus btn-outline-primary w-100" autocomplete="off">Nie zapłacono</button>
+                    <input type="hidden" class="paidHidden" name="paid" value="0">
                     @else
-                    <button type="button" class="btn btn-success w-100" data-bs-toggle="button" autocomplete="off">Zapłacono</button>
+                    <button type="button" class="btn paidStatus btn-success w-100" autocomplete="off">Zapłacono</button>
+                    <input type="hidden" class="paidHidden" name="paid" value="1">
                     @endif
                 </div>
 
@@ -452,7 +456,8 @@
             <div class="modal-body">
 
                 <div class="col-sm-12 mt-3 mb-3">
-                    <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="button" autocomplete="off">Nie zapłacono</button>
+                    <button type="button" class="btn paidStatus btn-outline-primary w-100" autocomplete="off">Nie zapłacono</button>
+                    <input type="hidden" class="paidHidden" name="paid" value="0">
                 </div>
 
                 <p class="fs-5 text-secondary">Ustawienie płatności</p>
@@ -494,14 +499,13 @@
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <input class="form-control form-control-sm" type="text" placeholder="Search" aria-label=".form-control-sm example">
+                                <input class="form-control form-control-sm" type="text" placeholder="Search" value="" aria-label=".form-control-sm example">
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Company name</a></li>
-                                <li><a class="dropdown-item" href="#">Company name</a></li>
-                                <li><a class="dropdown-item" href="#">Company name</a></li>
-                                <li><a class="dropdown-item" href="#">Company name</a></li>
+                                @foreach($contractors as $contractor)
+                                <li><a class="dropdown-item pointer" value="{{ $contractor->id }}">{{ $contractor->contractor }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -577,7 +581,8 @@
                         </div>
 
                         <div class="col-sm-12">
-                            <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="button" autocomplete="off">Nie zapłacono</button>
+                            <button type="button" class="btn paidStatus btn-outline-primary w-100" autocomplete="off">Nie zapłacono</button>
+                            <input type="hidden" class="paidHidden" name="paid" value="0">
                         </div>
 
                         <div class="col-12">
@@ -620,7 +625,8 @@
                         </div>
 
                         <div class="col-sm-12">
-                            <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="button" autocomplete="off">Nie zapłacono</button>
+                            <button type="button" class="btn paidStatus btn-outline-primary w-100" autocomplete="off">Nie zapłacono</button>
+                            <input type="hidden" class="paidHidden" name="paid" value="0">
                         </div>
 
                         <div class="col-12">

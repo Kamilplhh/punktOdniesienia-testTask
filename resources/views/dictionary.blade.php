@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @vite('resources/css/index.css')
-@vite('resources/js/admin.js')
 
 @section('calendar')
 @show

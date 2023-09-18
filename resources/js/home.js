@@ -70,39 +70,11 @@ function itemsPrice() {
   '<small class="ps-1 text-secondary">PLN</small>');
 };
 
-//Check if there is no payment date exceed
-// function exceeded() {
-//   let date = new Date();
-
-//   $('span').filter('.unpaid').each(function () {
-//     let block = $(this).next();
-//     let textDate = new Date(block.text());
-
-//     let difference = date - textDate;
-//     if (difference > 0) {
-//       difference = Math.round(Math.abs(difference / (1000 * 3600 * 24)));
-//       if (difference > 1) {
-//         block.append('<h6 class="late">exceeded ' + difference + ' days</h6>')
-//       } else
-//         block.append('<h6 class="late">exceeded ' + difference + ' day</h6>')
-//     }
-//   })
-// };
-
-//Toggle mail block
-// $('.fa-eye').on("click", function () {
-//   let id = $(this).attr('id');
-//   $('#mailBlock' + id).toggleClass('off');
-// })
-
-// $('.exit').on("click", function () {
-//   $(this).closest('.mailBlock').toggleClass('off');
-// })
 
 //Whole panel navi system
 $('.homeNavi').on("click", function () {
   let id = $(this).attr('id');
-
+  
   if (id == "incoming") {
     showIncoming();
   } else if (id == "paid") {
@@ -110,7 +82,7 @@ $('.homeNavi').on("click", function () {
   } else {
     showAll();
   }
-
+  
   $('#' + id).addClass("text-primary");
   $('#' + id).removeClass("text-secondary");
   $(".homeNavi:not(#" + id + ")").addClass("text-secondary");
@@ -126,7 +98,7 @@ function showIncoming() {
       $(this).closest('.dataBlock').removeClass("off offline");
     }
   })
-
+  
   getMonth($('#next').attr('value'));
   checkIfEmpty();
 };
@@ -139,7 +111,7 @@ function showPaid() {
       $(this).closest('.dataBlock').addClass("off offline");
     }
   })
-
+  
   getMonth($('#next').attr('value'));
   checkIfEmpty();
 };
@@ -148,7 +120,7 @@ function showAll() {
   $('span').filter('.status').each(function () {
     $(this).closest('.dataBlock').removeClass("off offline");
   })
-
+  
   getMonth($('#next').attr('value'));
   checkIfEmpty();
 };
@@ -159,7 +131,7 @@ function getDataFromMonth(data) {
     if (!$(this).closest('.dataBlock').hasClass("offline")) {
       let fileDate = new Date($(this).text());
       fileDate = fileDate.getFullYear() + '-' + (fileDate.getMonth() + 1);
-
+      
       if (fileDate != data) {
         $(this).closest('.dataBlock').addClass("off");
       } else {
@@ -193,29 +165,77 @@ function markEmpty(){
   })
 }
 
-// function checkBankSet() {
-//   let z = 0;
+$('.paidStatus').on("click", function() {
+    let name = $(this).attr('class');
+    let blue = 'btn-outline-primary';
+    let green = 'btn-success';
 
-//   $('.credit').each(function () {
-//     if (!$(this).closest('.dataBlock').hasClass("off")) {
-//       if ($(this).attr('value') == 0) {
-//         $(this).addClass('disabled');
-//         z = z + 1;
-//       }
+    if (name.includes('primary')){
+      $(this).removeClass(blue);
+      $(this).addClass(green);
+      $(this).text('Zapłacono')
+      $(this).closest('div').find('.paidHidden').val(1);
+    } else {
+      $(this).removeClass(green);
+      $(this).addClass(blue);
+      $(this).text('Nie zapłacono')
+      $(this).closest('div').find('.paidHidden').val(0);
+    }
+    
+}) 
+
+//Check if there is no payment date exceed
+// function exceeded() {
+//   let date = new Date();
+
+//   $('span').filter('.unpaid').each(function () {
+//     let block = $(this).next();
+//     let textDate = new Date(block.text());
+
+//     let difference = date - textDate;
+//     if (difference > 0) {
+//       difference = Math.round(Math.abs(difference / (1000 * 3600 * 24)));
+//       if (difference > 1) {
+//         block.append('<h6 class="late">exceeded ' + difference + ' days</h6>')
+//       } else
+//         block.append('<h6 class="late">exceeded ' + difference + ' day</h6>')
 //     }
-//   });
+//   })
+// };
 
-//   if (z > 0) {
-//     $('.fa-google-pay').closest('.btn').addClass('disabled');
-//   }
-//   else {
-//     $('.fa-google-pay').closest('.btn').removeClass('disabled');
-//   }
-// }
-
-// $('.credit').on("click", function () {
+//Toggle mail block
+// $('.fa-eye').on("click", function () {
 //   let id = $(this).attr('id');
-//   let name = $('#name' + id).attr('value');
+//   $('#mailBlock' + id).toggleClass('off');
+// })
+
+// $('.exit').on("click", function () {
+//   $(this).closest('.mailBlock').toggleClass('off');
+// })
+
+// function checkBankSet() {
+  //   let z = 0;
+  
+  //   $('.credit').each(function () {
+    //     if (!$(this).closest('.dataBlock').hasClass("off")) {
+      //       if ($(this).attr('value') == 0) {
+        //         $(this).addClass('disabled');
+        //         z = z + 1;
+        //       }
+        //     }
+        //   });
+        
+        //   if (z > 0) {
+          //     $('.fa-google-pay').closest('.btn').addClass('disabled');
+          //   }
+          //   else {
+            //     $('.fa-google-pay').closest('.btn').removeClass('disabled');
+            //   }
+            // }
+            
+            // $('.credit').on("click", function () {
+              //   let id = $(this).attr('id');
+              //   let name = $('#name' + id).attr('value');
 //   let nameArray = name.split(" ");
 //   let firstName = nameArray[0];
 //   let lastName = nameArray[1];

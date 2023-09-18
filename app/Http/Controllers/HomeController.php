@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contractor;
 use Illuminate\Http\Request;
 use App\Interfaces\FileRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -27,7 +29,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $contractors = Contractor::where('user_id', '=', Auth::id())->get();
         $files = $this->fileRepository->getFiles();
-        return view('home', compact('files'));
+        return view('home', compact('files', 'contractors'));
     }
 }

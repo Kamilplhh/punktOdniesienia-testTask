@@ -184,6 +184,36 @@ $('.paidStatus').on("click", function() {
     
 }) 
 
+$('.addContractor').on("click", function() {
+  let contractor = $(this).closest('div.data').find('input[name="contractor"]').val();
+  let address1 = $(this).closest('div.data').find('input[name="address1"]').val();
+  let address2 = $(this).closest('div.data').find('input[name="address2"]').val();
+  let bank = $(this).closest('div.data').find('input[name="bank"]').val();
+  let nip = $(this).closest('div.data').find('input[name="nip"]').val();
+  let email = $(this).closest('div.data').find('input[name="email"]').val();
+
+  $.ajax({
+    url: '/addContractor',
+    type: 'POST',
+    data: {
+        _token: $('#token').val(),
+        contractor: contractor,
+        address1: address1,
+        address2: address2,
+        bank: bank,
+        nip: nip,
+        email: email,
+    },
+    success: function () {
+      $(location).prop('href', '/');
+    },
+    error: function () {
+        alert('Something went wrong, remember to fulfill all inputs');
+        $(location).prop('href', '/');
+    }
+});
+})
+
 //Check if there is no payment date exceed
 // function exceeded() {
 //   let date = new Date();

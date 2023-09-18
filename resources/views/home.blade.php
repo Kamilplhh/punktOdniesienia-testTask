@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <div class="collapse" id="{{ $i }}">
+            <div class="collapse data" id="{{ $i }}">
 
                 <div class="col-sm-12 mt-3 mb-3">
                     @if($file->paid == 0)
@@ -83,7 +83,7 @@
                 <div class="col-12 mb-3">
                     <label class="form-label">Wysłane z adresu e-mail</label>
                     <div class="input-group">
-                        <input class="form-control" type="text" value="{{ $file->email }}">
+                        <input class="form-control" type="text" name="email" value="{{ $file->email }}">
                         <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                     </div>
                 </div>
@@ -110,9 +110,9 @@
                     <div class="col-12">
                         <label class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $file->contractor }}">
+                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" name="contractor" value="{{ $file->contractor }}">
                             <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
-                            <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">domain_add</span></button>
+                            <button class="btn btn-outline-secondary d-flex align-items-center addon addContractor" type="button"><span class="material-symbols-outlined">domain_add</span></button>
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
@@ -130,42 +130,42 @@
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputAddress" value="{{ $object->address1 }}">
+                            <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ $object->address1 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputCity" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputCity" value="{{ $object->address2 }}">
+                            <input type="text" class="form-control" id="inputCity" name="address2" value="{{ $object->address2 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="numerRachunku" value="{{ $object->bank }}">
+                            <input type="text" class="form-control" id="numerRachunku" name="bank" value="{{ $object->bank }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="nip" class="form-label">NIP</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="nip" value="{{ $object->nip }}">
+                            <input type="text" class="form-control" id="nip" name="nip" value="{{ $object->nip }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-12">
                         <label for="opisplatnosci" class="form-label">Opis płatności</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="opisplatnosci" value="{{ $file->description }}">
+                            <input type="text" class="form-control" id="opisplatnosci" name="description" value="{{ $file->description }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="kwota" class="form-label">Kwota na fakturze</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="kwota" value="{{ $file->price }}">
+                            <input type="text" class="form-control" id="kwota" name="price" value="{{ $file->price }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
@@ -209,7 +209,7 @@
                     </div>
                 </div>
             </div>
-            <div class="collapse" id="{{ $i }}">
+            <div class="collapse data" id="{{ $i }}">
 
                 <div class="col-sm-12 mt-3 mb-3">
                     @if($file->paid == 0)
@@ -222,6 +222,7 @@
                 </div>
 
                 <p class="fs-5 text-secondary">Ustawienie płatności</p>
+                <input type="hidden" name="email" value="{{ $file->email }}">
 
                 <div class="col-12 mb-3">
                     <label class="form-label pe-2">Załącznik</label>
@@ -238,7 +239,7 @@
 
                     <div class="col-12">
                         <label for="companyName" class="form-label">Nazwa płatności</label>
-                        <input type="text" class="form-control" id="companyName" value="{{ $file->title }}">
+                        <input type="text" class="form-control" id="companyName" name="title" value="{{ $file->title }}">
                     </div>
 
                     <div class="col-12">
@@ -265,9 +266,9 @@
                     <div class="col-12">
                         <label class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" value="{{ $object->contractor }}">
+                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" name="contractor" value="{{ $object->contractor }}">
                             <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
-                            <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">domain_add</span></button>
+                            <button class="btn btn-outline-secondary d-flex align-items-center addon addContractor" type="button"><span class="material-symbols-outlined">domain_add</span></button>
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
@@ -285,35 +286,35 @@
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputAddress" value="{{ $object->address1 }}">
+                            <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ $object->address1 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputCity" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputCity" value="{{ $object->address2 }}">
+                            <input type="text" class="form-control" id="inputCity" name="address2" value="{{ $object->address2 }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="numerRachunku" value="{{ $object->bank }}">
+                            <input type="text" class="form-control" id="numerRachunku" name="bank" value="{{ $object->bank }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="nip" class="form-label">NIP</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="nip" value="{{ $object->nip }}">
+                            <input type="text" class="form-control" id="nip" name="nip" value="{{ $object->nip }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
                     <div class="col-12">
                         <label for="opisplatnosci" class="form-label">Opis płatności</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="opisplatnosci" value="{{ $file->description }}">
+                            <input type="text" class="form-control" id="opisplatnosci" name="description" value="{{ $file->description }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
@@ -321,7 +322,7 @@
                     <div class="col-md-6">
                         <label for="kwota" class="form-label">Kwota</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="kwota" value="{{ $file->price }}">
+                            <input type="text" class="form-control" id="kwota" name="price" value="{{ $file->price }}">
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
@@ -395,12 +396,12 @@
 
                     <div class="col-12">
                         <label class="form-label">Nazwa skanu</label>
-                        <input type="text" class="form-control" id="Nazwaplatnosci" value="{{ $file->title }}">
+                        <input type="text" class="form-control" id="Nazwaplatnosci" name="title" value="{{ $file->title }}">
                     </div>
 
                     <div class="col-12">
                         <label for="typeNumber" class="form-label">Kwota</label>
-                        <input type="number" class="form-control" id="typeNumber" value="{{ $file->price }}" min="0">
+                        <input type="number" class="form-control" id="typeNumber" name="price" value="{{ $file->price }}" min="0">
                     </div>
 
                 </form>
@@ -446,7 +447,7 @@
 
 
 <!-- Modal-platnosc cykliczna -->
-<div class="modal fade" id="cost" tabindex="-1" aria-labelledby="cost" aria-hidden="true">
+<div class="modal fade data" id="cost" tabindex="-1" aria-labelledby="cost" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-sm-down">
         <div class="modal-content">
             <div class="modal-header">
@@ -455,7 +456,7 @@
             </div>
             <div class="modal-body">
 
-                <div class="col-sm-12 mt-3 mb-3">
+                <div class="col-sm-12 mb-2">
                     <button type="button" class="btn paidStatus btn-outline-primary w-100" autocomplete="off">Nie zapłacono</button>
                     <input type="hidden" class="paidHidden" name="paid" value="0">
                 </div>
@@ -466,9 +467,10 @@
 
                     <div class="col-12">
                         <label for="companyName" class="form-label">Nazwa płatności</label>
-                        <input type="text" class="form-control skip" id="companyName" placeholder="Zus">
+                        <input type="text" class="form-control skip" id="companyName" name="title">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control skip" id="email" name="email">
                     </div>
-
 
                     <div class="col-12">
                         <label for="startDate" class="form-label">Cykl płatności od dnia</label>
@@ -486,15 +488,15 @@
                         </select>
                     </div>
 
-                    <div class="col-12 mb-3 align-items-center">
+                    <div class="col-12 align-items-center">
                         <button type="button" class="btn btn-primary">Dodaj załącznik</button>
                     </div>
 
                     <div class="col-12">
                         <label class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control skip" aria-label="Text input with segmented dropdown button">
-                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button"><span class="material-symbols-outlined">domain_add</span></button>
+                            <input type="text" class="form-control skip" aria-label="Text input with segmented dropdown button" name="contractor">
+                            <button class="btn btn-outline-secondary d-flex align-items-center addContractor" type="button"><span class="material-symbols-outlined">domain_add</span></button>
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
@@ -510,39 +512,39 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputAddress" class="form-label">Address</label>
+                        <label for="inputAddress" class="form-label">Address1</label>
                         <div class="input-group">
-                            <input type="text" class="form-control skip" id="inputAddress" placeholder="">
+                            <input type="text" class="form-control skip" id="inputAddress" name="address1">
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputCity" class="form-label">Address</label>
+                        <label for="inputCity" class="form-label">Address2</label>
                         <div class="input-group">
-                            <input type="text" class="form-control skip" id="inputCity" placeholder="">
+                            <input type="text" class="form-control skip" id="inputCity" name="address2">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control skip" id="numerRachunku">
+                            <input type="text" class="form-control skip" id="numerRachunku" name="bank">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="nip" class="form-label">NIP</label>
                         <div class="input-group">
-                            <input type="text" class="form-control skip" id="nip" placeholder="">
+                            <input type="text" class="form-control skip" id="nip" name="nip">
                         </div>
                     </div>
                     <div class="col-12">
                         <label for="opisplatnosci" class="form-label">Opis płatności</label>
                         <div class="input-group">
-                            <input type="text" class="form-control skip" id="opisplatnosci" placeholder="">
+                            <input type="text" class="form-control skip" id="opisplatnosci" name="description">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="kwota" class="form-label">Kwota</label>
                         <div class="input-group">
-                            <input type="text" class="form-control skip" id="kwota">
+                            <input type="text" class="form-control skip" id="kwota" name="price">
                         </div>
                     </div>
                 </form>
@@ -572,12 +574,12 @@
 
                         <div class="col-12">
                             <label for="title" class="form-label">Nazwa płatności</label>
-                            <input class="form-control skip" type="text" id="title" name="title" required>
+                            <input class="form-control skip" type="text" id="title" name="title" name="title" required>
                         </div>
 
                         <div class="col-12">
                             <label for="price" class="form-label">Kwota</label>
-                            <input class="form-control skip" type="number" id="price" name="price" min="0" step="0.01" required>
+                            <input class="form-control skip" type="number" id="price" name="price" min="0" step="0.01" name="price" required>
                         </div>
 
                         <div class="col-sm-12">
@@ -586,7 +588,7 @@
                         </div>
 
                         <div class="col-12">
-                            <input type="file" id="fileScan" name="fileScan" required></input>
+                            <input type="file" id="fileScan" name="file" required></input>
                         </div>
 
                     </div>
@@ -630,7 +632,7 @@
                         </div>
 
                         <div class="col-12">
-                            <input type="file" id="fileScan" name="fileScan" required></input>
+                            <input type="file" id="fileScan" name="file" required></input>
                         </div>
 
                     </div>

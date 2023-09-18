@@ -160,7 +160,7 @@ function checkIfEmpty() {
 }
 
 function markEmpty(){
-  $('input').each(function(){
+  $('input').not(".skip").each(function(){
     if($(this).val().length === 0) $(this).addClass('is-invalid');
   })
 }

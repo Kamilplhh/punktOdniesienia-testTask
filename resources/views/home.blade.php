@@ -117,7 +117,7 @@
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <input class="form-control form-control-sm" type="text" placeholder="Search" value="" aria-label=".form-control-sm example">
+                                <input class="form-control form-control-sm skip" type="text" placeholder="Search" value="" aria-label=".form-control-sm example">
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -272,7 +272,7 @@
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <input class="form-control form-control-sm" type="text" placeholder="Search" value="" aria-label=".form-control-sm example">
+                                <input class="form-control form-control-sm skip" type="text" placeholder="Search" value="" aria-label=".form-control-sm example">
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -466,13 +466,13 @@
 
                     <div class="col-12">
                         <label for="companyName" class="form-label">Nazwa płatności</label>
-                        <input type="text" class="form-control" id="companyName" placeholder="Zus">
+                        <input type="text" class="form-control skip" id="companyName" placeholder="Zus">
                     </div>
 
 
                     <div class="col-12">
                         <label for="startDate" class="form-label">Cykl płatności od dnia</label>
-                        <input id="startDate" class="form-control" type="date" />
+                        <input id="startDate" class="form-control skip" type="date" />
                         <span id="startDateSelected"></span>
                     </div>
 
@@ -493,18 +493,18 @@
                     <div class="col-12">
                         <label class="form-label">Nazwa kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                            <input type="text" class="form-control skip" aria-label="Text input with segmented dropdown button">
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button"><span class="material-symbols-outlined">domain_add</span></button>
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <input class="form-control form-control-sm" type="text" placeholder="Search" value="" aria-label=".form-control-sm example">
+                                <input class="form-control form-control-sm skip" type="text" placeholder="Search" value="" aria-label=".form-control-sm example">
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 @foreach($contractors as $contractor)
-                                <li><a class="dropdown-item pointer" value="{{ $contractor->id }}">{{ $contractor->contractor }}</a></li>
+                                <li><a class="dropdown-item pointer skip" value="{{ $contractor->id }}">{{ $contractor->contractor }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -512,37 +512,37 @@
                     <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputAddress" placeholder="">
+                            <input type="text" class="form-control skip" id="inputAddress" placeholder="">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputCity" class="form-label">Address</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputCity" placeholder="">
+                            <input type="text" class="form-control skip" id="inputCity" placeholder="">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="numerRachunku">
+                            <input type="text" class="form-control skip" id="numerRachunku">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="nip" class="form-label">NIP</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="nip" placeholder="">
+                            <input type="text" class="form-control skip" id="nip" placeholder="">
                         </div>
                     </div>
                     <div class="col-12">
                         <label for="opisplatnosci" class="form-label">Opis płatności</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="opisplatnosci" placeholder="">
+                            <input type="text" class="form-control skip" id="opisplatnosci" placeholder="">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="kwota" class="form-label">Kwota</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="kwota">
+                            <input type="text" class="form-control skip" id="kwota">
                         </div>
                     </div>
                 </form>
@@ -572,12 +572,12 @@
 
                         <div class="col-12">
                             <label for="title" class="form-label">Nazwa płatności</label>
-                            <input class="form-control" type="text" id="title" name="title" required>
+                            <input class="form-control skip" type="text" id="title" name="title" required>
                         </div>
 
                         <div class="col-12">
                             <label for="price" class="form-label">Kwota</label>
-                            <input class="form-control" type="number" id="price" name="price" min="0" step="0.01" required>
+                            <input class="form-control skip" type="number" id="price" name="price" min="0" step="0.01" required>
                         </div>
 
                         <div class="col-sm-12">
@@ -616,12 +616,12 @@
 
                         <div class="col-12">
                             <label for="title" class="form-label">Nazwa płatności</label>
-                            <input class="form-control" type="text" id="title" name="title" required>
+                            <input class="form-control skip" type="text" id="title" name="title" required>
                         </div>
 
                         <div class="col-12">
                             <label for="price" class="form-label">Kwota</label>
-                            <input class="form-control" type="number" id="price" name="price" min="0" step="0.01" required>
+                            <input class="form-control skip" type="number" id="price" name="price" min="0" step="0.01" required>
                         </div>
 
                         <div class="col-sm-12">

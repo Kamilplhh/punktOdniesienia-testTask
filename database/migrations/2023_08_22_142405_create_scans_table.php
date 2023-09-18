@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('bankText')->nullable();
             $table->string('nipText')->nullable();
             $table->string('priceText')->nullable();
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }

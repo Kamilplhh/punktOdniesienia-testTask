@@ -15,5 +15,6 @@ class Scan extends Model
         'bankText',
         'nipText',
         'priceText',
+        'user_id'
     ];
 }

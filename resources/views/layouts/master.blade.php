@@ -42,10 +42,10 @@
                             </li>
                             <li class="nav-item">
                             @auth
-                                @if(Auth::user()->id = 1)
+                                @if(Auth::user()->id == 1)
                                     <a class="nav-link d-flex justify-content-end" href="/admin">Panel administratora
                                 @else
-                                    <a class="nav-link d-flex justify-content-end" href="/contractors">Słownik
+                                    <a class="nav-link d-flex justify-content-end" href="/dictionary">Słownik
                                 @endif
                             @endauth
                                     <span class="material-symbols-outlined ms-2">settings</span></a>

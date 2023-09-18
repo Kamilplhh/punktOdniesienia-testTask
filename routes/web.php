@@ -48,6 +48,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/getScanText', [ScanController::class, 'getData']);
 
+    Route::get('//dictionary', [ScanController::class, 'userWords']);
+
     Route::post('/send', [FileController::class, 'sendScan'])->name('sendScan'); 
 
     Route::get('/deletefile/{id}', [FileController::class, 'deleteFile'])->name('deleteFile');

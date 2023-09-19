@@ -680,8 +680,9 @@
                             <input type="hidden" class="paidHidden" name="paid" value="0">
                         </div>
 
-                        <div class="col-12">
-                            <input type="file" id="fileScan" name="file" required></input>
+                        <div class="col-12 align-items-center">
+                            <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik</button>
+                            <input type="file" class="invisible" id="fileScan" name="fileName" required></input>
                         </div>
 
                     </div>

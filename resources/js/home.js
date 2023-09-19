@@ -186,24 +186,17 @@ $('.paidStatus').on("click", function() {
 
 //Adding contractor on click
 $('.addContractor').on("click", function() {
-  let contractor = $(this).closest('div.data').find('input[name="contractor"]').val();
-  let address1 = $(this).closest('div.data').find('input[name="address1"]').val();
-  let address2 = $(this).closest('div.data').find('input[name="address2"]').val();
-  let bank = $(this).closest('div.data').find('input[name="bank"]').val();
-  let nip = $(this).closest('div.data').find('input[name="nip"]').val();
-  let email = $(this).closest('div.data').find('input[name="email"]').val();
-
   $.ajax({
     url: '/addContractor',
     type: 'POST',
     data: {
         _token: $('#token').val(),
-        contractor: contractor,
-        address1: address1,
-        address2: address2,
-        bank: bank,
-        nip: nip,
-        email: email,
+        contractor: $(this).closest('div.data').find('input[name="contractor"]').val(),
+        address1: $(this).closest('div.data').find('input[name="address1"]').val(),
+        address2: $(this).closest('div.data').find('input[name="address2"]').val(),
+        bank: $(this).closest('div.data').find('input[name="bank"]').val(),
+        nip: $(this).closest('div.data').find('input[name="nip"]').val(),
+        email: $(this).closest('div.data').find('input[name="email"]').val(),
     },
     success: function () {
       $(location).prop('href', '/');
@@ -214,6 +207,46 @@ $('.addContractor').on("click", function() {
     }
 });
 })
+
+$('.edit').on("click", function(){
+  $(this).closest('div.dataBlock').find('form').trigger('submit');
+})
+
+$('li').on("click", function(){
+  let object = $(this);
+  let id = $(this).val();
+  $(this).closest('ul.contractorDiv').find('input[name="contractor_id"]').val(id);
+
+  getContractor(id, object)
+})
+
+function getContractor(id, object) {
+  $.ajax({
+    url: '/getContractor/' + id,
+    type: 'GET',
+    success: function (response) {
+      if(response.length === 0){
+        $(object).closest('div.row').find('input[name="contractor"]').val('');
+        $(object).closest('div.row').find('input[name="address1"]').val('');
+        $(object).closest('div.row').find('input[name="address2"]').val('');
+        $(object).closest('div.row').find('input[name="bank"]').val('');
+        $(object).closest('div.row').find('input[name="nip"]').val('');
+        $(object).parent().parent().parent().parent().parent().find('.imail').find('input[name="email"]').val('');
+      }
+      else {
+        $(object).closest('div.row').find('input[name="contractor"]').val(response[0].contractor);
+        $(object).closest('div.row').find('input[name="address1"]').val(response[0].address1);
+        $(object).closest('div.row').find('input[name="address2"]').val(response[0].address2);
+        $(object).closest('div.row').find('input[name="bank"]').val(response[0].bank);
+        $(object).closest('div.row').find('input[name="nip"]').val(response[0].nip);
+        $(object).parent().parent().parent().parent().parent().find('.imail').find('input[name="email"]').val(response[0].email);
+      }
+    },
+    error: function () {
+      alert('Something went wrong');
+  }
+});
+}
 
 //Check if there is no payment date exceed
 // function exceeded() {

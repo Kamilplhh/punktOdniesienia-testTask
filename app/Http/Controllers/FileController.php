@@ -134,4 +134,21 @@ class FileController extends Controller
 
         return response($fileName);
     }
+
+    public function editFile(Request $request)
+    {
+        if($request['contractor_id'] > 0){
+            $request->request->remove('email');
+            $request->request->remove('contractor');
+            $request->request->remove('address1');
+            $request->request->remove('address2');
+            $request->request->remove('bank');
+            $request->request->remove('nip');
+        }
+
+        $fileArray = $request->all([]);
+
+        $this->fileRepository->updateFile($fileArray, $request['id']);
+        return redirect()->back();
+    }
 }

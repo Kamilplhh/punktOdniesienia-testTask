@@ -22,5 +22,10 @@ class FileRepository implements FileRepositoryInterface
     {
         File::destroy($fileId);
     }
+
+    public function updateFile(array $file, $fileId)
+    {
+        File::find($fileId)->update($file);
+    }
 }
 

@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/contractors', [ContractorController::class, 'getData']);
 
+    Route::get('/getContractor/{id}', [ContractorController::class, 'getContractor']);
+
     Route::post('/addContractor', [ContractorController::class, 'addContractor'])->name('addContractor'); 
 
     Route::post('/editContractor', [ContractorController::class, 'editContractor'])->name('editContractor'); 
@@ -48,9 +50,11 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/getScanText', [ScanController::class, 'getData']);
 
-    Route::get('//dictionary', [ScanController::class, 'userWords']);
+    Route::get('/dictionary', [ScanController::class, 'userWords']);
 
     Route::post('/send', [FileController::class, 'sendScan'])->name('sendScan'); 
+
+    Route::post('/editFile', [FileController::class, 'editFile'])->name('editFile');
 
     Route::get('/deletefile/{id}', [FileController::class, 'deleteFile'])->name('deleteFile');
 

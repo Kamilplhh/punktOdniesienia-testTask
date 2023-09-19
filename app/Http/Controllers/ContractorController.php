@@ -45,4 +45,10 @@ class ContractorController extends Controller
         return redirect()->back();
     }
 
+    public function getContractor($id) 
+    {
+        $contractor = Contractor::where('id', '=', $id)->get();
+
+        return $contractor;
+    }
 }

@@ -535,8 +535,9 @@
                     </div>
 
                     <div class="col-12 align-items-center">
-                        <button type="button" class="btn btn-primary">Dodaj załącznik</button>
-                    </div>
+                            <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik</button>
+                            <input type="file" class="invisible" id="fileScan" name="fileName"></input>
+                        </div>
 
                     <div class="col-12">
                         <label class="form-label">Nazwa kontrahenta</label>
@@ -600,7 +601,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
-                <button type="button" class="btn btn-primary">Dodaj</button>
+                <button type="button" class="btn btn-primary scanSubmit">Dodaj</button>
             </div>
         </div>
     </div>
@@ -637,7 +638,7 @@
 
                         <div class="col-12 align-items-center">
                             <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik</button>
-                            <input type="file" class="invisible" id="fileScan" name="fileName" required></input>
+                            <input type="file" class="invisible" id="fileScan" name="fileName"></input>
                         </div>
 
                     </div>
@@ -682,14 +683,14 @@
 
                         <div class="col-12 align-items-center">
                             <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik</button>
-                            <input type="file" class="invisible" id="fileScan" name="fileName" required></input>
+                            <input type="file" class="invisible" id="fileScan" name="fileName"></input>
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
-                    <button type="button" class="btn btn-primary">Dodaj</button>
+                    <button type="button" class="btn btn-primary scanSubmit">Dodaj</button>
                 </div>
             </form>
         </div>

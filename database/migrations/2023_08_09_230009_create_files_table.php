@@ -23,6 +23,7 @@ return new class extends Migration
             $table->Integer('bank')->nullable();
             $table->Integer('nip')->nullable();
             $table->string('description')->nullable();
+            $table->string('content', 2000)->nullable();
             $table->float('price', 8, 2)->nullable();
             $table->boolean('paid')->default(false);
             // $table->date('paymentDate'); 

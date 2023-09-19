@@ -248,6 +248,10 @@ function getContractor(id, object) {
 });
 }
 
+$('.showcase').on("click", function() {
+  $(this).closest('div').find('.invisible').trigger("click");
+})
+
 //Check if there is no payment date exceed
 // function exceeded() {
 //   let date = new Date();

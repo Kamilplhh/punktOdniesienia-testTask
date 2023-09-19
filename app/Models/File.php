@@ -27,6 +27,7 @@ class File extends Model
         'cycleDate',
         'user_id',
         'contractor_id',
+        'content'
     ];
 
     public function contractor()

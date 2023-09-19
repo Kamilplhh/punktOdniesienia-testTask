@@ -65,8 +65,10 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <input type="hidden" name="id" value="{{ $file->id }}">
-                                <li><a class="dropdown-item edit">Edytuj</a></li>
+                                <li><a class="dropdown-item edit pointer">Edytuj</a></li>
                                 <li><a class="dropdown-item" href="/deletefile/{{ $file->id }}">Usuń</a></li>
+                                <li><a class="dropdown-item pointer showcase">Podgląd</a></li>
+                                <button type="button" class="invisible" data-bs-toggle="modal" data-bs-target="{{'#mail' . $file->id}}"></button>
                             </ul>
                         </div>
                     </div>
@@ -184,6 +186,21 @@
                 </div>
             </form>
         </div>
+        <div class="modal fade" id="{{'mail' . $file->id}}" tabindex="-1" aria-labelledby="{{'mail' . $file->id}}" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen-sm-down">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="{{'mail' . $file->id}}">Podgląd maila</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <p class="form-label">Treść maila:</p>
+                        {{ $file->content }}"
+                    </div>
+                </div>
+            </div>
+        </div>
         {{--Dla płatności cyklicznych--}}
         @elseif($file->type == "avg_pace")
         <div class="bg-body-tertiary p-3 rounded mt-2 dataBlock">
@@ -218,7 +235,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <input type="hidden" name="id" value="{{ $file->id }}">
-                                <li><a class="dropdown-item edit">Edytuj</a></li>
+                                <li><a class="dropdown-item edit pointer">Edytuj</a></li>
                                 <li><a class="dropdown-item" href="#">Usuń tą płatność</a></li>
                                 <li><a class="dropdown-item" href="/deletefile/{{ $file->id }}">Usuń tą płatność i kolejne</a></li>
                             </ul>
@@ -389,7 +406,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <input type="hidden" name="id" value="{{ $file->id }}">
-                                <li><a class="dropdown-item edit">Edytuj</a></li>
+                                <li><a class="dropdown-item edit pointer">Edytuj</a></li>
                                 <li><a class="dropdown-item" href="/deletefile/{{ $file->id }}">Usuń</a></li>
                             </ul>
                         </div>
@@ -605,12 +622,12 @@
 
                         <div class="col-12">
                             <label for="title" class="form-label">Nazwa płatności</label>
-                            <input class="form-control skip" type="text" id="title" name="title" name="title" required>
+                            <input class="form-control skip" type="text" id="title" name="title" required>
                         </div>
 
                         <div class="col-12">
                             <label for="price" class="form-label">Kwota</label>
-                            <input class="form-control skip" type="number" id="price" name="price" min="0" step="0.01" name="price" required>
+                            <input class="form-control skip" type="number" id="price" name="price" min="0" step="0.01" required>
                         </div>
 
                         <div class="col-sm-12">

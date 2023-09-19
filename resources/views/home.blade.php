@@ -496,113 +496,115 @@
 <div class="modal fade data" id="cost" tabindex="-1" aria-labelledby="cost" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-sm-down">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="cost">Dodaj koszt</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-                <div class="col-sm-12 mb-2">
-                    <button type="button" class="btn paidStatus btn-outline-primary w-100" autocomplete="off">Nie zapłacono</button>
-                    <input type="hidden" class="paidHidden" name="paid" value="0">
+            <form enctype="multipart/form-data" method="POST" action="{{ route('addFile') }}">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cost">Dodaj koszt</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <div class="modal-body">
 
-                <p class="fs-5 text-secondary">Ustawienie płatności</p>
-
-                <div class="row g-3">
-
-                    <div class="imail col-12">
-                        <label for="companyName" class="form-label">Nazwa płatności</label>
-                        <input type="text" class="form-control skip" id="companyName" name="title">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control skip" id="email" name="email">
+                    <div class="col-sm-12 mb-2">
+                        <button type="button" class="btn paidStatus btn-outline-primary w-100" autocomplete="off">Nie zapłacono</button>
+                        <input type="hidden" class="paidHidden" name="paid" value="0">
                     </div>
 
-                    <div class="col-12">
-                        <label for="startDate" class="form-label">Cykl płatności od dnia</label>
-                        <input id="startDate" class="form-control skip" type="date" />
-                        <span id="startDateSelected"></span>
-                    </div>
+                    <p class="fs-5 text-secondary">Ustawienie płatności</p>
 
-                    <div class="col-12">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Nie powtarza się</option>
-                            <option value="1">Codziennie</option>
-                            <option value="2">Co tydzień w:X</option>
-                            <option value="3">Co miesiąc w:X</option>
-                            <option value="4">Co rok w dniu:X</option>
-                        </select>
-                    </div>
+                    <div class="row g-3">
 
-                    <div class="col-12 align-items-center">
+                        <div class="imail col-12">
+                            <label for="companyName" class="form-label">Nazwa płatności</label>
+                            <input type="text" class="form-control skip" id="companyName" name="title">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" class="form-control skip" id="email" name="email">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="startDate" class="form-label">Cykl płatności od dnia</label>
+                            <input id="startDate" class="form-control skip" type="date" />
+                            <span id="startDateSelected"></span>
+                        </div>
+
+                        <div class="col-12">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Nie powtarza się</option>
+                                <option value="1">Codziennie</option>
+                                <option value="2">Co tydzień w:X</option>
+                                <option value="3">Co miesiąc w:X</option>
+                                <option value="4">Co rok w dniu:X</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 align-items-center">
                             <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik</button>
                             <input type="file" class="invisible" id="fileScan" name="fileName"></input>
                         </div>
 
-                    <div class="col-12">
-                        <label class="form-label">Nazwa kontrahenta</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control skip" aria-label="Text input with segmented dropdown button" name="contractor">
-                            <button class="btn btn-outline-secondary d-flex align-items-center addContractor" type="button"><span class="material-symbols-outlined">domain_add</span></button>
-                            <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="visually-hidden">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end contractorDiv">
-                                <input type="hidden" class="skip" name='contractor_id'>
-                                <input class="form-control form-control-sm skip" type="text" placeholder="Search" aria-label=".form-control-sm example">
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li value=""><a class="dropdown-item pointer">None</a></li>
-                                @foreach($contractors as $contractor)
-                                <li value="{{ $contractor->id }}"><a class="dropdown-item pointer">{{ $contractor->contractor }}</a></li>
-                                @endforeach
-                            </ul>
+                        <div class="col-12">
+                            <label class="form-label">Nazwa kontrahenta</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control skip" aria-label="Text input with segmented dropdown button" name="contractor">
+                                <button class="btn btn-outline-secondary d-flex align-items-center addContractor" type="button"><span class="material-symbols-outlined">domain_add</span></button>
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end contractorDiv">
+                                    <input type="hidden" class="skip" name='contractor_id'>
+                                    <input class="form-control form-control-sm skip" type="text" placeholder="Search" aria-label=".form-control-sm example">
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li value=""><a class="dropdown-item pointer">None</a></li>
+                                    @foreach($contractors as $contractor)
+                                    <li value="{{ $contractor->id }}"><a class="dropdown-item pointer">{{ $contractor->contractor }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputAddress" class="form-label">Address1</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control skip" id="inputAddress" name="address1">
+                        <div class="col-md-6">
+                            <label for="inputAddress" class="form-label">Address1</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control skip" id="inputAddress" name="address1">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputCity" class="form-label">Address2</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control skip" id="inputCity" name="address2">
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">Address2</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control skip" id="inputCity" name="address2">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control skip" id="numerRachunku" name="bank">
+                        <div class="col-md-6">
+                            <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control skip" id="numerRachunku" name="bank">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="nip" class="form-label">NIP</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control skip" id="nip" name="nip">
+                        <div class="col-md-6">
+                            <label for="nip" class="form-label">NIP</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control skip" id="nip" name="nip">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <label for="opisplatnosci" class="form-label">Opis płatności</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control skip" id="opisplatnosci" name="description">
+                        <div class="col-12">
+                            <label for="opisplatnosci" class="form-label">Opis płatności</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control skip" id="opisplatnosci" name="description">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="kwota" class="form-label">Kwota</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control skip" id="kwota" name="price">
+                        <div class="col-md-6">
+                            <label for="kwota" class="form-label">Kwota</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control skip" id="kwota" name="price">
+                            </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
-                <button type="button" class="btn btn-primary scanSubmit">Dodaj</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+                    <button type="submit" class="btn btn-primary scanSubmit">Dodaj</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

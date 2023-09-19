@@ -33,6 +33,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('scanUpload', [FileController::class, 'scanUpload'])->name('scanUpload'); 
 
     Route::post('pdfUpload', [FileController::class, 'pdfUpload'])->name('pdfUpload'); 
+
+    Route::post('addFile', [FileController::class, 'addFile'])->name('addFile'); 
     
     Route::get('/admin', [AdminController::class, 'getUsers']);
 

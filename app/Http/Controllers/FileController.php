@@ -43,6 +43,36 @@ class FileController extends Controller
         return redirect()->back();
     }
 
+    public function addFile(Request $request)
+    {
+        $request->validate([
+            'fileName' => ['required', 'mimes:jpg,png,pdf', 'max:10240'],
+            'title' => ['required', 'string', 'max:255'],
+            'price' => ['required', 'numeric', 'min:0'],
+        ]);
+        if($request['contractor_id'] > 0){
+            $request->request->remove('email');
+            $request->request->remove('contractor');
+            $request->request->remove('address1');
+            $request->request->remove('address2');
+            $request->request->remove('bank');
+            $request->request->remove('nip');
+        }
+
+        $file = $request->file('fileName');
+        $fileName = strval(rand()) . $request->file('fileName')->getClientOriginalName();
+        $file->move('uploads/file', $fileName);
+
+        $request['file'] = $fileName;
+        $request['user_id'] = Auth::id();
+        $request['type'] = 'avg_pace';
+
+        $fileArray = $request->all([]);
+
+        $this->fileRepository->createFile($fileArray);
+        return redirect()->back();
+    }
+
     public function pdfUpload(Request $request)
     {
         $request->validate([
@@ -119,7 +149,7 @@ class FileController extends Controller
 
         $zip = new \ZipArchive();
         $fileName = strval(rand()) . 'invoices.zip';
-        if ($zip->open('uploads/file/' . $fileName, \ZipArchive::CREATE) == TRUE) {
+        if ($zip->open('uploads/zips/' . $fileName, \ZipArchive::CREATE) == TRUE) {
             $files = File::files('uploads/file');
             foreach ($files as $key => $value) {
                 $relativeName = basename($value);

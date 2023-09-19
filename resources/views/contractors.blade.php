@@ -80,7 +80,7 @@
                             <label for="inputAddress" class="form-label">Address</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="inputCity" name="address2" value="{{ $file->address2 }}">
-                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"<span class="material-symbols-outlined">content_copy</span></button>
+                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">

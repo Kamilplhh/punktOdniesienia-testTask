@@ -252,6 +252,17 @@ $('.showcase').on("click", function() {
   $(this).closest('div').find('.invisible').trigger("click");
 })
 
+$('.fileNameAdd').on("click", function() {
+  $(this).closest('div').find('.invisible').trigger("click");
+})
+
+$('.scanSubmit').on("click", function() {
+  if($(this).parent().parent().find('.invisible').val() === ''){
+    alert('Please upload file');
+    event.preventDefault()
+  }
+})
+
 //Check if there is no payment date exceed
 // function exceeded() {
 //   let date = new Date();

@@ -635,15 +635,16 @@
                             <input type="hidden" class="paidHidden" name="paid" value="0">
                         </div>
 
-                        <div class="col-12">
-                            <input type="file" id="fileScan" name="fileName" required></input>
+                        <div class="col-12 align-items-center">
+                            <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik</button>
+                            <input type="file" class="invisible" id="fileScan" name="fileName" required></input>
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
-                    <button type="submit" class="btn btn-primary">Dodaj</button>
+                    <button type="submit" class="btn btn-primary scanSubmit">Dodaj</button>
                 </div>
             </form>
         </div>

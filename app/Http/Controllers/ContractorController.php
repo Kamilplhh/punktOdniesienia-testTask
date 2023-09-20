@@ -21,7 +21,7 @@ class ContractorController extends Controller
             'address2' => ['required', 'string', 'max:255'],
             'bank' => ['required', 'numeric', 'min:0'],
             'nip' => ['required', 'numeric', 'min:0'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
         ]);
         $request['user_id'] = Auth::id();
 
@@ -38,6 +38,14 @@ class ContractorController extends Controller
 
     public function editContractor(Request $request)
     {
+        $request->validate([
+            'contractor' => ['string', 'max:255'],
+            'address1' => ['string', 'max:255'],
+            'address2' => ['string', 'max:255'],
+            'bank' => ['numeric', 'min:0'],
+            'nip' => ['numeric', 'min:0'],
+            'email' => ['email', 'max:255'],
+        ]);
         $request['user_id'] = Auth::id();
 
         $fileArray = $request->all([]);

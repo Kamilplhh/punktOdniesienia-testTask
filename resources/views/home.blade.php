@@ -88,11 +88,7 @@
                     <div class="imail col-12 mb-3">
                         <label class="form-label">Wysłane z adresu e-mail</label>
                         <div class="input-group">
-                            @if(!empty($file->contractor_id))
-                            <input class="form-control" type="text" name="email" value="{{ $file->Contractor->email }}">
-                            @else
-                            <input class="form-control" type="text" name="email" value="{{ $file->email }}">
-                            @endif
+                            <input class="form-control" type="text" name="email" value="{{ $file->email }}" disabled>
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                         </div>
                     </div>
@@ -104,7 +100,7 @@
                         @if($file->file == 0)
                         <button type="button" class="btn btn-dark">Dodaj</button>
                         @else
-                        <a class="download" href="{{url('uploads/file/'. $file->file)}}" download>
+                        <a class="download" href="{{url('uploads/file/'. $file->file)}}" target="_blank">
                             <button type="button" class="btn btn-dark fileName">{{ $file->file}}</button>
                         </a>
                         @endif
@@ -257,17 +253,11 @@
                     <p class="fs-5 text-secondary">Ustawienie płatności</p>
 
                     <div class="imail col-12 mb-3">
-                        @if(!empty($file->contractor_id))
-                        <input type="hidden" name="email" value="{{ $file->Contractor->email }}">
-                        @else
-                        <input type="hidden" name="email" value="{{ $file->email }}">
-                        @endif
-
                         <label class="form-label pe-2">Załącznik</label>
                         @if($file->file == 0)
                         <button type="button" class="btn btn-dark">Dodaj</button>
                         @else
-                        <a class="download" href="{{url('uploads/file/'. $file->file)}}" download>
+                        <a class="download" href="{{url('uploads/file/'. $file->file)}}" target="_blank">
                             <button type="button" class="btn btn-dark fileName">{{ $file->file}}</button>
                         </a>
                         @endif
@@ -429,7 +419,7 @@
                         @if($file->file == 0)
                         <button type="button" class="btn btn-dark">Dodaj</button>
                         @else
-                        <a class="download" href="{{url('uploads/file/'. $file->file)}}" download>
+                        <a class="download" href="{{url('uploads/file/'. $file->file)}}" target="_blank">
                             <button type="button" class="btn btn-dark fileName">{{ $file->file}}</button>
                         </a>
                         @endif

@@ -45,6 +45,10 @@ class ContractorController extends Controller
             'bank' => ['numeric', 'min:0'],
             'nip' => ['numeric', 'min:0'],
             'email' => ['email', 'max:255'],
+            'email1' => ['email', 'max:255'],
+            'email2' => ['email', 'max:255'],
+            'email3' => ['email', 'max:255'],
+            'email4' => ['email', 'max:255'],
         ]);
         $request['user_id'] = Auth::id();
 

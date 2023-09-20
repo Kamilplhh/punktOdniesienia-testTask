@@ -40,8 +40,23 @@ function showPanel(id) {
   $(".navi:not(#" + id + ")").removeClass("text-primary");
 }
 
+//============
 //Contractors page
 $('.edit').on("click", function () {
-  $(this).closest('form').submit();
+  let object = $(this).closest('div.dataDiv')
+  object.find('input:not(.skip)').each(function () {
+    $(this).prop("disabled", false);
+
+  })
+  object.find('.buttons').removeClass('off')
+})
+
+$('.cancel').on("click", function () {
+  let object = $(this).closest('div.dataDiv')
+  object.find('input:not(.skip)').each(function () {
+    $(this).prop("disabled", true);
+
+  })
+  object.find('.buttons').addClass('off')
 })
 

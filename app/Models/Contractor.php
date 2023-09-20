@@ -16,6 +16,10 @@ class Contractor extends Model
         'bank',
         'nip',
         'email',
+        'email1',
+        'email2',
+        'email3',
+        'email4',
         'user_id',
     ];
 }

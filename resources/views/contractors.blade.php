@@ -20,7 +20,7 @@
         <form method="POST" action="{{ route('editContractor') }}">
             @csrf
             <input type="hidden" name="id" value="{{ $file->id }}">
-            <div class="bg-body-tertiary p-3 rounded mt-2">
+            <div class="bg-body-tertiary p-3 rounded mt-2 dataDiv">
                 <div class="d-flex justify-content-between">
                     <div class="d-flex pointer" data-bs-toggle="collapse" data-bs-target="#{{ $i }}" aria-expanded="false" aria-controls="{{ $i }}">
                         <div class="pe-3">
@@ -39,8 +39,7 @@
                                 <span class="material-symbols-outlined">more_vert</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-
-                                <li><a class="dropdown-item edit">Edytuj</a></li>
+                                <li><a class="dropdown-item edit pointer">Edytuj</a></li>
                                 <li><a class="dropdown-item" href="/deleteContractor/{{ $file->id }}">Usuń</a></li>
                             </ul>
                         </div>
@@ -52,7 +51,7 @@
                     <div class="col-12 mb-3">
                         <label for="email" class="form-label">Powiązany adres e-mail</label>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="email" value="{{ $file->email }}" aria-label="Disabled input example">
+                            <input class="form-control skip" type="text" name="email" value="{{ $file->email }}" aria-label="Disabled input example" disabled>
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button addon"><span class="material-symbols-outlined">content_copy</span></button>
                             <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">add</span></button>
                         </div>
@@ -64,7 +63,7 @@
                         <div class="col-12">
                             <label class="form-label">Nazwa dostawcy</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" name="contractor" value="{{ $file->contractor }}">
+                                <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" name="contractor" value="{{ $file->contractor }}" disabled>
                                 <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
 
                             </div>
@@ -72,30 +71,35 @@
                         <div class="col-md-6">
                             <label for="inputAddress" class="form-label">Address</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ $file->address1 }}">
+                                <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ $file->address1 }}" disabled>
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="inputAddress" class="form-label">Address</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="inputCity" name="address2" value="{{ $file->address2 }}">
+                                <input type="text" class="form-control" id="inputCity" name="address2" value="{{ $file->address2 }}" disabled>
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="kwota" class="form-label">Numer rachunku dostawcy</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="Numerrachunku" name="bank" value="{{ $file->bank}}">
+                                <input type="text" class="form-control" id="Numerrachunku" name="bank" value="{{ $file->bank}}" disabled>
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="nip" class="form-label">NIP</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="nip" name="nip" value="{{ $file->nip }}">
+                                <input type="text" class="form-control" id="nip" name="nip" value="{{ $file->nip }}" disabled>
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
+                        </div>
+
+                        <div class="col-sm-12 buttons off">
+                            <button type="button" class="btn btn-danger cancel" autocomplete="off">Anuluj</button>
+                            <button type="submit" class="btn btn-success" autocomplete="off">Zapisz</button>
                         </div>
 
                     </div>

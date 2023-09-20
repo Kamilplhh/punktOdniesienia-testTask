@@ -19,6 +19,10 @@ return new class extends Migration
             $table->Integer('bank');
             $table->Integer('nip');
             $table->string('email');
+            $table->string('email1')->nullable();
+            $table->string('email2')->nullable();
+            $table->string('email3')->nullable();
+            $table->string('email4')->nullable();
             $table->bigInteger('user_id');
             $table->timestamps();
         });

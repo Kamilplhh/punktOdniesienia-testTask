@@ -16,6 +16,7 @@ export default defineConfig({
                 'resources/js/settings.js',
                 'resources/js/register.js',
                 'resources/js/download.js',
+                'resources/js/contractor.js',
                 'resources/js/color-modes.js',
             ],
             refresh: true,

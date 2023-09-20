@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @vite('resources/css/index.css')
-@vite('resources/js/settings.js')
+@vite('resources/js/contractor.js')
 
 @section('calendar')
 @show
@@ -53,8 +53,20 @@
                         <div class="input-group">
                             <input class="form-control skip" type="text" name="email" value="{{ $file->email }}" aria-label="Disabled input example" disabled>
                             <button class="btn btn-outline-secondary d-flex align-items-center" type="button addon"><span class="material-symbols-outlined">content_copy</span></button>
-                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">add</span></button>
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon emailAdd" type="button"><span class="material-symbols-outlined">add</span></button>
                         </div>
+                        @for($index = 1; $index <= 4; $index++)
+                        @php($email = 'email' . $index)
+                        <div class="input-group emails">
+                            <input class="form-control" type="text" name="{{$email}}" value="{{ $file->$email }}" aria-label="Disabled input example" disabled>
+                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button addon"><span class="material-symbols-outlined">remove</span></button>
+                            @if($email === 'email4')
+
+                            @else
+                            <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon emailAdd" type="button"><span class="material-symbols-outlined">add</span></button>
+                            @endif
+                        </div>
+                        @endfor
                     </div>
 
                     <p class="fs-5 text-secondary">Dane dostawcy</p>

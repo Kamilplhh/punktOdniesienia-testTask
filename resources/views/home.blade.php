@@ -129,8 +129,8 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end contractorDiv">
                                     <input type="hidden" class="skip" name='contractor_id' value="{{ $contractor_id }}">
-                                    <input class="form-control form-control-sm skip" type="text" placeholder="Search" aria-label=".form-control-sm example">
-                                    <li>
+                                    <input class="form-control form-control-sm skip search" type="text" placeholder="Search" aria-label=".form-control-sm example">
+                                    <li class="skip">
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li value=""><a class="dropdown-item pointer">None</a></li>
@@ -314,8 +314,8 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end contractorDiv">
                                     <input type="hidden" class="skip" name='contractor_id' value="{{ $contractor_id }}">
-                                    <input class="form-control form-control-sm skip" type="text" placeholder="Search" aria-label=".form-control-sm example">
-                                    <li>
+                                    <input class="form-control form-control-sm skip search" type="text" placeholder="Search" aria-label=".form-control-sm example">
+                                    <li class="skip">
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li value=""><a class="dropdown-item pointer">None</a></li>
@@ -551,8 +551,8 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end contractorDiv">
                                     <input type="hidden" class="skip" name='contractor_id'>
-                                    <input class="form-control form-control-sm skip" type="text" placeholder="Search" aria-label=".form-control-sm example">
-                                    <li>
+                                    <input class="form-control form-control-sm skip search" type="text" placeholder="Search" aria-label=".form-control-sm example">
+                                    <li class="skip">
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li value=""><a class="dropdown-item pointer">None</a></li>

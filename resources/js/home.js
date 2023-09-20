@@ -263,6 +263,19 @@ $('.scanSubmit').on("click", function() {
   }
 })
 
+$('.search').keyup(function() {
+  let text = $(this).val();
+  let li = $(this).closest('ul').find('li:not(.skip)')
+  li.each(function(){
+    if ($(this).text().match("^"+text)) {
+      $(this).removeClass('off')
+   } else{
+     $(this).addClass('off')
+   }
+  })
+})
+
+
 //Check if there is no payment date exceed
 // function exceeded() {
 //   let date = new Date();

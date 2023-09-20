@@ -40,3 +40,9 @@ $('.emailAdd').on("click", function () {
     }
   })
 })
+
+$('.remove').on("click", function () {
+  let parent = $(this).parent()
+  parent.find('input').attr('value','');
+  parent.addClass('off');
+})

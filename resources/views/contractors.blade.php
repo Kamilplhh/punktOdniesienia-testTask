@@ -59,7 +59,7 @@
                         @php($email = 'email' . $index)
                         <div class="input-group emails">
                             <input class="form-control" type="text" name="{{$email}}" value="{{ $file->$email }}" aria-label="Disabled input example" disabled>
-                            <button class="btn btn-outline-secondary d-flex align-items-center" type="button addon"><span class="material-symbols-outlined">remove</span></button>
+                            <button class="btn btn-outline-secondary d-flex align-items-center remove" type="button"><span class="material-symbols-outlined">remove</span></button>
                             @if($email === 'email4')
 
                             @else

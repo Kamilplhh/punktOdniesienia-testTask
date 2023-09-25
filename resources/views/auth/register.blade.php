@@ -106,7 +106,7 @@
                         <button type="button" class="btn btn-primary btn-sm back" value=0>Cofnij</button>
                     </div>
                     <div class="d-flex flex-row">
-                        <button type="submit" id="skip" class="btn btn-outline-secondary btn-sm me-3 off">Pomiń</button><button type="button" class="btn btn-primary btn-sm submit">Dalej</button>
+                        <button type="button" id="skip" class="btn btn-outline-secondary btn-sm me-3 off">Pomiń</button><button type="button" class="btn btn-primary btn-sm submit">Dalej</button>
                         </form>
                     </div>
                 </div>

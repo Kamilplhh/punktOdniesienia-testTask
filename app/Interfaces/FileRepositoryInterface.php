@@ -8,4 +8,5 @@ interface FileRepositoryInterface
     public function createFile(array $file);
     public function deleteFile($fileId);
     public function updateFile(array $file, $fileId);
+    public function checkRepetitive();
 }

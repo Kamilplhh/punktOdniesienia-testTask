@@ -18,7 +18,7 @@ class FileRepository implements FileRepositoryInterface
         return File::create($file);
     }
 
-    public function deleteFile($fileId) 
+    public function deleteFile($fileId)
     {
         File::destroy($fileId);
     }
@@ -27,5 +27,35 @@ class FileRepository implements FileRepositoryInterface
     {
         File::find($fileId)->update($file);
     }
-}
 
+    public function checkRepetitive()
+    {
+        $files = File::where('type', '=', 'avg_pace')->get();
+        $date = date("Y-m-d");
+
+        foreach($files as $file){
+            if($file->cycleFrequency = 1){
+                $file->addDate = $date;
+                File::create($file);
+            }
+            elseif($file->cycleFrequency = 2){
+                if(($file->addDate - $date) >= 604800){
+                    $file->addDate = $date;
+                    File::create($file);
+                }
+            }
+            elseif($file->cycleFrequency = 3){
+                if(($file->addDate - $date) >= 15778463){
+                    $file->addDate = $date;
+                    File::create($file);
+                }
+            }
+            elseif($file->cycleFrequency = 4){
+                if(($file->addDate - $date) >= 3155692){
+                    $file->addDate = $date;
+                    File::create($file);
+                }
+            }
+        }
+    }
+}

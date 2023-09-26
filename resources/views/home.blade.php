@@ -518,11 +518,11 @@
 
                         <div class="col-12">
                             <select class="form-select" aria-label="Default select example">
-                                <option selected>Nie powtarza się</option>
+                                <option selected value="0">Nie powtarza się</option>
                                 <option value="1">Codziennie</option>
-                                <option value="2">Co tydzień w:X</option>
-                                <option value="3">Co miesiąc w:X</option>
-                                <option value="4">Co rok w dniu:X</option>
+                                <option value="2">Co tydzień</option>
+                                <option value="3">Co miesiąc</option>
+                                <option value="4">Co rok</option>
                             </select>
                         </div>
 

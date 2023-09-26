@@ -80,6 +80,8 @@
                 <th scope="col">Nr. rachunku</th>
                 <th scope="col">NIP</th>
                 <th scope="col">Cena</th>
+                <th scope="col">User_id</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -90,6 +92,8 @@
                 <td>{{$scan->bankText}}</td>
                 <td>{{$scan->nipText}}</td>
                 <td>{{$scan->priceText}}</td>
+                <td>{{$scan->user_id}}</td>
+                <td><a href="/deleteName/{{$scan->id}}"><button type="button" class="btn btn-danger" autocomplete="off">Usuń</button></a></td>
             </tr>
             @endforeach
         </tbody>

@@ -41,4 +41,13 @@ class ScanController extends Controller
 
         return view('dictionary', compact('scans'));
     }
+
+    public function deleteName($id)
+    {
+        Scan::destroy($id);
+
+        return redirect()->back();
+    }
 }
+
+

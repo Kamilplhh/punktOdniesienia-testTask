@@ -56,6 +56,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::post('/send', [FileController::class, 'sendScan'])->name('sendScan'); 
 
+    Route::get('/deleteName/{id}', [ScanController::class, 'deleteName'])->name('deleteName');
+
     Route::post('/editFile', [FileController::class, 'editFile'])->name('editFile');
 
     Route::get('/deletefile/{id}', [FileController::class, 'deleteFile'])->name('deleteFile');
@@ -64,4 +66,3 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::post('/addScanner', [ScanController::class, 'addScanner'])->name('addScanner'); 
 });
-

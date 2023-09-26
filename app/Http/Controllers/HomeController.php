@@ -31,6 +31,9 @@ class HomeController extends Controller
     {
         $contractors = Contractor::where('user_id', '=', Auth::id())->get();
         $files = $this->fileRepository->getFiles();
-        return view('home', compact('files', 'contractors'));
+
+        date_default_timezone_set('Europe/Warsaw');
+        $date = date("Y-m-d");
+        return view('home', compact('files', 'contractors', 'date'));
     }
 }

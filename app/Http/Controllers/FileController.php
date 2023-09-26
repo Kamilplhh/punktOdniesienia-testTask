@@ -58,7 +58,7 @@ class FileController extends Controller
             $request->request->remove('bank');
             $request->request->remove('nip');
         }
-
+        
         $file = $request->file('fileName');
         $fileName = strval(rand()) . $request->file('fileName')->getClientOriginalName();
         $file->move('uploads/file', $fileName);
@@ -68,7 +68,6 @@ class FileController extends Controller
         $request['type'] = 'avg_pace';
 
         $fileArray = $request->all([]);
-
         $this->fileRepository->createFile($fileArray);
         return redirect()->back();
     }

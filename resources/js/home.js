@@ -231,6 +231,9 @@ function getContractor(id, object) {
         $(object).closest('div.row').find('input[name="address2"]').val('');
         $(object).closest('div.row').find('input[name="bank"]').val('');
         $(object).closest('div.row').find('input[name="nip"]').val('');
+        if($(object).closest('div.row').attr('id') === 'cycle'){
+          $(object).closest('div.row').find('input[name="email"]').val('');
+        }
       }
       else {
         $(object).closest('div.row').find('input[name="contractor"]').val(response[0].contractor);
@@ -238,6 +241,9 @@ function getContractor(id, object) {
         $(object).closest('div.row').find('input[name="address2"]').val(response[0].address2);
         $(object).closest('div.row').find('input[name="bank"]').val(response[0].bank);
         $(object).closest('div.row').find('input[name="nip"]').val(response[0].nip);
+        if($(object).closest('div.row').attr('id') === 'cycle'){
+          $(object).closest('div.row').find('input[name="email"]').val(response[0].email);
+        }
       }
     },
     error: function () {

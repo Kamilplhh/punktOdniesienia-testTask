@@ -28,7 +28,7 @@ return new class extends Migration
             $table->boolean('paid')->default(false);
             // $table->date('paymentDate'); 
             $table->string('type');
-            $table->date('cycleDate')->nullable();
+            $table->date('addDate')->nullable();
             $table->Integer('cycleFrequency')->nullable();
             $table->bigInteger('user_id');
             $table->bigInteger('contractor_id')->nullable();

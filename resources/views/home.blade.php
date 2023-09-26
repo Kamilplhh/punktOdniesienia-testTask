@@ -210,7 +210,7 @@
                         </div>
                         <div>
                             <div class="mb-1">{{ $file->title }}</div>
-                            <small class="text-secondary fileDate">{{ date('m-d-Y',strtotime($file->created_at)) }}</small>
+                            <small class="text-secondary fileDate">{{ ($file->addDate) }}</small>
                         </div>
                     </div>
 
@@ -278,11 +278,11 @@
 
                         <div class="col-12">
                             <select class="form-select" aria-label="Default select example">
-                                <option selected>Nie powtarza się</option>
+                                <option selected value="0">Nie powtarza się</option>
                                 <option value="1">Codziennie</option>
-                                <option value="2">Co tydzień w:X</option>
-                                <option value="3">Co miesiąc w:X</option>
-                                <option value="4">Co rok w dniu:X</option>
+                                <option value="2">Co tydzień</option>
+                                <option value="3">Co miesiąc</option>
+                                <option value="4">Co rok</option>
                             </select>
                         </div>
 
@@ -501,7 +501,7 @@
 
                     <p class="fs-5 text-secondary">Ustawienie płatności</p>
 
-                    <div class="row g-3">
+                    <div class="row g-3" id="cycle">
 
                         <div class="imail col-12">
                             <label for="companyName" class="form-label">Nazwa płatności</label>
@@ -511,13 +511,13 @@
                         </div>
 
                         <div class="col-12">
-                            <label for="startDate" class="form-label">Cykl płatności od dnia</label>
-                            <input id="startDate" class="form-control skip" type="date" />
+                            <label for="startDate" class="form-label">Dzień dodania</label>
+                            <input id="startDate" class="form-control skip" type="date" name="addDate" value="{{ $date }}"/>
                             <span id="startDateSelected"></span>
                         </div>
 
                         <div class="col-12">
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" name="cycleFrequency" aria-label="Default select example">
                                 <option selected value="0">Nie powtarza się</option>
                                 <option value="1">Codziennie</option>
                                 <option value="2">Co tydzień</option>

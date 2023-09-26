@@ -24,7 +24,8 @@ class File extends Model
         'price',
         'paid',
         'type',
-        'cycleDate',
+        'addDate',
+        'cycleFrequency',
         'user_id',
         'contractor_id',
         'content'

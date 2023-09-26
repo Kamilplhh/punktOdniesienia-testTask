@@ -30,8 +30,9 @@ class FileRepository implements FileRepositoryInterface
 
     public function checkRepetitive()
     {
-        $files = File::where('type', '=', 'avg_pace')->get();
+        date_default_timezone_set('Europe/Warsaw');
         $date = date("Y-m-d");
+        $files = File::where('type', '=', 'avg_pace')->get();
 
         foreach($files as $file){
             if($file->cycleFrequency = 1){

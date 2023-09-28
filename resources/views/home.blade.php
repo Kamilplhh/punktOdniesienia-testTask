@@ -131,7 +131,9 @@
                                     </li>
                                     <li value=""><a class="dropdown-item pointer">None</a></li>
                                     @foreach($contractors as $contractor)
+                                    @if(in_array($object->email, array($contractor->email, $contractor->email1, $contractor->email2, $contractor->email3, $contractor->email4)))
                                     <li value="{{ $contractor->id }}"><a class="dropdown-item pointer">{{ $contractor->contractor }}</a></li>
+                                    @endif
                                     @endforeach
                                 </ul>
                             </div>
@@ -310,7 +312,9 @@
                                     </li>
                                     <li value=""><a class="dropdown-item pointer">None</a></li>
                                     @foreach($contractors as $contractor)
+                                    @if(in_array($object->email, array($contractor->email, $contractor->email1, $contractor->email2, $contractor->email3, $contractor->email4)))
                                     <li value="{{ $contractor->id }}"><a class="dropdown-item pointer">{{ $contractor->contractor }}</a></li>
+                                    @endif
                                     @endforeach
                                 </ul>
                             </div>

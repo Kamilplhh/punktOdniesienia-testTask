@@ -8,21 +8,21 @@ use App\Interfaces\FileRepositoryInterface;
 
 class Kernel extends ConsoleKernel
 {
-    private FileRepositoryInterface $fileRepository;
+    // private FileRepositoryInterface $fileRepository;
 
-    public function __construct(FileRepositoryInterface $fileRepository)
-    {
-        $this->fileRepository = $fileRepository;
-    }
+    // public function __construct(FileRepositoryInterface $fileRepository)
+    // {
+    //     $this->fileRepository = $fileRepository;
+    // }
     /**
      * Define the application's command schedule.
      */
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->call(function () {
-            $this->fileRepository->checkRepetitive();
-        })->daily();
+        // $schedule->call(function () {
+        //     $this->fileRepository->checkRepetitive();
+        // })->daily();
     }
 
     /**

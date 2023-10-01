@@ -108,16 +108,18 @@
 
                     @if(!empty($file->contractor_id))
                     @php($object = $file->Contractor)
+                    @php($status = 'disabled')
                     @php($contractor_id = $object->id)
                     @else
                     @php($object = $file)
+                    @php($status = '')
                     @php($contractor_id = $object->contractor_id)
                     @endif
                     <div class="row g-3">
                         <div class="col-12">
                             <label class="form-label">Nazwa kontrahenta</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" name="contractor" value="{{ $object->contractor }}">
+                                <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" name="contractor" value="{{ $object->contractor }}" {{ $status }}>
                                 <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                                 <button class="btn btn-outline-secondary d-flex align-items-center addon addContractor" type="button"><span class="material-symbols-outlined">domain_add</span></button>
                                 <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -141,28 +143,28 @@
                         <div class="col-md-6">
                             <label for="inputAddress" class="form-label">Address</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ $object->address1 }}">
+                                <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ $object->address1 }}" {{ $status }}>
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="inputCity" class="form-label">Address</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="inputCity" name="address2" value="{{ $object->address2 }}">
+                                <input type="text" class="form-control" id="inputCity" name="address2" value="{{ $object->address2 }}" {{ $status }}>
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="numerRachunku" name="bank" value="{{ $object->bank }}">
+                                <input type="text" class="form-control" id="numerRachunku" name="bank" value="{{ $object->bank }}" {{ $status }}>
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="nip" class="form-label">NIP</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="nip" name="nip" value="{{ $object->nip }}">
+                                <input type="text" class="form-control" id="nip" name="nip" value="{{ $object->nip }}" {{ $status }}>
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
@@ -290,15 +292,17 @@
 
                         @if(!empty($file->contractor_id))
                         @php($object = $file->Contractor)
+                        @php($status = 'disabled')
                         @php($contractor_id = $object->id)
                         @else
                         @php($object = $file)
+                        @php($status = '')
                         @php($contractor_id = $object->contractor_id)
                         @endif
                         <div class="col-12">
                             <label class="form-label">Nazwa kontrahenta</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" name="contractor" value="{{ $object->contractor }}">
+                                <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" name="contractor" value="{{ $object->contractor }}" {{ $status }}>
                                 <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                                 <button class="btn btn-outline-secondary d-flex align-items-center addon addContractor" type="button"><span class="material-symbols-outlined">domain_add</span></button>
                                 <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -322,28 +326,28 @@
                         <div class="col-md-6">
                             <label for="inputAddress" class="form-label">Address</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ $object->address1 }}">
+                                <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ $object->address1 }}" {{ $status }}>
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="inputCity" class="form-label">Address</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="inputCity" name="address2" value="{{ $object->address2 }}">
+                                <input type="text" class="form-control" id="inputCity" name="address2" value="{{ $object->address2 }}" {{ $status }}>
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="numerRachunku" name="bank" value="{{ $object->bank }}">
+                                <input type="text" class="form-control" id="numerRachunku" name="bank" value="{{ $object->bank }}" {{ $status }}>
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="nip" class="form-label">NIP</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="nip" name="nip" value="{{ $object->nip }}">
+                                <input type="text" class="form-control" id="nip" name="nip" value="{{ $object->nip }}" {{ $status }}>
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>

@@ -226,23 +226,23 @@ function getContractor(id, object) {
     type: 'GET',
     success: function (response) {
       if(response.length === 0){
-        $(object).closest('div.row').find('input[name="contractor"]').val('');
-        $(object).closest('div.row').find('input[name="address1"]').val('');
-        $(object).closest('div.row').find('input[name="address2"]').val('');
-        $(object).closest('div.row').find('input[name="bank"]').val('');
-        $(object).closest('div.row').find('input[name="nip"]').val('');
+        $(object).closest('div.row').find('input[name="contractor"]').val('').prop("disabled", false);
+        $(object).closest('div.row').find('input[name="address1"]').val('').prop("disabled", false);
+        $(object).closest('div.row').find('input[name="address2"]').val('').prop("disabled", false);
+        $(object).closest('div.row').find('input[name="bank"]').val('').prop("disabled", false);
+        $(object).closest('div.row').find('input[name="nip"]').val('').prop("disabled", false);
         if($(object).closest('div.row').attr('id') === 'cycle'){
-          $(object).closest('div.row').find('input[name="email"]').val('');
+          $(object).closest('div.row').find('input[name="email"]').val('').prop("disabled", false);
         }
       }
       else {
-        $(object).closest('div.row').find('input[name="contractor"]').val(response[0].contractor);
-        $(object).closest('div.row').find('input[name="address1"]').val(response[0].address1);
-        $(object).closest('div.row').find('input[name="address2"]').val(response[0].address2);
-        $(object).closest('div.row').find('input[name="bank"]').val(response[0].bank);
-        $(object).closest('div.row').find('input[name="nip"]').val(response[0].nip);
+        $(object).closest('div.row').find('input[name="contractor"]').val(response[0].contractor).prop("disabled", true);
+        $(object).closest('div.row').find('input[name="address1"]').val(response[0].address1).prop("disabled", true);
+        $(object).closest('div.row').find('input[name="address2"]').val(response[0].address2).prop("disabled", true);
+        $(object).closest('div.row').find('input[name="bank"]').val(response[0].bank).prop("disabled", true);
+        $(object).closest('div.row').find('input[name="nip"]').val(response[0].nip).prop("disabled", true);
         if($(object).closest('div.row').attr('id') === 'cycle'){
-          $(object).closest('div.row').find('input[name="email"]').val(response[0].email);
+          $(object).closest('div.row').find('input[name="email"]').val(response[0].email).prop("disabled", true);
         }
       }
     },

@@ -27,6 +27,10 @@
                     </div>
                 </div>
 
+                @error('email')
+                        
+                @enderror
+
                 <div class="col-md-12 mb-3">
                     <label for="inputPassword" class="col-form-label">Hasło</label>
                     <div class="input-group">

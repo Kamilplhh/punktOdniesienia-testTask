@@ -7,6 +7,7 @@ use App\Http\Controllers\ScanController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ContractorController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PHPMailerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/deletefile/{id}', [FileController::class, 'deleteFile'])->name('deleteFile');
 
     Route::post('/downloadAll', [FileController::class, 'downloadAll'])->name('downloadAll'); 
+
+    Route::post('/sendEmail', [PHPMailerController::class, 'sendEmail'])->name('sendEmail'); 
 
     Route::post('/addScanner', [ScanController::class, 'addScanner'])->name('addScanner'); 
 });

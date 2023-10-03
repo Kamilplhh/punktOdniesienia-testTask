@@ -479,10 +479,10 @@
                     <button class="btn btn-primary d-flex justify-content-center" id="downloadAll" type="button">Pobierz wszystkie dokumenty
                         <span class="material-symbols-outlined ms-1">download</span>
                     </button>
-                    <button class="btn btn-primary d-flex justify-content-center" type="button">Wyślij wszystkie dokumenty
+                    <button class="btn btn-primary d-flex justify-content-center" id="sendAll" type="button">Wyślij wszystkie dokumenty
                         <span class="material-symbols-outlined ms-2">forward_to_inbox</span>
                     </button>
-                    <small class="text-secondary">Dokumenty wysłane na adres: {{ Auth::user()->emailTo }}</small>
+                    <small class="text-secondary" id="emailTo" value="{{ Auth::user()->emailTo }}">Dokumenty wysłane na adres: {{ Auth::user()->emailTo }}</small>
                 </div>
             </div>
         </div>

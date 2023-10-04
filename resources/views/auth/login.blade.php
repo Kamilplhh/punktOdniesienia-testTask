@@ -19,6 +19,9 @@
         <div class="bg-body-tertiary p-3 rounded mt-4">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
+                @error('email')
+                    <p class="text-center text-danger">Podane dane nie są poprawne</p>
+                @enderror
 
                 <div class="col-md-12 mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -26,10 +29,6 @@
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                 </div>
-
-                @error('email')
-                        
-                @enderror
 
                 <div class="col-md-12 mb-3">
                     <label for="inputPassword" class="col-form-label">Hasło</label>

@@ -12,7 +12,7 @@
     </div>
 </div>
 
-<main class="container">
+<main class="container my-5">
     <div class="list-container">
         @php($i = 0)
         @foreach($files as $file)

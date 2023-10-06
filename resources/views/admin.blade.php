@@ -13,12 +13,12 @@
     </div>
 </div>
 
-<main class="container">
+<main class="container my-5">
     <div class="list-container">
         @php($i = 0)
         @foreach($users as $user)
         @php($i++)
-        <div class="bg-body-tertiary p-3 rounded mt-2 aPanel">
+        <div class="bg-body-tertiary p-3 rounded mt-2 my-2 aPanel">
             <div class="d-flex justify-content-between">
                 <div class="d-flex pointer" data-bs-toggle="collapse" data-bs-target="#{{ $i }}" aria-expanded="false" aria-controls="{{ $i }}">
                     <div class="pe-3">

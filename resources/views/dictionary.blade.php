@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container my-5">
     <div class="list-container">
         <h4 class="container text-secondary">Słownik</h4>
     </div>

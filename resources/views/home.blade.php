@@ -24,7 +24,7 @@
     </div>
 </main>
 
-<main class="container" id="main">
+<main class="container my-5" id="main">
 
     <div class="list-container">
         @php($i = 0)

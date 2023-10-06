@@ -81,23 +81,23 @@ class FileController extends Controller
             'price' => ['required', 'numeric', 'min:0'],
         ]);
 
-        $file = $request->file('fileScan');
-        $fileName = strval(rand()) . $request->file('fileScan')->getClientOriginalName();
-        $file->move('uploads/file', $fileName);
-        
+        $file = $request->file('fileScan');   
         $parser = new \Smalot\PdfParser\Parser();
         $pdf = ($parser->parseFile($file))->getText();
         $pdf = str_replace(' ', '', $pdf);
+        
+        $fileName = strval(rand()) . $request->file('fileScan')->getClientOriginalName();
+        $file->move('uploads/file', $fileName);
 
         $request['file'] = $fileName;
         $request['user_id'] = Auth::id();
-        $request['type'] = 'scan';
+        $request['type'] = 'draft';
+        $request['paid'] = intval($request['paid']);
 
         $request['contractor'] = '';
         $request['address1'] = '';
-        $request['bank'] = '';
-        $request['nip'] = '';
-        $request['price'] = '';
+        $request['bank'] = 0;
+        $request['nip'] = 0;
 
         $objects = Scan::where([
             ['user_id', '=', 1],
@@ -122,19 +122,13 @@ class FileController extends Controller
             if (isset($object['bankText'])) {
                 $text = $object['bankText'];
                 if (preg_match("/$text/", $pdf)) {
-                    $request['bank'] = substr($pdf, strpos($pdf, $text) + strlen($text), 26);
+                    $request['bank'] = intval(substr($pdf, strpos($pdf, $text) + strlen($text), 26));
                 }
             }
             if (isset($object['nipText'])) {
                 $text = $object['nipText'];
                 if (preg_match("/$text/", $pdf)) {
-                    $request['nip'] = substr($pdf, strpos($pdf, $text) + strlen($text), 10);
-                }
-            }
-            if (isset($object['priceText'])) {
-                $text = $object['priceText'];
-                if (preg_match("/$text/", $pdf)) {
-                    $request['price'] = strtr(substr($pdf, strpos($pdf, $text) + strlen($text)), 'zł', true);
+                    $request['nip'] = intval(substr($pdf, strpos($pdf, $text) + strlen($text), 10));
                 }
             }
         }

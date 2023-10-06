@@ -96,8 +96,8 @@ class FileController extends Controller
 
         $request['contractor'] = '';
         $request['address1'] = '';
-        $request['bank'] = 0;
-        $request['nip'] = 0;
+        $request['bank'] = null;
+        $request['nip'] = null;
 
         $objects = Scan::where([
             ['user_id', '=', 1],

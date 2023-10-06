@@ -370,6 +370,144 @@
                 </div>
             </form>
         </div>
+        {{--Dla draftów--}}
+        @elseif($file->type == "draft")
+        <div class="bg-body-tertiary p-3 rounded mt-2 dataBlock">
+            <form enctype="multipart/form-data" method="POST" action="{{ route('editFile') }}">
+                @csrf
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex pointer" data-bs-toggle="collapse" data-bs-target="#{{ $i }}" aria-expanded="false" aria-controls="{{ $i }}">
+                        <div class="pe-3">
+                            <div><span class="material-symbols-outlined {{($file->type)}}">{{($file->type)}}</span></div>
+                            <div><span class="material-symbols-outlined text-secondary">expand_more</span></div>
+                        </div>
+                        <div>
+                            <div class="mb-1">{{ $file->title }}</div>
+                            <small class="text-secondary fileDate">{{ date('m-d-Y',strtotime($file->created_at)) }}</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                        <div class="mb-0 d-flex flex-row d-flex align-items-center">
+                            <div class="pe-2 price">{{ $file->price }}</div>
+                            @if($file->paid == 0)
+                            <button type="button" class="btn btn-sm d-flex align-items-center rounded-pill">
+                                <span class="material-symbols-outlined text-danger status">paid</span>
+                            </button>
+                            @else
+                            <button type="button" class="btn btn-sm d-flex align-items-center rounded-pill">
+                                <span class="material-symbols-outlined text-success status" id="p">paid</span>
+                            </button>
+                            @endif
+                            <button type="button" class="btn btn-sm btn-dark d-flex align-items-center rounded-pill ms-2" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="material-symbols-outlined">more_vert</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <input type="hidden" name="id" value="{{ $file->id }}">
+                                <li><a class="dropdown-item edit pointer">Edytuj</a></li>
+                                <li><a class="dropdown-item" href="/deletefile/{{ $file->id }}">Usuń</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse data" id="{{ $i }}">
+
+                    <div class="col-sm-12 mt-3 mb-3">
+                        @if($file->paid == 0)
+                        <button type="button" class="btn paidStatus btn-outline-primary w-100" autocomplete="off">Nie zapłacono</button>
+                        <input type="hidden" class="paidHidden" name="paid" value="0">
+                        @else
+                        <button type="button" class="btn paidStatus btn-success w-100" autocomplete="off">Zapłacono</button>
+                        <input type="hidden" class="paidHidden" name="paid" value="1">
+                        @endif
+                    </div>
+
+                    <p class="fs-5 text-secondary">Dane pobrane z faktury</p>
+
+                    <div class="col-12 mb-3">
+                        <label class="form-label pe-2">Załącznik</label>
+                        @if($file->file == 0)
+                        <button type="button" class="btn btn-dark">Dodaj</button>
+                        @else
+                        <a class="download" href="{{url('uploads/file/'. $file->file)}}" target="_blank">
+                            <button type="button" class="btn btn-dark fileName">{{ $file->file}}</button>
+                        </a>
+                        @endif
+                    </div>
+
+                    @if(!empty($file->contractor_id))
+                    @php($object = $file->Contractor)
+                    @php($status = 'disabled')
+                    @php($contractor_id = $object->id)
+                    @else
+                    @php($object = $file)
+                    @php($status = '')
+                    @php($contractor_id = $object->contractor_id)
+                    @endif
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label">Nazwa kontrahenta</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" name="contractor" value="{{ $object->contractor }}" {{ $status }}>
+                                <button class="btn btn-outline-secondary d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
+                                <button class="btn btn-outline-secondary d-flex align-items-center addon addContractor" type="button"><span class="material-symbols-outlined">domain_add</span></button>
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end contractorDiv">
+                                    <input type="hidden" class="skip" name='contractor_id' value="{{ $contractor_id }}">
+                                    <input class="form-control form-control-sm skip search" type="text" placeholder="Search" aria-label=".form-control-sm example">
+                                    <li class="skip">
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li value=""><a class="dropdown-item pointer">None</a></li>
+                                    @foreach($contractors as $contractor)
+                                    @if(in_array($object->email, array($contractor->email, $contractor->email1, $contractor->email2, $contractor->email3, $contractor->email4)))
+                                    <li value="{{ $contractor->id }}"><a class="dropdown-item pointer">{{ $contractor->contractor }}</a></li>
+                                    @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputAddress" class="form-label">Address</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ $object->address1 }}" {{ $status }}>
+                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">Address</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="inputCity" name="address2" value="{{ $object->address2 }}" {{ $status }}>
+                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="numerRachunku" class="form-label">Numer rachunku kontrahenta</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="numerRachunku" name="bank" value="{{ $object->bank }}" {{ $status }}>
+                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nip" class="form-label">NIP</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="nip" name="nip" value="{{ $object->nip }}" {{ $status }}>
+                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="kwota" class="form-label">Kwota na fakturze</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="kwota" name="price" value="{{ $file->price }}">
+                                <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
         {{--Dla skanów--}}
         @else
         <div class="bg-body-tertiary p-3 rounded mt-2 dataBlock">

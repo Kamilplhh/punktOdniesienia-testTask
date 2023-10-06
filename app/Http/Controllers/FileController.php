@@ -92,7 +92,7 @@ class FileController extends Controller
         $request['file'] = $fileName;
         $request['user_id'] = Auth::id();
         $request['type'] = 'scan';
-        
+
         $request['contractor'] = '';
         $request['address1'] = '';
         $request['bank'] = '';
@@ -142,20 +142,6 @@ class FileController extends Controller
         $fileArray = $request->all([]);
         $this->fileRepository->createFile($fileArray);
         return redirect()->back();
-    }
-
-    public function sendScan(Request $request)
-    {
-        $fileArray = $request->post();
-        $fileArray['date'] = date("Y-m-d", strtotime($fileArray['date']));
-        $fileArray['paymentDate'] = $fileArray['date'];
-        $fileArray['user_id'] = Auth::id();
-        $fileArray['bank'] = intval($fileArray['bank']);
-        $fileArray['paid'] = intval($fileArray['paid']);
-        $fileArray['nip'] = intval($fileArray['nip']);
-        $fileArray['price'] = floatval($fileArray['price']);
-
-        $this->fileRepository->createFile($fileArray);
     }
 
     public function downloadAll(Request $request)

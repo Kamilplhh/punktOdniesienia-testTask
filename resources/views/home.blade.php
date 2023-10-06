@@ -683,14 +683,14 @@
 
                         <div class="col-12 align-items-center">
                             <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik</button>
-                            <input type="file" class="invisible" id="fileScan" name="fileName"></input>
+                            <input type="file" class="invisible" id="fileScan" name="fileScan"></input>
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
-                    <button type="button" class="btn btn-primary scanSubmit">Dodaj</button>
+                    <button type="submit" class="btn btn-primary scanSubmit">Dodaj</button>
                 </div>
             </form>
         </div>

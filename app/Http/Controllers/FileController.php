@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Interfaces\FileRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 use File;
+use App\Models\Scan;
 
 class FileController extends Controller
 {
@@ -50,7 +51,7 @@ class FileController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'price' => ['required', 'numeric', 'min:0'],
         ]);
-        if($request['contractor_id'] > 0){
+        if ($request['contractor_id'] > 0) {
             $request->request->remove('email');
             $request->request->remove('contractor');
             $request->request->remove('address1');
@@ -58,7 +59,7 @@ class FileController extends Controller
             $request->request->remove('bank');
             $request->request->remove('nip');
         }
-        
+
         $file = $request->file('fileName');
         $fileName = strval(rand()) . $request->file('fileName')->getClientOriginalName();
         $file->move('uploads/file', $fileName);
@@ -77,55 +78,70 @@ class FileController extends Controller
         $request->validate([
             'fileScan' => ['required', 'mimes:pdf', 'max:10240'],
             'title' => ['required', 'string', 'max:255'],
-            'adress' => ['required', 'string', 'max:255'],
-            'recipient' => ['required', 'string', 'max:255'],
+            'price' => ['required', 'numeric', 'min:0'],
         ]);
-        if (!empty($request['bank'])) {
-            $request->validate([
-                'bank' => ['required', 'numeric', 'min:0'],
-                'price' => ['required', 'numeric', 'min:0'],
-                'nip' => ['required', 'numeric', 'min:0'],
-                'invoice_number' => ['required', 'string', 'max:255'],
-                'date' => ['required', 'date'],
-            ]);
-            $file = $request->file('fileScan');
-            $fileName = $request->file('fileScan')->getClientOriginalName();
-            $file->move('uploads/file', $fileName);
 
-            if (isset($request['paid'])) {
-                $request['paid'] = 1;
-            } else {
-                $request['paid'] = 0;
+        $file = $request->file('fileScan');
+        $fileName = strval(rand()) . $request->file('fileScan')->getClientOriginalName();
+        $file->move('uploads/file', $fileName);
+        
+        $parser = new \Smalot\PdfParser\Parser();
+        $pdf = ($parser->parseFile($file))->getText();
+        $pdf = str_replace(' ', '', $pdf);
+
+        $request['file'] = $fileName;
+        $request['user_id'] = Auth::id();
+        $request['type'] = 'scan';
+        
+        $request['contractor'] = '';
+        $request['address1'] = '';
+        $request['bank'] = '';
+        $request['nip'] = '';
+        $request['price'] = '';
+
+        $objects = Scan::where([
+            ['user_id', '=', 1],
+            ['user_id', '=', Auth::id()]
+        ])->get();
+
+        foreach ($objects as $key => $object) {
+            if (isset($object['contractorText'])) {
+                $text = $object['contractorText'];
+                if (preg_match("/$text/", $pdf)) {
+                    $result = preg_split('/[A-Z]/', substr($pdf, strpos($pdf, $text) + strlen($text)));
+                    $request['contractor'] = $result[0];
+                }
             }
-            $request['date'] = date("Y-m-d", strtotime($request['date']));
-            $request['paymentDate'] = $request['date'];
-            $request['file'] = $fileName;
-            $request['user_id'] = Auth::id();
-
-            $fileArray = $request->all([]);
-
-            $this->fileRepository->createFile($fileArray);
-            return redirect()->back();
-        } else {
-            $parser = new \Smalot\PdfParser\Parser();
-
-            $file = $request->file('fileScan');
-            $pdf = ($parser->parseFile($file))->getText();
-
-            $fileName = $request->file('fileScan')->getClientOriginalName();
-            $file->move('uploads/file', $fileName);
-
-            echo '<div class="loader"></div><center><h1>Your file is uploading</h1></center>';
-            echo '<div id="textFile" style="display:none !important">' . $pdf;
-            if (isset($request['paid'])) {
-                echo " Paid ";
+            if (isset($object['addressText'])) {
+                $text = $object['addressText'];
+                if (preg_match("/$text/", $pdf)) {
+                    $result = preg_split('/[A-Z]/', substr($pdf, strpos($pdf, $text) + strlen($text)));
+                    $request['address1'] = $result[0];
+                }
             }
-            echo " -+=" . $request['title'] . "=+- ";
-            echo " -=-" . $request['adress'] . "-=- ";
-            echo " +=+" . $request['recipient'] . "+=+ ";
-            echo "===" . $fileName . '<div>';
-            return view('upload');
+            if (isset($object['bankText'])) {
+                $text = $object['bankText'];
+                if (preg_match("/$text/", $pdf)) {
+                    $request['bank'] = substr($pdf, strpos($pdf, $text) + strlen($text), 26);
+                }
+            }
+            if (isset($object['nipText'])) {
+                $text = $object['nipText'];
+                if (preg_match("/$text/", $pdf)) {
+                    $request['nip'] = substr($pdf, strpos($pdf, $text) + strlen($text), 10);
+                }
+            }
+            if (isset($object['priceText'])) {
+                $text = $object['priceText'];
+                if (preg_match("/$text/", $pdf)) {
+                    $request['price'] = strtr(substr($pdf, strpos($pdf, $text) + strlen($text)), 'zł', true);
+                }
+            }
         }
+
+        $fileArray = $request->all([]);
+        $this->fileRepository->createFile($fileArray);
+        return redirect()->back();
     }
 
     public function sendScan(Request $request)
@@ -166,7 +182,7 @@ class FileController extends Controller
 
     public function editFile(Request $request)
     {
-        if($request['contractor_id'] > 0){
+        if ($request['contractor_id'] > 0) {
             $request->request->remove('email');
             $request->request->remove('contractor');
             $request->request->remove('address1');

@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @vite('resources/css/index.css')
+@vite('resources/css/register.css')
 @vite('resources/js/register.js')
 
 @section('navbar')
@@ -19,13 +20,12 @@
     <div class="list-container">
         <form enctype="multipart/form-data" method="POST" action="{{ route('register') }}">
             @csrf
-
             <div class="bg-body-tertiary p-3 rounded mt-4 block" id="0">
 
                 <div class="col-md-12 mb-3">
                     <label for="email" class="form-label">Email</label>
                     <div class="input-group">
-                        <input type="email" class="form-control" name="email" id="email">
+                        <input type="email" class="form-control @error('email')  is-invalid" placeholder="Email jest już zajęty"  @enderror name="email" id="email" >
                     </div>
                 </div>
 

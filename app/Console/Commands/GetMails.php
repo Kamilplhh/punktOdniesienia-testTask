@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Webklex\IMAP\Facades\Client;
 use App\Models\User;
 use App\Models\Contractor;
+use App\Models\Scan;
 use App\Interfaces\FileRepositoryInterface;
 
 class GetMails extends Command
@@ -94,10 +95,47 @@ class GetMails extends Command
                                     $contractor['email4'],
                                 );
 
-                                if(in_array($message->getFrom()[0]['mail'], $emailArray)){
+                                if (in_array($message->getFrom()[0]['mail'], $emailArray)) {
                                     unset($data['email']);
                                     $data['contractor_id'] = $contractor['id'];
                                     break;
+                                }
+                            }
+
+                            if (!isset($data['contractor_id'])) {
+                                $data['address1'] = '';
+                                $data['bank'] = null;
+                                $data['nip'] = null;
+
+                                $parser = new \Smalot\PdfParser\Parser();
+                                $pdf = ($parser->parseFile($pdfContent))->getText();
+                                $pdf = str_replace(' ', '', $pdf);
+
+                                $objects = Scan::where([
+                                    ['user_id', '=', 1],
+                                    ['user_id', '=', $user['id']]
+                                ])->get();
+
+                                foreach ($objects as $key => $object) {
+                                    if (isset($object['addressText'])) {
+                                        $text = $object['addressText'];
+                                        if (preg_match("/$text/", $pdf)) {
+                                            $result = preg_split('/[A-Z]/', substr($pdf, strpos($pdf, $text) + strlen($text)));
+                                            $data['address1'] = $result[0];
+                                        }
+                                    }
+                                    if (isset($object['bankText'])) {
+                                        $text = $object['bankText'];
+                                        if (preg_match("/$text/", $pdf)) {
+                                            $data['bank'] = intval(substr($pdf, strpos($pdf, $text) + strlen($text), 26));
+                                        }
+                                    }
+                                    if (isset($object['nipText'])) {
+                                        $text = $object['nipText'];
+                                        if (preg_match("/$text/", $pdf)) {
+                                            $data['nip'] = intval(substr($pdf, strpos($pdf, $text) + strlen($text), 10));
+                                        }
+                                    }
                                 }
                             }
 

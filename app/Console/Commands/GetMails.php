@@ -58,7 +58,7 @@ class GetMails extends Command
             $mailbox->connect();
 
 
-            $messages = $mailbox->getMessages();
+            $messages = $mailbox->searchMessages(['date' => now()->format('Y-m-d')]);
 
             foreach ($messages as $message) {
                 // Process only emails with PDF attachments.

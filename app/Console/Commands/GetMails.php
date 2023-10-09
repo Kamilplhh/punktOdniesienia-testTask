@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Webklex\IMAP\Facades\Client;
 use App\Models\User;
+use App\Models\Contractor;
 use App\Interfaces\FileRepositoryInterface;
 
 class GetMails extends Command
@@ -82,6 +83,23 @@ class GetMails extends Command
                                 'type' => 'mail',
                                 'user_id' => $user['id'],
                             );
+
+                            $contractors = Contractor::get();
+                            foreach ($contractors as $key => $contractor) {
+                                $emailArray = array(
+                                    $contractor['email'],
+                                    $contractor['email1'],
+                                    $contractor['email2'],
+                                    $contractor['email3'],
+                                    $contractor['email4'],
+                                );
+
+                                if(in_array($message->getFrom()[0]['mail'], $emailArray)){
+                                    unset($data['email']);
+                                    $data['contractor_id'] = $contractor['id'];
+                                    break;
+                                }
+                            }
 
                             $this->fileRepository->createFile($data);
                         }

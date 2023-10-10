@@ -28,6 +28,13 @@ class FileRepository implements FileRepositoryInterface
         File::find($fileId)->update($file);
     }
 
+    public function removeRepetetive($fileId)
+    {
+        $parent = File::where('id', '=', $fileId)->value('parentId');
+        File::destroy($fileId);
+        File::where('parentId', '=', $parent)->update(['cycleFrequency' => 0]);
+    }
+
     public function checkRepetitive()
     {
         date_default_timezone_set('Europe/Warsaw');

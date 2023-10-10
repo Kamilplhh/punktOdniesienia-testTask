@@ -176,4 +176,9 @@ class FileController extends Controller
         $this->fileRepository->updateFile($fileArray, $request['id']);
         return redirect()->back();
     }
+
+    public function removeRepetetive($id){
+        $this->fileRepository->removeRepetetive($id);
+        return redirect()->back();
+    }
 }

@@ -236,8 +236,8 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <input type="hidden" name="id" value="{{ $file->id }}">
                                 <li><a class="dropdown-item edit pointer">Edytuj</a></li>
-                                <li><a class="dropdown-item" href="#">Usuń tą płatność</a></li>
-                                <li><a class="dropdown-item" href="/deletefile/{{ $file->id }}">Usuń tą płatność i kolejne</a></li>
+                                <li><a class="dropdown-item" href="/deletefile/{{ $file->id }}">Usuń tą płatność</a></li>
+                                <li><a class="dropdown-item" href="/removeRepetetive/{{ $file->id }}">Usuń tą płatność i kolejne</a></li>
                             </ul>
                         </div>
                     </div>

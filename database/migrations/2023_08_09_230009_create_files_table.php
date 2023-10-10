@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('parentId')->nullable();
             $table->string('title')->nullable();
             $table->date('date')->nullable();
             $table->string('email')->nullable();

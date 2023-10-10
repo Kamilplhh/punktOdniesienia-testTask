@@ -63,6 +63,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/deletefile/{id}', [FileController::class, 'deleteFile'])->name('deleteFile');
 
+    Route::get('/removeRepetetive/{id}', [FileController::class, 'removeRepetetive'])->name('removeRepetetive');
+
     Route::post('/downloadAll', [FileController::class, 'downloadAll'])->name('downloadAll'); 
 
     Route::post('/sendEmail', [PHPMailerController::class, 'sendEmail'])->name('sendEmail'); 

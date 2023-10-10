@@ -281,12 +281,13 @@
                         </div>
 
                         <div class="col-12">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected value="0">Nie powtarza się</option>
-                                <option value="1">Codziennie</option>
-                                <option value="2">Co tydzień</option>
-                                <option value="3">Co miesiąc</option>
-                                <option value="4">Co rok</option>
+                            <select class="form-select" name="cycleFrequency" aria-label="Default select example">
+                                <option class="frequencyValue" value="{{ $file->cycleFrequency }}" hidden></option>
+                                <option class="frequencyOption" value="0">Nie powtarza się</option>
+                                <option class="frequencyOption" value="1">Codziennie</option>
+                                <option class="frequencyOption" value="2">Co tydzień</option>
+                                <option class="frequencyOption" value="3">Co miesiąc</option>
+                                <option class="frequencyOption" value="4">Co rok</option>
                             </select>
                         </div>
 
@@ -651,14 +652,14 @@
 
                         <div class="imail col-12">
                             <label for="companyName" class="form-label">Nazwa płatności</label>
-                            <input type="text" class="form-control skip" id="companyName" name="title">
+                            <input type="text" class="form-control skip" id="companyName" name="title" required>
                             <label for="email" class="form-label">Email</label>
                             <input type="text" class="form-control skip" id="email" name="email">
                         </div>
 
                         <div class="col-12">
                             <label for="startDate" class="form-label">Dzień dodania</label>
-                            <input id="startDate" class="form-control skip" type="date" name="addDate" value="{{ $date }}"/>
+                            <input id="startDate" class="form-control skip" type="date" name="addDate" value="{{ $date }}" />
                             <span id="startDateSelected"></span>
                         </div>
 
@@ -731,7 +732,7 @@
                         <div class="col-md-6">
                             <label for="kwota" class="form-label">Kwota</label>
                             <div class="input-group">
-                                <input type="text" class="form-control skip" id="kwota" name="price">
+                                <input type="text" class="form-control skip" id="kwota" name="price" required>
                             </div>
                         </div>
                     </div>

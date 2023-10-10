@@ -5,6 +5,7 @@ window.$ = $;
 $(document).ready(function () {
   getMonth(0);
   markEmpty();
+  frequency();
   // exceeded()
 });
 
@@ -279,6 +280,12 @@ $('.search').keyup(function() {
   })
 })
 
+function frequency() {
+  $('.frequencyValue').each(function() {
+    let value = $(this).val();
+    $(this).closest('div').find('.frequencyOption[value='+value+']').attr("selected","selected");
+  })
+}
 
 //Check if there is no payment date exceed
 // function exceeded() {

@@ -28,7 +28,8 @@ class File extends Model
         'cycleFrequency',
         'user_id',
         'contractor_id',
-        'content'
+        'content',
+        'parentId'
     ];
 
     public function contractor()

@@ -28,6 +28,11 @@ class FileRepository implements FileRepositoryInterface
         File::find($fileId)->update($file);
     }
 
+    public function getLatest(){
+        $latest = File::orderBy('id', 'DESC')->first();
+        return $latest;
+    }
+
     public function removeRepetetive($fileId)
     {
         $parent = File::where('id', '=', $fileId)->value('parentId');

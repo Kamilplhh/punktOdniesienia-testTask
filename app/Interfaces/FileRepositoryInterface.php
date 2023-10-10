@@ -10,4 +10,5 @@ interface FileRepositoryInterface
     public function updateFile(array $file, $fileId);
     public function checkRepetitive();
     public function removeRepetetive($fileId);
+    public function getLatest();
 }

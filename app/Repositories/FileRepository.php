@@ -46,6 +46,7 @@ class FileRepository implements FileRepositoryInterface
         $date = date("Y-m-d");
         $files = File::where('type', '=', 'avg_pace')->get();
 
+
         foreach($files as $file){
             if($file->cycleFrequency = 1){
                 $file->addDate = $date;

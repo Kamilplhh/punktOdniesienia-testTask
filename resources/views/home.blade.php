@@ -178,7 +178,7 @@
                         <div class="col-md-6">
                             <label for="kwota" class="form-label">Kwota na fakturze</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="kwota" name="price" value="{{ $file->price }}">
+                                <input type="number" min="0" step="0.01" class="form-control" id="kwota" name="price" value="{{ $file->price }}">
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
@@ -363,7 +363,7 @@
                         <div class="col-md-6">
                             <label for="kwota" class="form-label">Kwota</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="kwota" name="price" value="{{ $file->price }}">
+                                <input type="number" min="0" step="0.01" class="form-control" id="kwota" name="price" value="{{ $file->price }}">
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
@@ -501,7 +501,7 @@
                         <div class="col-md-6">
                             <label for="kwota" class="form-label">Kwota na fakturze</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="kwota" name="price" value="{{ $file->price }}">
+                                <input type="number" min="0" step="0.01" class="form-control" id="kwota" name="price" value="{{ $file->price }}">
                                 <button class="btn btn-outline-secondary rounded-end d-flex align-items-center addon" type="button"><span class="material-symbols-outlined">content_copy</span></button>
                             </div>
                         </div>
@@ -583,7 +583,7 @@
 
                         <div class="col-12">
                             <label for="typeNumber" class="form-label">Kwota</label>
-                            <input type="number" class="form-control" id="typeNumber" name="price" value="{{ $file->price }}" min="0">
+                            <input type="number" class="form-control" id="typeNumber" name="price" value="{{ $file->price }}" min="0" step="0.01">
                         </div>
 
                     </form>
@@ -732,7 +732,7 @@
                         <div class="col-md-6">
                             <label for="kwota" class="form-label">Kwota</label>
                             <div class="input-group">
-                                <input type="text" class="form-control skip" id="kwota" name="price" required>
+                                <input type="number" min="0" step="0.01" class="form-control skip" id="kwota" name="price" required>
                             </div>
                         </div>
                     </div>

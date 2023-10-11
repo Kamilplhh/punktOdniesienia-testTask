@@ -60,7 +60,7 @@ class FileController extends Controller
             $request->request->remove('nip');
         }
         $latest = $this->fileRepository->getLatest();
-        $request['parentId'] = $latest['id'];
+        $request['parentId'] = $latest['id'] + 1;
 
         $file = $request->file('fileName');
         $fileName = strval(rand()) . $request->file('fileName')->getClientOriginalName();

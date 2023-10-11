@@ -674,7 +674,7 @@
                         </div>
 
                         <div class="col-12 align-items-center">
-                            <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik</button>
+                            <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik (JPG/PNG/PDF)</button>
                             <input type="file" class="invisible" id="fileScan" name="fileName"></input>
                         </div>
 
@@ -776,7 +776,7 @@
                         </div>
 
                         <div class="col-12 align-items-center">
-                            <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik</button>
+                            <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik (JPG/PNG)</button>
                             <input type="file" class="invisible" id="fileScan" name="fileName"></input>
                         </div>
 
@@ -821,7 +821,7 @@
                         </div>
 
                         <div class="col-12 align-items-center">
-                            <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik</button>
+                            <button type="button" class="btn btn-primary fileNameAdd">Dodaj załącznik (PDF)</button>
                             <input type="file" class="invisible" id="fileScan" name="fileScan"></input>
                         </div>
 

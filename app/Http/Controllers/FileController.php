@@ -39,7 +39,6 @@ class FileController extends Controller
         $request['type'] = 'scan';
 
         $fileArray = $request->all([]);
-
         $this->fileRepository->createFile($fileArray);
         return redirect()->back();
     }

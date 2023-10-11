@@ -28,7 +28,8 @@ class FileRepository implements FileRepositoryInterface
         File::find($fileId)->update($file);
     }
 
-    public function getLatest(){
+    public function getLatest()
+    {
         $latest = File::orderBy('id', 'DESC')->first();
         return $latest;
     }
@@ -44,30 +45,34 @@ class FileRepository implements FileRepositoryInterface
     {
         date_default_timezone_set('Europe/Warsaw');
         $date = date("Y-m-d");
-        $files = File::where('type', '=', 'avg_pace')->get();
+        $files = File::where('type', '=', 'avg_pace')->orderBy('addDate', 'DESC')->get();
+        $parentArray = [];
 
-
-        foreach($files as $file){
-            if($file->cycleFrequency = 1){
-                $file->addDate = $date;
-                File::create($file);
-            }
-            elseif($file->cycleFrequency = 2){
-                if(($file->addDate - $date) >= 604800){
+        foreach ($files as $file) {
+            if (!in_array($file->parentId, $parentArray)) {
+                array_push($parentArray, $file->parentId);
+                if ($file->cycleFrequency == 1) {
                     $file->addDate = $date;
-                    File::create($file);
-                }
-            }
-            elseif($file->cycleFrequency = 3){
-                if(($file->addDate - $date) >= 15778463){
-                    $file->addDate = $date;
-                    File::create($file);
-                }
-            }
-            elseif($file->cycleFrequency = 4){
-                if(($file->addDate - $date) >= 3155692){
-                    $file->addDate = $date;
-                    File::create($file);
+                    $fileArray = $file->toArray();
+                    File::create($fileArray);
+                } elseif ($file->cycleFrequency == 2) {
+                    if (abs(strtotime($file->addDate) - strtotime($date)) >= 604800) {
+                        $file->addDate = $date;
+                        $fileArray = $file->toArray();
+                        File::create($fileArray);
+                    }
+                } elseif ($file->cycleFrequency == 3) {
+                    if (abs(strtotime($file->addDate) - strtotime($date)) >= 2629743) {
+                        $file->addDate = $date;
+                        $fileArray = $file->toArray();
+                        File::create($fileArray);
+                    }
+                } elseif ($file->cycleFrequency == 4) {
+                    if (abs(strtotime($file->addDate) - strtotime($date)) >= 31556926) {
+                        $file->addDate = $date;
+                        $fileArray = $file->toArray();
+                        File::create($fileArray);
+                    }
                 }
             }
         }

@@ -6,7 +6,6 @@ $(document).ready(function () {
   getMonth(0);
   markEmpty();
   frequency();
-  // exceeded()
 });
 
 //Get month for calendar
@@ -286,98 +285,3 @@ function frequency() {
     $(this).closest('div').find('.frequencyOption[value='+value+']').attr("selected","selected");
   })
 }
-
-//Check if there is no payment date exceed
-// function exceeded() {
-//   let date = new Date();
-
-//   $('span').filter('.unpaid').each(function () {
-//     let block = $(this).next();
-//     let textDate = new Date(block.text());
-
-//     let difference = date - textDate;
-//     if (difference > 0) {
-//       difference = Math.round(Math.abs(difference / (1000 * 3600 * 24)));
-//       if (difference > 1) {
-//         block.append('<h6 class="late">exceeded ' + difference + ' days</h6>')
-//       } else
-//         block.append('<h6 class="late">exceeded ' + difference + ' day</h6>')
-//     }
-//   })
-// };
-
-//Toggle mail block
-// $('.fa-eye').on("click", function () {
-//   let id = $(this).attr('id');
-//   $('#mailBlock' + id).toggleClass('off');
-// })
-
-// $('.exit').on("click", function () {
-//   $(this).closest('.mailBlock').toggleClass('off');
-// })
-
-// function checkBankSet() {
-  //   let z = 0;
-  
-  //   $('.credit').each(function () {
-    //     if (!$(this).closest('.dataBlock').hasClass("off")) {
-      //       if ($(this).attr('value') == 0) {
-        //         $(this).addClass('disabled');
-        //         z = z + 1;
-        //       }
-        //     }
-        //   });
-        
-        //   if (z > 0) {
-          //     $('.fa-google-pay').closest('.btn').addClass('disabled');
-          //   }
-          //   else {
-            //     $('.fa-google-pay').closest('.btn').removeClass('disabled');
-            //   }
-            // }
-            
-            // $('.credit').on("click", function () {
-              //   let id = $(this).attr('id');
-              //   let name = $('#name' + id).attr('value');
-//   let nameArray = name.split(" ");
-//   let firstName = nameArray[0];
-//   let lastName = nameArray[1];
-
-//   let bank = $('#bank' + id).attr('value');
-//   let email = $('#email' + id).attr('value');
-//   let amount = $('#price' + id).attr('value');
-//   amount = String(amount);
-//   amount = parseInt(amount + '00');
-
-// })
-
-
-// $('.operations').on('click', '#payAll', function () {
-//   let payoutArray = [];
-//   let cost = 0;
-//   $('.priceI').each(function () {
-//     if (!$(this).closest('.dataBlock').hasClass("off")) {
-//       let id = $(this).attr('id').slice(-1);
-
-//       let bank = $('#bank' + id).attr('value');
-//       let email = $('#email' + id).attr('value');
-//       let name = $('#name' + id).attr('value');
-//       let nameArray = name.split(" ");
-//       let firstName = nameArray[0];
-//       let lastName = nameArray[1];
-//       let amount = $('#price' + id).attr('value');
-//       amount = String(amount);
-//       amount = parseInt(amount + '00');
-
-//       cost = cost + parseInt(amount);
-//       let object = {
-//         id: '',
-//         ban: bank,
-//         amount: amount,
-//         title: '',
-//         label: email
-//       };
-//       payoutArray.push(object);
-//     }
-//   })
-// })

@@ -276,7 +276,7 @@
 
                         <div class="col-12">
                             <label for="startDate" class="form-label">Cykl płatności od dnia</label>
-                            <input id="startDate" class="form-control" type="date" />
+                            <input id="startDate" class="form-control" name="addDate" type="date" value="{{ $file->addDate }}"/>
                             <span id="startDateSelected"></span>
                         </div>
 

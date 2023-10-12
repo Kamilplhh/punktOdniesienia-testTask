@@ -25,7 +25,7 @@
                 <div class="col-md-12 mb-3">
                     <label for="email" class="form-label">Email</label>
                     <div class="input-group">
-                        <input type="email" class="form-control @error('email')  is-invalid" placeholder="Email jest już zajęty"  @enderror name="email" id="email" >
+                        <input type="email" class="form-control" name="email" id="email" >
                     </div>
                 </div>
 
